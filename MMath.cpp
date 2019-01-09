@@ -91,14 +91,14 @@ Matrix4 MMath::viewportNDC(int width_, int height_) {
 	m = m3 * m2 * m1;
 
 	///This is the slightly faster way but who cares we do it rarely 
-	/***
-	m[0] = float(width_)/2.0f;
-	m[5] = -float(height_)/2.0f;
-	m[10] =  maxZ - minZ;
-	m[12] = float(width_)/2.0f;
-	m[13] = float(height_)/2.0f;
+
+	m[0] = float(width_) / 2.0f;
+	m[5] = -float(height_) / 2.0f;
+	m[10] = maxZ - minZ;
+	m[12] = float(width_) / 2.0f;
+	m[13] = float(height_) / 2.0f;
 	m[14] = minZ;
-	m[15] = 1.0f; ***/
+	m[15] = 1.0f;
 
 	return m;
 }
@@ -111,15 +111,14 @@ Matrix4 MMath::orthographic(float xMin_, float xMax_, float yMin_, float yMax_, 
 	Matrix4 m1 = MMath::scale(2.0f / (xMax_ - xMin_), 2.0f / (yMax_ - yMin_), -2.0f / (zMax_ - zMin_));
 	Matrix4 m2 = MMath::translate(-(xMax_ + xMin_) / (xMax_ - xMin_), -(yMax_ + yMin_) / (yMax_ - yMin_), -(zMax_ + zMin_) / (zMax_ - zMin_));
 	m = m2 * m1;
-	/***
-	m[0] = 2.0f / (xMax - xMin);
-	m[5] = 2.0f / (yMax - yMin);
-	m[10] = -2.0f / (zMax - zMin);
-	m[12] = -((xMax + xMin) / (xMax - xMin));
-	m[13] = -((yMax + yMin) / (yMax - yMin));
-	m[14] = -((zMax + zMin) / (zMax - zMin));
+
+	m[0] = 2.0f / (xMax_ - xMin_);
+	m[5] = 2.0f / (yMax_ - yMin_);
+	m[10] = -2.0f / (zMax_ - zMin_);
+	m[12] = -((xMax_ + xMin_) / (xMax_ - xMin_));
+	m[13] = -((yMax_ + yMin_) / (yMax_ - yMin_));
+	m[14] = -((zMax_ + zMin_) / (zMax_ - zMin_));
 	m[15] = 1.0f;
-	***/
 	return m;
 }
 

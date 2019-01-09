@@ -16,11 +16,13 @@ private:
 	node* head;
 public:
 
-	void AddBody(Body& newBody);
+	virtual void AddBody(Body& newBody);
 	///void DeleteBody(); //Comes with naming system according to char
-	void Update(float timeStep);
-	bool CheckSprites();
-	void Render(SDL_Surface* screenSurface, Matrix4 projectionMatrix);
+	virtual void Update(float timeStep);
+
+	virtual float MassCheck(const char* objectName);
+	virtual bool CheckSprites();
+	virtual void Render(SDL_Surface* screenSurface, Matrix4 projectionMatrix);
 
 	BodyList();
 	~BodyList();

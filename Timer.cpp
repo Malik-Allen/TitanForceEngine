@@ -1,16 +1,17 @@
-#include "SDL.h"
 #include "Timer.h"
+#include "SDL.h"
 
 
-
-Timer::Timer() {
+Timer::Timer()
+{
 	prevTicks = 0;
 	currTicks = 0;
 }
 
-Timer::~Timer() {}
 
-void Timer::UpdateFrameTicks() {
+Timer::~Timer(){}
+
+void Timer::UpdateFramTicks() {
 	prevTicks = currTicks;
 	currTicks = SDL_GetTicks();
 }
@@ -21,7 +22,7 @@ void Timer::Start() {
 }
 
 float Timer::GetDeltaTime() const {
-	return (float(currTicks - prevTicks)) / 1000.0f;
+	return(float(currTicks - prevTicks)) / 1000.0f;
 }
 
 float Timer::GetWorldTime() {

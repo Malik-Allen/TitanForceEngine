@@ -3,11 +3,11 @@
 #include <iostream> /// Umer likes this over printf() - too bad
 
 
-Window::Window(int width_, int height_) {
+Window::Window(int newWidth, int newHeight) {
 	screenSurface = nullptr;
 	window = nullptr;
-	width = width_;
-	height = height_;
+	width = newWidth;
+	height = newHeight;
 }
 
 bool Window::OnCreate() {

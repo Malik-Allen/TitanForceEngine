@@ -6,7 +6,7 @@ private:
 	int width, height;
 
 public:
-	Window(int width_, int height_);
+	Window(int newWidth, int newHeight);
 	~Window();
 	bool OnCreate();
 	void OnDestroy();

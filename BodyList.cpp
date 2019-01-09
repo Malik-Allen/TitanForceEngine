@@ -10,7 +10,8 @@ BodyList::~BodyList()
 {
 }
 
-void BodyList::AddBody(Body& newBody) { //Must pass a dereferenced Body
+//Takes a dereferenced Body as a parameter
+void BodyList::AddBody(Body& newBody) {
 
 	node* newNode;
 	node* nodePtr;
@@ -34,6 +35,8 @@ void BodyList::AddBody(Body& newBody) { //Must pass a dereferenced Body
 
 }
 
+//Calls the SetSprite() function of bodies in list
+//Returns false if any of the sprites do not exist
 bool BodyList::CheckSprites() {
 
 	node *nodePtr;
@@ -79,4 +82,21 @@ void BodyList::Render(SDL_Surface* screenSurface, Matrix4 projectionMatrix) {
 
 		nodePtr = nodePtr->nextNode;
 	}
+}
+//Returns the mass of the object, given the object has been named
+float BodyList::MassCheck(const char* objectName) {
+
+	node *nodePtr;
+	nodePtr = head;
+
+	while (nodePtr != nullptr) {
+
+		if (objectName == nodePtr->object->m_objectName)
+			return nodePtr->object->m_mass;
+
+		nodePtr = nodePtr->nextNode;
+	}
+
+	return 0.0f;
+
 }
