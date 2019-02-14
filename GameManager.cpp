@@ -1,47 +1,53 @@
+// Must include all used Scenes' HeaderFiles here
 #include "GameManager.h"
 #include "Window.h"
 #include "Timer.h"
-#include "PrototypeMenuNavigation.h"
+#include "SandBox.h"
 #include <iostream>
 
 
-
-GameManager::GameManager()
+GameManager::GameManager(): window(nullptr), timer(nullptr), currentScene(nullptr)
 {
-	timer = nullptr;
 	isRunning = true;
-	currentScene = nullptr;
 }
 
 bool GameManager::OnCreate() {
-	const int SCREEN_WIDTH = 1366;
-	const int SCREEN_HEIGHT = 728;
-	ptr = new Window(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-	if (ptr == nullptr) {
+	Debug::DebugInit("TitanForceEngine_Log");
+	Debug::SetSeverity(MessageType::TYPE_NONE);
+
+	const int SCREEN_WIDTH = 1280;
+	const int SCREEN_HEIGHT = 720;
+	window = new Window(SCREEN_WIDTH, SCREEN_HEIGHT);
+
+	if (window == nullptr) {
 		OnDestroy();
 		return false;
 	}
 
-	if (ptr->OnCreate() == false) {
+	if (window->OnCreate() == false) {
 		OnDestroy();
+		Debug::FatalError("Failed to initialize GameManager", __FILE__, __LINE__);
 		return false;
 	}
 
 	timer = new Timer();
 	if (timer == nullptr) {
 		OnDestroy();
+		Debug::FatalError("Failed to initialize Timer", __FILE__, __LINE__);
 		return false;
 	}
 
-	currentScene = new PrototypeMenuNavigation(ptr->GetSDL_Window());
+	currentScene = BuildScene(SCENE0);
 	if (currentScene == nullptr) {
 		OnDestroy();
+		Debug::FatalError("Failed to define currentScene", __FILE__, __LINE__);
 		return false;
 	}
 
 	if (currentScene->OnCreate() == false) {
 		OnDestroy();
+		Debug::FatalError("Failed to initialize currentScene", __FILE__, __LINE__);
 		return false;
 	}
 
@@ -51,80 +57,77 @@ bool GameManager::OnCreate() {
 
 GameManager::~GameManager()
 {
+	OnDestroy();
 }
 
 void GameManager::Run() {
 	timer->Start();
 	while (isRunning) {
+
 		timer->UpdateFramTicks();
-		currentScene->Update(timer->GetDeltaTime());
+
+		/// Rendering current scene to the window
+		SDL_RenderClear(window->renderer);
 		currentScene->Render();
+		currentScene->Update(timer->GetDeltaTime());
+		SDL_RenderPresent(window->renderer);
 		
-		while (SDL_PollEvent(&e) != 0) { //Event Loop
-			if (e.type == SDL_QUIT) {
+		/// Event queue managing the different types of inputs, room for more types of Events
+		while (SDL_PollEvent(&sdlEvent) != 0) {
+			switch (sdlEvent.type) {
+			case SDL_EventType::SDL_QUIT:
 				isRunning = false;
-			}
-			else if (e.type == SDL_KEYDOWN) {
-				InputManager();
+				return;
+
+			case SDL_EventType::SDL_KEYDOWN:
+			case SDL_EventType::SDL_KEYUP:
+
+			default:
+				currentScene->InputManagement(sdlEvent);
+				break;
 			}
 		}
+
 		//Event loop running at a proper rate
 		//Currently set to 60 frames per second
 		SDL_Delay(timer->GetSleepTime(60));
 	}
 }
-//Is called when a key is down
-//Only works when when currentInput in WhateverScene.cpp has been instantiated inside the OnCreate()
-//When a key is press switch case changes the value of the enum InputEvent to the current key pressed
-//Use the currentInput value when handling input reception inside the WhateverScene.cpp
-void GameManager::InputManager() {
-
-	switch (e.key.keysym.sym) {
-		case SDLK_1:
-			*currentScene->currentInput = KEY_PRESS_1;
-			break;
-
-		case SDLK_2:
-			*currentScene->currentInput = KEY_PRESS_2;
-			break;
-
-		case SDLK_3:
-			*currentScene->currentInput = KEY_PRESS_3;
-			break;
-
-		case SDLK_4:
-			*currentScene->currentInput = KEY_PRESS_4;
-			break;
-
-		case SDLK_5:
-			*currentScene->currentInput = KEY_PRESS_5;
-			break;
-
-		case SDLK_6:
-			*currentScene->currentInput = KEY_PRESS_6;
-			break;
-
-		case SDLK_7:
-			*currentScene->currentInput = KEY_PRESS_7;
-			break;
-
-		case SDLK_8:
-			*currentScene->currentInput = KEY_PRESS_8;
-			break;
-
-		case SDLK_9:
-			*currentScene->currentInput = KEY_PRESS_9;
-			break;
-
-		case SDLK_0:
-			*currentScene->currentInput = KEY_PRESS_0;
-			break;
-
-	}
-}
 
 void GameManager::OnDestroy() {
-	if (ptr) delete ptr;
-	if (timer) delete timer;
-	if (currentScene) delete currentScene;
+	/// Deleting member variables from memory, setting variables to nullptr
+	currentScene->OnDestroy(); // In order to destroy everything in the Scene
+	delete currentScene;
+	currentScene = nullptr;
+
+	if (timer) {
+		delete timer;
+		timer = nullptr;
+	}
+
+	if (window) {
+		delete window;
+		window = nullptr;
+	}
+
+	Debug::Info("Deleting GameManager", __FILE__, __LINE__);
+}
+
+// Returns the Scene that is asscociated with the argued SCENE_NUMBER
+Scene* GameManager::BuildScene(SCENE_NUMBER scene) {
+
+	Scene* newScene = nullptr;
+
+	switch (scene) {
+		case SCENE0:
+			newScene = new SandBox(window->GetSDL_Window(), window->renderer);
+			break;
+
+		default:
+			Debug::Error("Incorrect scene number assigned in GameManager", __FILE__, __LINE__);
+			newScene = nullptr;
+			break;
+	}
+
+	return newScene;
 }
