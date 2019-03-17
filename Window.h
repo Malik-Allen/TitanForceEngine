@@ -1,21 +1,32 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+#include <SDL.h>
+#include <glew.h>
+#include <SDL_opengl.h>
+#include <string>
+#include <iostream>
+#include "Debug.h"
+
 class Window {
-private:
-	struct SDL_Window* window;
-	struct SDL_Surface* screenSurface;
-	int width, height;
-
 public:
-	struct SDL_Renderer * renderer;
+	Window(const Window&) = delete;
+	Window(Window&&) = delete;
+	Window& operator=(const Window&) = delete;
+	Window& operator=(Window&&) = delete;
 
-	Window(int newWidth, int newHeight);
+	Window();
 	~Window();
-	bool OnCreate();
+	bool OnCreate(std::string name_, int width_, int height_);
 	void OnDestroy();
-	SDL_Window* GetSDL_Window();
+	int GetHeight();
+	int GetWidth();
+	SDL_Window* GetWindow() const;
+	void GetInstalledOpenGLInfo(int *major, int *minor);
+private:
+	void SetAttributes(int major_, int minor_);
+	int width, height;
+	SDL_Window* window;
+	SDL_GLContext context;
 };
-
-#endif
-
+#endif // !WINDOW_H

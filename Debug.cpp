@@ -1,53 +1,39 @@
 #include "Debug.h"
-// Absolute default values for this static class
-MessageType Debug::m_currentSeverity = MessageType::TYPE_NONE;
-std::string Debug::m_fileName = "";
+std::string Debug::fileName = "";
 
-// Creation of a Debug.txt given the fileName
-void Debug::DebugInit(const std::string& fileName)
-{
-	m_fileName = fileName + ".txt";
+void Debug::DebugInit(const std::string& fileName_) {
+	fileName = fileName_ + ".txt";
 	std::ofstream out;
 	out.open(fileName, std::ios::out);
 	out << "";
 	out.close();
-
-	m_currentSeverity = MessageType::TYPE_FATAL_ERROR;
-
 }
 
-//Set the severity of this debug
-void Debug::SetSeverity(MessageType type) {
-	m_currentSeverity = type;
+void Debug::Log(const MessageType type_, const std::string& message_, const std::string& fileName_, const int line_) {
+	std::ofstream out;
+	out.open(fileName, std::ios::out | std::ios::app);
+	out << message_ << " in file: " << fileName_
+		<< " on line: " << line_ << std::endl;
+	out.flush();
+	out.close();
 }
 
-void Debug::Log(const MessageType type, const std::string& message, const std::string& fileName, const int line) {
-
-	if (type <= m_currentSeverity && m_currentSeverity > MessageType::TYPE_NONE) {
-
-		std::ofstream out;
-		out.open(fileName, std::ios::out | std::ios::app);
-		out << message << " in file: " << fileName
-			<< " on line: " << line << std::endl;
-		out.flush();
-		out.close();
-
-	}
+void Debug::Info(const std::string& message_, const std::string& fileName_, const int line_) {
+	Log(MessageType::TYPE_INFO, "[INFO]: " + message_, fileName_, line_);
 }
 
-void Debug::Info(const std::string& message, const std::string& fileName, const int line) {
-	Log(MessageType::TYPE_INFO, "[INFO]: " + message, fileName, line);
-}
-void Debug::Trace(const std::string& message, const std::string& fileName, const int line) {
-	Log(MessageType::TYPE_TRACE, "[TRACE]: " + message, fileName, line);
-}
-void Debug::Warning(const std::string& message, const std::string& fileName, const int line) {
-	Log(MessageType::TYPE_WARNING, "[WARNING]: " + message, fileName, line);
-}
-void Debug::Error(const std::string& message, const std::string& fileName, const int line) {
-	Log(MessageType::TYPE_ERROR, "[ERROR]: " + message, fileName, line);
-}
-void Debug::FatalError(const std::string& message, const std::string& fileName, const int line) {
-	Log(MessageType::TYPE_FATAL_ERROR, "[FATAL ERROR]: " + message, fileName, line);
+void Debug::Trace(const std::string& message_, const std::string& fileName_, const int line_) {
+	Log(MessageType::TYPE_TRACE, "[TRACE]: " + message_, fileName_, line_);
 }
 
+void Debug::Warning(const std::string& message_, const std::string& fileName_, const int line_) {
+	Log(MessageType::TYPE_WARNING, "[WARNING]: " + message_, fileName_, line_);
+}
+
+void Debug::Error(const std::string& message_, const std::string& fileName_, const int line_) {
+	Log(MessageType::TYPE_ERROR, "[ERROR]: " + message_, fileName_, line_);
+}
+
+void Debug::FatalError(const std::string& message_, const std::string& fileName_, const int line_) {
+	Log(MessageType::TYPE_FATAL_ERROR, "[FATAL ERROR]: " + message_, fileName_, line_);
+}

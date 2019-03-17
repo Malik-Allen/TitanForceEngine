@@ -1,65 +1,43 @@
 #include "GameObject.h"
+#include "Mesh.h"
+#include "Shader.h"
+#include "Texture.h"
+#include "MMath.h"
 
+GameObject::GameObject(Mesh *mesh_, Shader *shader_, Texture *texture_): 
+	mesh(nullptr), shader(nullptr), texture(nullptr), bodyDef(nullptr), rb(nullptr) {
+	
+	mesh = mesh_;
+	shader = shader_;
+	texture = texture_;
 
+	bodyDef = new BodyDefinition();
+	rb = new RigidBody(bodyDef);
 
-GameObject::GameObject(const char* objectName, BodyDefinition *bodyDef):gameObjectName(nullptr),
-																		texture(nullptr),
-																		sprite(nullptr),
-																		spriteFileName(nullptr),
-																		body(nullptr)
-{
-	gameObjectName = objectName;
-	AddBody(bodyDef);
+	modelMatrixID = shader->getUniformID("modelMatrix");
+	normalMatrixID = shader->getUniformID("normalMatrix");
+
 }
 
-GameObject& GameObject::operator=(const GameObject& newGameObj) {
-	gameObjectName = newGameObj.gameObjectName;
-	texture = newGameObj.texture;
-	sprite = newGameObj.sprite;
-	spriteFileName = newGameObj.spriteFileName;
-	body = newGameObj.body;
+GameObject::~GameObject() {}
 
-	return *this;
+void GameObject::Update(float deltaTime_) {
+	rb->Update(deltaTime_);
+	setModelMatrix((MMath::translate(rb->m_velocity)) * (MMath::rotate(rb->m_angle, Vec3(0.0, 1.0, 0.0)))); 
 }
 
-GameObject::~GameObject()
-{
-	if (body)
-		body->~Body();
-}
-
-// Takes an image's file name
-void GameObject::FindSprite(const char *spriteFileName_) {
-	spriteFileName = spriteFileName_;
-}
-
-// Loads Texture from Surface 
-// Surface is definied using FindSprite() 
-// Returns false when the sprite could not be loaded
-// Returns true when texture has been successfully loaded
-bool GameObject::LoadTexture(SDL_Renderer *sdlRenderer) {
-	sprite = IMG_Load(spriteFileName);
-
-	if (sprite == nullptr) {
-		Debug::Error("GameObject could not find the sprite file. ", __FILE__, __LINE__);
-		return false;
+void GameObject::Render() const {
+	Matrix3 normalMatrix = modelMatrix;
+	glUniformMatrix4fv(modelMatrixID, 1, GL_FALSE, modelMatrix);
+	glUniformMatrix3fv(normalMatrixID, 1, GL_FALSE, normalMatrix);
+	if (texture) {
+		glBindTexture(GL_TEXTURE_2D, texture->getTextureID());
 	}
 
-	texture = SDL_CreateTextureFromSurface(sdlRenderer, sprite);
-	SDL_FreeSurface(sprite);
-	return true;
+	mesh->Render();
+
+	/// Unbind the texture
+	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-// Adds a Body to this GameObject of type BodyDefinition
-void GameObject::AddBody(BodyDefinition *bodyDefinition) {
-	body = new Body(bodyDefinition);
-}
-
-// Removes the Body componenet from this GameObject
-void GameObject::RemoveBody() {
-	if (body) {
-		body->~Body();
-		delete body;
-		body = nullptr;
-	}
-}
+/*The order of Matrix Multiplication matters!*/

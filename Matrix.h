@@ -30,20 +30,6 @@ namespace  MATH {
 		float  m[16];
 	public:
 
-		/// Now I can use the structure itself as an array.
-		/// When overloading the [] operator you need to declair one
-		/// to read the array and one to write to the array. 
-		///  Returns a const rvalue
-		inline const float operator [] (int index) const {
-			return *(m + index);
-		}
-
-		/// This one is for writing to the structure as if where an array 
-		/// it returns a lvalue
-		inline float& operator [] (int index) {
-			return *(m + index);
-		}
-
 		inline Matrix4& operator = (const Matrix4 &m_) {
 			this->m[0] = m_[0]; this->m[1] = m_[1]; this->m[2] = m_[2]; this->m[3] = m_[3];
 			this->m[4] = m_[4]; this->m[5] = m_[5]; this->m[6] = m_[6]; this->m[7] = m_[7];
@@ -53,7 +39,7 @@ namespace  MATH {
 		}
 
 
-		inline Matrix4(float x0, float x1, float x2, float x3,
+		inline explicit Matrix4(float x0, float x1, float x2, float x3,
 			float y0, float y1, float y2, float y3,
 			float z0, float z1, float z2, float z3,
 			float w0, float w1, float w2, float w3) {
@@ -64,7 +50,7 @@ namespace  MATH {
 		}
 
 		/// Create the unit matrix probably the most common way of initializing a matrix
-		inline Matrix4(const float d = 1.0f) {
+		inline explicit Matrix4(const float d = 1.0f) {
 			if (d == 1.0f) {
 				loadIdentity();
 			}
@@ -85,9 +71,6 @@ namespace  MATH {
 			m[3] = 0.0f;   m[7] = 0.0f;   m[11] = 0.0f;   m[15] = 1.0f;
 		}
 
-
-
-
 		/// Multiply two 4x4 matricies. 
 		/// Grrr, I never liked mulipling maticies - but it needs to be done. 
 		/// Repaired 3/7/2017 SSF
@@ -95,9 +78,9 @@ namespace  MATH {
 		inline const Matrix4 operator*(const Matrix4& n) const {
 			/*Matrix4 result;
 			for (int i = 0; i < 4; ++i) {
-				for (int j = 0; j < 4; ++j) {
-						result[i*4+j] = (m[0*4+j] * n[i*4 +0]) + (m[1*4+j] * n[i*4+1]) + (m[2*4+j] * n[i*4+2]) + (m[3*4+j] * n[i*4+3]);
-				}
+			for (int j = 0; j < 4; ++j) {
+			result[i*4+j] = (m[0*4+j] * n[i*4 +0]) + (m[1*4+j] * n[i*4+1]) + (m[2*4+j] * n[i*4+2]) + (m[3*4+j] * n[i*4+3]);
+			}
 			}*/
 			/// This approach is about 8 nanoseconds faster, not because I unrolled the loops but because of the constructor, ask me. 
 			return Matrix4(
@@ -135,6 +118,20 @@ namespace  MATH {
 			return Vec4(x, y, z, w);
 		}
 
+		/// Now I can use the structure itself as an array.
+		/// When overloading the [] operator you need to declair one
+		/// to read the array and one to write to the array. 
+		///  Returns a const rvalue
+		inline const float operator [] (int index) const {
+			return *(m + index);
+		}
+
+		/// This one is for writing to the structure as if where an array 
+		/// it returns a lvalue
+		inline float& operator [] (int index) {
+			return *(m + index);
+		}
+
 		inline  Vec3 operator* (const Vec3& v) const {
 			float x = v.x * m[0] + v.y * m[4] + v.z * m[8] + 1.0f * m[12];
 			float y = v.x * m[1] + v.y * m[5] + v.z * m[9] + 1.0f * m[13];
@@ -142,6 +139,11 @@ namespace  MATH {
 			float w = v.x * m[3] + v.y * m[7] + v.z * m[11] + 1.0f * m[15];
 			return Vec3(x, y, z);
 		}
+
+		/// These allow me convert from type Matrix to const float * without issues
+		inline operator float* () { return static_cast<float*>(&m[0]); }
+		inline operator const float* () const { return static_cast<const float*>(&m[0]); }
+
 
 		inline void print() const { /// Print them in column form (right-hand rule)
 			printf("%1.8f %1.8f %1.8f %1.8f\n%1.8f %1.8f %1.8f %1.8f\n%1.8f %1.8f %1.8f %1.8f\n%1.8f %1.8f %1.8f %1.8f\n\n",
@@ -151,9 +153,15 @@ namespace  MATH {
 				m[3], m[7], m[11], m[15]);
 		}
 
-		/// These allow me convert from type Matrix to const float * without issues
-		inline operator float* () { return static_cast<float*>(&m[0]); }
-		inline operator const float* () const { return static_cast<const float*>(&m[0]); }
+
+		/// These are a few esoteric funtions 
+		/// Defines functions to access rows and columns of a Matrix4.
+		inline Vec4 getColumn(int index) {
+			return Vec4(m[4 * index + 0], m[4 * index + 1], m[4 * index + 2], m[4 * index + 3]);
+		}
+		inline Vec4 getRow(int index) {
+			return Vec4(m[0 + index], m[4 + index], m[8 + index], m[12 + index]);
+		}
 	};
 
 
@@ -168,7 +176,7 @@ namespace  MATH {
 
 	public:
 
-		/// Now I can use the structure itself as an array.
+		/// Now I can use the class itself as an array.
 		/// When overloading the [] operator you need to declair one
 		/// to read the array and one to write to the array. 
 		///  Returns a const rvalue
@@ -176,7 +184,7 @@ namespace  MATH {
 			return *(m + index);
 		}
 
-		/// This one is for writing to the structure as if where an array 
+		/// This one is for writing to the class as if where an array 
 		/// it returns a lvalue
 		inline float& operator [] (int index) {
 			return *(m + index);
@@ -200,6 +208,12 @@ namespace  MATH {
 			return result;
 		}
 
+		inline Matrix3& operator*=(const Matrix3& n) {
+			*this = *this * n;
+			return *this;
+		}
+
+
 		/// Extracts the inner 3x3 from a 4x4 matrix
 		/// using the assignment operator
 		inline Matrix3& operator = (const Matrix4 &m_) {
@@ -209,7 +223,8 @@ namespace  MATH {
 			return *this;
 		}
 
-		/// 
+		/// Extracts the inner 3x3 from a 4x4 matrix
+		/// using the constructor
 		inline Matrix3(const Matrix4 &m_) {
 			this->m[0] = m_[0]; this->m[1] = m_[1]; this->m[2] = m_[2];
 			this->m[3] = m_[4]; this->m[4] = m_[5]; this->m[5] = m_[6];
@@ -229,7 +244,7 @@ namespace  MATH {
 		}
 
 		/// Create the unit matrix probably the most common way of initializing a matrix
-		inline Matrix3(const float d = 1.0f) {
+		inline explicit Matrix3(const float d = 1.0f) {
 			if (d == 1.0f) {
 				loadIdentity();
 			}
@@ -249,7 +264,6 @@ namespace  MATH {
 			m[2] = 0.0f;   m[5] = 0.0f;   m[8] = 1.0f;
 
 		}
-
 
 
 		inline void print() const { /// Print them in column form (right-hand rule)

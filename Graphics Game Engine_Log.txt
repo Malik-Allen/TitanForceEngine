@@ -1,0 +1,3 @@
+[INFO]: Starting the GameSceneManager in file: c:\users\malik allen\documents\__bigger_than_games\componentframework1.0.4\componentframework\main.cpp on line: 14
+[INFO]: OpenGL version: 4.4.0 - Build 21.20.16.4534 in file: c:\users\malik allen\documents\__bigger_than_games\componentframework1.0.4\componentframework\window.cpp on line: 41
+[INFO]: Deleting the GameSceneManager in file: c:\users\malik allen\documents\__bigger_than_games\componentframework1.0.4\componentframework\gamescenemanager.cpp on line: 29

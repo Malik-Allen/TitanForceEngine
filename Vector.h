@@ -1,84 +1,85 @@
 #ifndef VECTOR_H
 #define VECTOR_H
-#include <string> 
+#include <iostream>
+#include <string> /// Used for passing exceptions 
 #include "Debug.h"
-
-/// Vector Header Capabilities Include:
-/// Operator overides,
-///	All basic vector math interactions, subttaction, multiplication, division, etc.
-/// Plane, Sphere, and Ray definitions
-/// Vector 3 definitions are followed by Vector 4 -- Feb 9, 2019
-
-// Future iterations include:
-// Sphere and ray intersection detection
-// Cube of 6 plane and ray intersection detection
-// Primative shapes -- Feb 13, 2019
+		///
+		/// Vec3 definitions followed by Vec4 
+		/// There are notes at the bottom of this file you might want to read
+		///
 
 namespace  MATH {
 
-//Instead of dividing by zero, which return a fatal error
-//Use a very small number
+/// This is used in normalizing vectors. Dividing by zero is a well known
+/// problem but dividing by nearly zero is also a problem. 1.0x10-7 is very
+/// small in "float" percision. 
 
-#ifndef VERY_SMALL
-#define VERY_SMALL 1.0e-7f
-#endif
+	#ifndef VERY_SMALL
+	#define VERY_SMALL 1.0e-7f
+	#endif
 
-#ifndef M_PI
-#define M_PI 3.14159265358979323846f
-#endif
+	#ifndef M_PI
+	#define M_PI 3.14159265358979323846f
+	#endif
 
-#ifndef DEGREES_TO_RADIANS
-#define DEGREES_TO_RADIANS (M_PI / 180.0f)
-#endif	
+	#ifndef DEGREES_TO_RADIANS
+	#define DEGREES_TO_RADIANS (M_PI / 180.0f)
+	#endif	
 
-#ifndef RADIANS_TO_DEGREES
-#define RADIANS_TO_DEGREES (180.0F / M_PI)
-#endif
+	#ifndef RADIANS_TO_DEGREES
+	#define RADIANS_TO_DEGREES (180.0F / M_PI)
+	#endif
 
-#ifndef EARTH_GRAVITY
-#define EARTH_GRAVITY Vec3(0.0f, -9.8f, 0.0f)
-#endif
-
-#ifndef GRAVITATIONAL_CONSTANT
-#define GRAVITATIONAL_CONSTANT 1.0f
-#endif
+	struct Vec2 {
+		float  x, y;
+	};
 
 	struct Vec3 {
+		float  x,y,z;	///  Structures are default public
+		
 
-		float  x, y, z;
+		//Vec3(const Vec3&) = delete;
+		//Vec3(Vec3&&) = delete;
+		//Vec3& operator=(const Vec3&) = delete;
+		//Vec3& operator=(Vec3&&) = delete;
 
-		inline void Load(float newX, float newY, float newZ) {
-			x = newX; 
-			y = newY; 
-			z = newZ;
+		/// Just a little utility to populate a vector
+		inline void set( float x_, float y_, float z_ ) {
+			x = x_; y = y_; z = z_; 
 		}
 
-		//Vector Constructor using float zero
-		inline Vec3(float scalar = float(0.0)) { //Default will set all values to zero
-			Load(scalar, scalar, scalar);
+		/// Here's a set of constructors
+		inline explicit Vec3( float s = float(0.0) ){
+			set(s,s,s);
 		}
 
-		// Load the values of x, y, z onto the vector
-		inline Vec3(float newX, float newY, float newZ) {
-			Load(newX, newY, newZ);
+		inline Vec3( float x, float y, float z ){
+			set(x,y,z);
 		}
-
-		//A copy constructor
-		inline Vec3(const Vec3& newVector) {
-			Load(newVector.x, newVector.y, newVector.z);
+		
+		/// A copy constructor
+		inline Vec3( const Vec3& v ) { 
+			set(v.x,v.y,v.z); 
 		}
 
 		////////////////////////////////////////////////////////////////
 		/*Mathematical Functionality for Vec3*/
 		////////////////////////////////////////////////////////////////////
 
-		//Returns the magnitude of the vector
+		// Set the components of this vector to zero
+		inline void SetZero() {
+			x = 0.0f;
+			y = 0.0f;
+			z = 0.0f;
+		}
+
+		// Returns the magnitude of the vector
 		inline float Magnitude() {
 			return sqrt(pow(x, 2.0f) + pow(y, 2.0f) + pow(z, 2.0f));
 		}
 
-		//Returns the Dot Product of this vector * (otherVector)
-		inline float DotProduct(Vec3& otherVec) {
+		// Returns the dot product between this vector the passed vector
+		inline float DotProduct(const Vec3& otherVec) {
 			return (x * otherVec.x) + (y * otherVec.y) + (z * otherVec.z);
 		}
 
@@ -89,13 +90,29 @@ namespace  MATH {
 			return acos(this->DotProduct(otherVec) / (this->Magnitude() * otherVec.Magnitude()));
 		}
 
+		// Sets this vector's magnitude to one
+		inline void Normalize() {
+			float mag = sqrt(pow(x, 2.0f) + pow(y, 2.0f) + pow(z, 2.0f));
+
+			x /= mag;
+			y /= mag;
+			z /= mag;
+		}
+
+		// Returns the Normalized Vector as a Vec3
+		inline Vec3 GetNormalized() {
+			float mag = sqrt(pow(x, 2.0f) + pow(y, 2.0f) + pow(z, 2.0f));
+
+			return Vec3((x /= mag), (y /= mag), (z /= mag));
+		}
+
 		// Returns this vector projected on the passed vector
 		inline Vec3 ProjectedOn(Vec3& otherVec) {
 
 			Vec3 otherNormalVec = otherVec.GetNormalized();
 			float scalar = this->DotProduct(otherNormalVec) / otherNormalVec.DotProduct(otherNormalVec);
-			
-			return *otherNormalVec * scalar;
+
+			return otherNormalVec * scalar;
 		}
 		// In this process you take the normal of the vector you are projecting onto
 		// Take the dot product between this vector and the normalazied vector
@@ -105,8 +122,8 @@ namespace  MATH {
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		//Returns the cross product between this vector and the passed vector
-		//If returned vector is zero than these two vectors are parallel
+		// Returns the cross product between this vector and the passed vector
+		// If returned vector is zero than these two vectors are parallel
 		inline Vec3 Cross(Vec3& otherVec) {
 			Vec3 crossProduct;
 			crossProduct.x = y * otherVec.z - z * otherVec.y;
@@ -116,7 +133,7 @@ namespace  MATH {
 			return crossProduct;
 		}
 
-		//Rotates the vector about the z-axis
+		// Rotates the vector about the z-axis
 		inline void RotateZ(float angleInDeg) {
 			float angleInRad = angleInDeg * DEGREES_TO_RADIANS;
 
@@ -127,37 +144,20 @@ namespace  MATH {
 			y = tempY;
 		}
 
-		//Sets the vector's magnitude to one
-		inline void Normalize() {
-			float mag = sqrt(pow(x, 2.0f) + pow(y, 2.0f) + pow(z, 2.0f));
-
-			x /= mag;
-			y /= mag;
-			z /= mag;
-		}
-
-		//Returns the Normalized Vector as a Vec3
-		inline Vec3 GetNormalized() {
-			float mag = sqrt(pow(x, 2.0f) + pow(y, 2.0f) + pow(z, 2.0f));
-
-			return Vec3((x /= mag), (y /= mag), (z /= mag));
-		}
-
-
-		//Returns the magnitude of the distance between two vectors as a float
+		// Returns the magnitude of the distance between two vectors as a float
 		inline float Distance(Vec3& otherVec) {
 			Vec3 tempVec;
-			tempVec.Load(x - otherVec.x, y - otherVec.y, z - otherVec.z);
+			tempVec.set(x - otherVec.x, y - otherVec.y, z - otherVec.z);
 			return tempVec.Magnitude();
 		}
 
-		//Interperlates between start position and end position. 
-		//When t = 0 returns startPosition. 
-		//When t = 1 returns end position. 
-		//When t = 0.5 returns midway between start and end positions.
+		// Interperlates between start position and end position. 
+		// When t = 0 returns startPosition. 
+		// When t = 1 returns end position. 
+		// When t = 0.5 returns midway between start and end positions.
 		inline void Lerp(Vec3& endPosition, float t) {
 			Vec3 dist;
-			dist.Load(endPosition.x - x, endPosition.y - y, endPosition.z - z);
+			dist.set(endPosition.x - x, endPosition.y - y, endPosition.z - z);
 			dist *= t;
 
 			x += dist.x;
@@ -179,130 +179,110 @@ namespace  MATH {
 		//BONUS: A boolean can switch the Lerp on and off when it is complete OR switch case works well with lerping
 		////////////////////////////////////////////////////
 
-		/*Quadratic Eqxn*/
-		//Requires a bool in addition to the a, b, and c constants
-		//Bool determines where the reseult is plus(true) or minus(false)
-		inline float Quadratic(float a, float b, float c, bool returnPositive) {
-
-			float quadCheck = b * b - (4 * a * c);
-
-			if (quadCheck < 0.0f) {
-				quadCheck = VERY_SMALL; 
-				Debug::Error("Cannot find the square root of a negative number", __FILE__, __LINE__);
-				return quadCheck;
-			}
-			else if (returnPositive) {
-				return -b + sqrt(quadCheck / 2.0f * a);
-			}
-			else {
-				return -b - sqrt(quadCheck / 2.0f * a);
-			}
-		}
 
 		///////////////////////////////////////////////////////////
 		/// Operator overloads (see note 1 at the end of this file)
 		///////////////////////////////////////////////////////////
 
-		// An assignment operator   
-		inline Vec3& operator = (const Vec3& otherVec) {
-			Load(otherVec.x, otherVec.y, otherVec.z);
+		/// An assignment operator   
+		inline Vec3& operator = (const Vec3& v){
+			set(v.x, v.y, v.z); 
 			return *this;
 		}
 
-		/*MORE CLARITY NEED FOR ARRAY IMPLEMENTATION*/
+		
 		/// Now we can use the Vec3 like an array but we'll need two overloads
-		inline const float operator [] (int index) const {  /// This one is for reading the Vec3 as if where an array
-			return *(&x + index);
+		inline const float operator [] ( int index) const {  /// This one is for reading the Vec3 as if where an array
+			return *(&x + index); 
 		}
 
-		inline float& operator [] (int index) {	/// This one is for writing to the Vec3 as if where an array.  
+		inline float& operator [] ( int index ) {	/// This one is for writing to the Vec3 as if where an array.  
 			return *(&x + index);					/// See note 2 at the end of this file about lvalues and rvalues
 		}
+	
 
-
-		//Addition of two Vec3s
-		inline const Vec3 operator + (const Vec3& otherVec) const { //Set to const to make sure the Vec3 address will not be changed
-			return Vec3(x + otherVec.x, y + otherVec.y, z + otherVec.z);
+		/// Add two Vec3s
+		inline const Vec3 operator + ( const Vec3& v ) const { 
+			return Vec3( x + v.x, y + v.y, z + v.z ); 
 		}
 
-		//Add a Vec3 to itself
-		inline Vec3& operator += (const Vec3& otherVec) {
-			x += otherVec.x;
-			y += otherVec.y;
-			z += otherVec.z;
+		/// Add a Vec3 to itself
+		inline Vec3& operator += ( const Vec3& v ){ 
+			x += v.x;  
+			y += v.y;  
+			z += v.z;  
+			return *this; 
+		}
+
+		/// Take the negative of a Vec3
+		inline const Vec3 operator - () const  { 
+			return Vec3( -x, -y, -z ); 
+		}   
+
+		/// Subtract two Vec3s
+		inline const Vec3 operator - ( const Vec3& v ) const { 
+			return Vec3(x - v.x, y - v.y, z - v.z ); 
+		}
+
+		/// Subtract a Vec 3 from itself
+		inline Vec3& operator -= ( const Vec3& v ){ 
+			x -= v.x;  
+			y -= v.y;  
+			z -= v.z;  
 			return *this;
 		}
 
-		//Return the negative of a Vec3
-		inline const Vec3 operator - () const {
-			return Vec3(-x, -y, -z);
+		/// Multiply a Vec3 by a scalar
+		inline const Vec3  operator * ( const float s ) const { 
+			return Vec3(s*x, s*y, s*z ); 
 		}
 
-		// Subtraction of anaother Vec3
-		inline const Vec3 operator - (const Vec3& otherVec) const {
-			return Vec3(x - otherVec.x, y - otherVec.y, z - otherVec.z);
-		}
-
-		//Subtract a Vec3 from itself
-		inline Vec3& operator -= (const Vec3& otherVec) {
-			x -= otherVec.x;
-			y -= otherVec.y;
-			z -= otherVec.z;
-			return *this;
-		}
-
-		//Multiply a vector by a scalar value
-		inline const Vec3  operator * (const float scalar) const {
-			return Vec3(scalar * x, scalar * y, scalar * z);
-		}
-
-
-		/// Multiply a scaler by a Vec3  - Ha! It's the scalar first then the Vec3
+		
+		/// Multiply a scaler by a Vec3   It's the scalar first then the Vec3
 		/// Overloaded and a friend, ouch! It's the only way to make it work with a scalar first.
 		/// Friends are tricky, look them up. 
-		inline friend Vec3 operator * (const float scalar, const Vec3& otherVec) {
-			return otherVec * scalar;
+		inline friend Vec3 operator * ( const float s, const Vec3& v ) { 
+			return v * s; 
 		}
 
-		//Multiplying a Scalar by a Vector and assigning it to itself
-		inline Vec3& operator *= (const float scalar) {
-			x *= scalar;
-			y *= scalar;
-			z *= scalar;
-			return *this;
+		/// Multiply a Vec3 by a scalar and assign it to itself
+		inline Vec3& operator *= ( const float s ) { 
+			x *= s; 
+			y *= s;  
+			z *= s;  
+			return *this; 
+		}
+		
+
+		/// Divide by a scalar - Watch for divide by zero issues
+		inline const Vec3 operator / ( const float s ) const {
+	#ifdef _DEBUG  /// If in debug mode let's worry about divide by zero or nearly zero!!! 
+		if ( fabs(s) < VERY_SMALL ) {
+			std::string errorMsg("Divide by nearly zero! ");
+			throw errorMsg;
+		}
+	#endif
+		float r = 1.0f / s;
+		return *this * r;
 		}
 
 
-		//Division by a scalar value
-		inline const Vec3 operator / (const float scalar) const {
-#ifdef _DEBUG  //If in DEBUG MODE check if the Scalar is less VERY SMALL
-			if (fabs(scalar) < VERY_SMALL) {
-				std::string errorMsg("Divide by nearly zero! ");
-				throw errorMsg;
-			}
-#endif
-			float r = 1.0f / scalar;
-			return *this * r;
+		inline Vec3& operator /= ( const float s ) {
+#ifdef _DEBUG  /// If in debug mode let's worry about divide by zero or nearly zero!!! 
+		if ( std::fabs(s) < VERY_SMALL ) {
+			std::string errorMsg("Divide by nearly zero! ");
+			throw errorMsg;
 		}
-
-		//Division of a scalar into a Vector and assigned to itself
-		inline Vec3& operator /= (const float scalar) {
-#ifdef _DEBUG  // Double checking that the scalar is not zero! 
-			if (std::fabs(scalar) < VERY_SMALL) {
-				std::string errorMsg("Divide by nearly zero! ");
-				throw errorMsg;
-			}
 #endif // DEBUG
-			float r = 1.0f / scalar;
-			*this *= r;
-			return *this;
+		float r = 1.0f / s;
+		*this *= r;
+		return *this;
 		}
 
-		inline void print() {
-			printf("%f %f %f\n", x, y, z);
+		inline void print() { 
+			printf("%1.8f %1.8f %1.8f\n", x,y,z);		  
 		}
 
-		/*TYPE CONVERSIONS*/
 		///
 		/// Type conversion operators 
 		///
@@ -316,305 +296,177 @@ namespace  MATH {
 
 	};
 
-	/*Vec4 Definition*/
-	//Inherits Vec3 Class
-	//Can be used Vec4 as a SubRoutine of Vec3 in some cases
 
-	struct Vec4 : public Vec3 {
-		// float x, y and z components are inherited from Vec3
-
+		/// Vec4 definitions
+		/// I am intentionally creating a Vec4 from a Vec3 so I can pass a Vec4 into a Subroutine that wants a Vec3
+		/// in many cases this will be mathamatically OK, just be careful Vec4's are not quaterinians
+		
+	struct Vec4: public Vec3 {
+		///float  x;	///
+		///float  y;	///  
+		///float  z;	/// From Vec3
 		float  w;
 
-		// Vec4 Constructors
-		inline Vec4(float scalar = float(0.0)) { 
-			x = scalar;
-			y = scalar; 
-			z = scalar; 
-			w = scalar; 
-		}
-		inline Vec4(float newX, float newY, float newZ, float newW) { 
-			x = newX; 
-			y = newY; 
-			z = newZ; 
-			w = newW; 
-		}
-		inline Vec4(const Vec4& otherVec) { //Assigns Vec4 on instantiation
-			x = otherVec.x;
-			y = otherVec.y;
-			z = otherVec.z;
-			w = otherVec.w;
+		/// Here's a set of constructors
+		inline Vec4( float s = float(0.0) ){ x=s; y=s; z=s; w=s;}
+		inline Vec4( float _x, float _y, float _z, float _w){ x=_x; y=_y; z=_z; w=_w;} 
+		inline Vec4( const Vec4& v ) { 
+			x = v.x;  
+			y = v.y;  
+			z = v.z; 
+			w = v.w;
 		}
 
-		inline Vec4(const Vec3& otherVec) { //Assigning Vec3 to Vec4 with w = 1.0f
-			x = otherVec.x;
-			y = otherVec.y;
-			z = otherVec.z;
+		inline Vec4( const Vec3& v ) { 
+			x = v.x;  
+			y = v.y;  
+			z = v.z; 
 			w = 1.0f;
 		}
-
-		//Returns the magnitude of this Vec4 as a float
-		inline float Magnitude() {
-			return sqrt(pow(x, 2.0f) + pow(y, 2.0f) + pow(z, 2.0f) + pow(w, 2.0f));
-		}
-
-		// Normalizes this Vec4
-		inline void Normalize() {
-			float mag = sqrt(pow(x, 2.0f) + pow(y, 2.0f) + pow(z, 2.0f) + pow(w, 2.0f));
-
-			x /= mag;
-			y /= mag;
-			z /= mag;
-			w /= mag;
-		}
-
-		//Returns the normal of this vector as a Vec4
-		inline Vec4 GetNormalized() {
-			float mag = sqrt(pow(x, 2.0f) + pow(y, 2.0f) + pow(z, 2.0f) + pow(w, 2.0f));
-
-			return Vec4((x /= mag), (y /= mag), (z /= mag), (w /= mag));
-		}
-
-		//Returns the magnitude of the vector as float
-		inline float DotProduct(Vec4& otherVec) {
-			return (x * otherVec.x + y * otherVec.y + z * otherVec.z + w * otherVec.w);
-		}
-		//Assignment operator
-		inline Vec4& operator = (const Vec4& newVec) {
-			x = newVec.x;
-			y = newVec.y;
-			z = newVec.z;
-			w = newVec.w;
-			return *this;
-		}
-		/*CLARIFY THIS!!*/
-		// Creating Vec4 Array is possible
-		inline float& operator [] (int index) {
-			return *(&x + index);
-		}
-		inline const float operator [] (int i) const {
-			return *(&x + i);
-		}
-
-		//Addition of a Vec4 
-		inline Vec4 operator + (const Vec4& otherVec) const {
-			return Vec4(x + otherVec.x, y + otherVec.y, z + otherVec.z, w + otherVec.w);
-		}
-
-		//Adding a Vec4 to itself
-		inline Vec4& operator += (const Vec4& otherVec) {
-			x += otherVec.x;
-			y += otherVec.y;
-			z += otherVec.z;
-			w += otherVec.w;
+		
+		/// An assignment operator
+		inline Vec4& operator = (const Vec4& v){
+			x = v.x;  
+			y = v.y;  
+			z = v.z; 
+			w = v.w;
 			return *this;
 		}
 
-		//Returning the negative of a Vec4
-		inline Vec4 operator - () const {
-			return Vec4(-x, -y, -z, -w);
+		/// See Vec3 definition 
+		inline float& operator [] ( int index ) { 
+			return *(&x + index); 
+		}
+		inline const float operator [] ( int i ) const { 
+			return *(&x + i); 
 		}
 
-		//Subtraction of a Vec4
-		inline Vec4 operator - (const Vec4& otherVec) const {
-			return Vec4(x - otherVec.x, y - otherVec.y, z - otherVec.z, otherVec.w - w);
+		/// See Vec3 definition 
+		inline Vec4 operator + ( const Vec4& v ) const { 
+			return Vec4( x + v.x, y + v.y, z + v.z, w + v.w ); 
 		}
 
-		//Subtraction of a Vec4 from itself 
-		inline Vec4& operator -= (const Vec4& otherVec) {
-			x -= otherVec.x;
-			y -= otherVec.y;
-			z -= otherVec.z;
-			w -= otherVec.w;
+		/// See Vec3 definition 
+		inline Vec4& operator += ( const Vec4& v ){ 
+			x += v.x;
+			y += v.y;
+			z += v.z;
+			w += v.w;
+			return *this; 
+		}
+
+		//// See Vec3 definition 
+		inline Vec4 operator - () const  { 
+			return Vec4( -x, -y, -z, -w );
+		}   
+
+		/// See Vec3 definition 
+		inline Vec4 operator - ( const Vec4& v ) const { 
+			return Vec4( x - v.x, y - v.y, z - v.z, v.w - w);
+		}
+
+		/// See Vec3 definition 
+		inline Vec4& operator -= ( const Vec4& v ){ 
+			x -= v.x;
+			y -= v.y;
+			z -= v.z;
+			w -= v.w;
 			return *this;
 		}
 
-		// Multiplication of Scalar to a Vec4
-		inline Vec4 operator * (const float scalar) const {
-			return Vec4(scalar * x, scalar * y, scalar *z, scalar * w);
+		/// See Vec3 definition 
+		inline Vec4 operator * ( const float s ) const { 
+			return Vec4( s*x, s*y, s*z, s*w);
 		}
 
-		//Multiplication of a Scalar and assigning it to itself
-		inline Vec4& operator *= (const float scalar) {
-			x *= scalar;
-			y *= scalar;
-			z *= scalar;
-			w *= scalar;
+		/// See Vec3 definition 
+		inline Vec4& operator *= ( const float s ) { 
+			x *= s;
+			y *= s;
+			z *= s;
+			w*= s;
 			return *this;
 		}
 
-		//Overloading the operator 
-		friend Vec4 operator * (const float scalar, const Vec4& otherVec) {
-			return otherVec * scalar;
+		/// See Vec3 definition 
+		 friend Vec4 operator * ( const float s, const Vec4& v ) { 
+			 return v * s; 
+		 }
+
+
+		inline Vec4 operator / ( const float s ) const {
+#ifdef DEBUG  /// If in debug mode let's worry about divide by zero or nearly zero!!! 
+		if ( std::fabs(s) < VERY_SMALL ) {
+			std::string errorMsg("Divide by nearly zero! ");
+			throw errorMsg;
 		}
-
-
-		inline Vec4 operator / (const float scalar) const {
-#ifdef DEBUG 
-			if (std::fabs(scalar) < VERY_SMALL) {
-				std::string errorMsg("Divide by nearly zero! ");
-				throw errorMsg;
-			}
 #endif
-			float r = 1.0f / scalar;
-			return *this * r;
+		float r = 1.0f / s;
+		return *this * r;
 		}
 
-		inline Vec4& operator /= (const float scalar) {
-#ifdef _DEBUG 
-			if (std::fabs(scalar) < VERY_SMALL) {
-				std::string errorMsg("Divide by nearly zero! ");
-				throw errorMsg;
-			}
-#endif // DEBUG
+		inline Vec4& operator /= ( const float s ) {
+	#ifdef _DEBUG  /// If in debug mode let's worry about divide by zero or nearly zero!!! 
+		if ( std::fabs(s) < VERY_SMALL ) {
+			std::string errorMsg("Divide by nearly zero! ");
+			throw errorMsg;
+		}
+	#endif // DEBUG
 
-			float r = 1.0f / scalar;
-			*this *= r;
-			return *this;
+		float r = 1.0f / s;
+		*this *= r;
+		return *this;
 		}
 
-		inline void print() {
-			printf("%f %f %f %f\n", x, y, z, w);
+		inline void print() { 
+			printf("%1.8f %1.8f %1.8f %1.8f\n", x,y,z,w);		  
 		}
 
 		///
 		/// Type conversion operators 
 		///
-		inline operator const float* () const {
-			return static_cast<const float*>(&x);
+		inline operator const float* () const { 
+			return static_cast<const float*>( &x );
 		}
 
-		inline operator float* () {
-			return static_cast<float*>(&x);
+		inline operator float* () { 
+			return static_cast<float*>( &x );
 		}
 
 	};
-
-	// A Ray is defined by its starting point and direction
-	struct Ray { 
-
-		Vec3 startPosition, direction;
-
-		inline Ray(Vec3 newStartPosition, Vec3 newDirection) {
-			startPosition = newStartPosition;
-			direction = newDirection;
-		}
-
-		//Returns the current position of the Ray at magnitude t
-		inline Vec3 CurrentPosition(float t) {
-			return startPosition + direction * t;
-		}
-
-		inline Ray& operator=(const Ray& newRay) {
-			startPosition = newRay.startPosition;
-			direction = newRay.direction;
-
-			return *this;
-		}
-	};
-
-
-	/// A solution to the circular dependency problem.  
-	/// This is what is called a "forward declaration."
-	/// See note 3 at the bottom of this page.
-	class VMath;
-
-	///  float x,y,z; came from vector as the normal to the surface + distance to the surface (d) 
-	struct Plane : public Vec3 {
-		float d;
-
-		/// Here's a set of constructors
-		inline Plane(float _s = 0.0f) {
-			x = _s;
-			y = _s;
-			z = _s;
-			d = _s;
-		}
-		inline Plane(float _x, float _y, float _z, float _d) {
-			x = _x;
-			y = _y;
-			z = _z;
-			d = _d;
-		}
-
-		inline Plane(const Plane& v) {
-			x = v.x;
-			y = v.y;
-			z = v.z;
-			d = v.d;
-		}
-
-		/// This creates a normalized equation of a plane.
-		inline Plane(const Vec3& v0, const Vec3& v1, const Vec3& v2) {
-			Vec3 a = v1 - v0;
-			Vec3 b = v2 - v0;
-			Vec3 n = Vec3(a.y * b.z - a.z * b.y, /// This is the cross product
-				a.z * b.x - a.x * b.z,
-				a.x * b.y - a.y * b.x);
-			float magnitude = float(sqrt(n.x * n.x + n.y * n.y + n.z * n.z)); /// normalize
-
-			Plane(x / magnitude, y / magnitude, z / magnitude, a.x * b.x + a.y * b.y + a.z * b.z);
-		}
-
-		/// Convert this plane into a normalized plane
-		inline void Normalize() {
-			float a = sqrt(x*x + y * y + z * z);
-			x /= a;
-			y /= a;
-			z /= a;
-			d /= a;
-		}
-
-
-		// Returns the intersection point between this plane and passed Ray
-		// Returns zero if Ray is on the plane, resulting in infinite intersection points
-		// Returns zero if the Plane and Ray do not intersect and are parallel
-		inline Vec3 IntersectPoint(Ray r) {
-
-			Plane normalizedPlane(x, y, z, d);
-			float t;
-
-			normalizedPlane.Normalize();
-
-			if (normalizedPlane.DotProduct(r.direction) != 0.0f) {
-				t = ((-normalizedPlane.DotProduct(r.startPosition))) / normalizedPlane.DotProduct(r.direction) * -1.0f;
-				return r.CurrentPosition(t);
-			}
-			else if (normalizedPlane.DotProduct(r.startPosition) + -normalizedPlane.DotProduct(r.startPosition) == 0.0f || 
-						normalizedPlane.DotProduct(r.startPosition) + -normalizedPlane.DotProduct(r.startPosition) == VERY_SMALL) {
-				Debug::Warning("The passed ray is on the plane, infinite intersection points", __FILE__, __LINE__);
-				return Vec3(0.0f);
-			}else { 
-				Debug::Warning("This plane does not intersect with the ray passed and is parallel to the ray", __FILE__, __LINE__);
-				return Vec3(0.0f);
-			}
-		}
-
-		inline void print() {
-			printf("%f %f %f %f\n", x, y, z, d);
-		}
-	};
-
-	/// Just some extra stuff for fun
-
-	///		A Sphere could be thought of as a just a center point (x,y,z) 
-	///		comes from Vec3 then just add a radius
-	struct Sphere : public Vec3 {
-		float r;
-		Sphere(float s = 0.0f) { x = s; y = s; z = s; r = s; }
-
-		Sphere(float _x, float _y, float _z, float _r) {
-			x = _x; y = _y; z = _z; r = _r;
-		}
-
-		inline Sphere(const Sphere& v) {
-			x = v.x;  y = v.y;  z = v.z; r = v.r;
-		}
-
-		inline void print() {
-			printf("%f %f %f %f\n", x, y, z, r);
-		}
-	};
-
 }
 
 #endif
+
+
+		/*** Note 1.
+		I know, I hate operator overloading as a general rule but a few make sense!! Just be careful and 
+		consistent. In the following code, I will overload many operators. I don't believe in 
+		overloading when the operator is less than obvious.  
+		For example, in this class, the relational operators (== != < > <= >=) might mean "in relation 
+		to their magnitude or direction" I'm just not sure. Just write a function to do that and don't make 
+		me guess what the operator might mean. Use the idea of "Least Astonishment" don't surprise me,
+		or shock me or anything else that will piss me or others off-SSF
+		***/
+
+		/*** Note 2.
+		In straight C programming, lvalues and rvalues literially means left and right assignments.  For example, 
+		int x = 5; x is the lvalue and 5 is the rvalue. Easy. In C++ it get a bit more tricky. The modern idea is
+		rvalues are temporary vaules residing in the registers of the CPU. lvalues are actual memory locations.  
+		In the code:
+			inline float& operator [] ( int index ) {	
+				return *(&x + index);					
+			}
+		To read this precicely, &x is the address of the x variable (the first in the list of x,y,z) add to that 
+		address the index as if it were an array. Then *(&x + index) dereferences that address back into the 
+		object, the float& reference returns it as an address and thus an lvalue.
+		***/
+
+		/*** Note 3.
+		The issue here is that I need to use functions in Vector from VMath which require Vector but VMath
+		also requires Vector - this is a classic circular dependency problem or sometimes known as mutual recursion.
+		To solve this it requires a forward declaration.  A "forward declaration" is the declaration of a class for which 
+		the you have not yet given a complete definition of (whateverClass.h). To do this all you need is the statement:  
+		"class VMath;"  This warns the compiler that I will be using VMath in Vector; HOWEVER, in this case, it won't work because
+		I'm using the vector.h as a totally inlined set of functions - sometimes you're just screwed 
+		***/
