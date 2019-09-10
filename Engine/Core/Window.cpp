@@ -1,6 +1,7 @@
 #include "Window.h"
 #include <cstring>
 
+
 Window::Window(): 
 	window(nullptr),
 	width(800),
@@ -31,11 +32,18 @@ bool Window::OnCreate(std::string name, const int newWidth, const int newHeight)
 	if (!OnSelectAPhysicalDevice())
 		return false;
 
+	if (!OnCreateLogicalDeivce())
+		return false;
+
 	return true;
 
 }
 
 void Window::OnDestroy() {
+	if (enableValidationLayers) {
+		OnDestroyDebugUtilsMessengerEXT(vkInstance, debugMessenger, nullptr);
+	}
+	vkDestroyDevice(vkDevice, nullptr);
 	vkDestroyInstance(vkInstance, nullptr);
 	SDL_DestroyWindow(window);
 	window = nullptr;
@@ -209,13 +217,16 @@ bool Window::IsDeviceSuitable(VkPhysicalDevice deviceCandidate) {
 	VkPhysicalDeviceFeatures deviceFeatures;
 	vkGetPhysicalDeviceFeatures(deviceCandidate, &deviceFeatures);
 
-	return true;
+	Window::QueueFamilyIndices indices = FindGraphicsQueueFamily(deviceCandidate);
+
+
+	return indices.IsComplete();
 
 	//EXAMPLE: return (deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU && deviceFeatures.geometryShader);
 }
 
 bool Window::OnSelectAPhysicalDevice() {
-	VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
+	physicalDevice = VK_NULL_HANDLE;
 
 	uint32_t deviceCount = GetPhysicalDeviceCount();
 	std::vector<VkPhysicalDevice> devices = GetPhysicalDevices(deviceCount);
@@ -232,6 +243,109 @@ bool Window::OnSelectAPhysicalDevice() {
 	}
 
 	return true;
+}
+
+Window::QueueFamilyIndices Window::FindQueueFamilies(VkPhysicalDevice physicalDevice_) {
+	Window::QueueFamilyIndices queueFamilyIndices = FindGraphicsQueueFamily(physicalDevice_);
+	return queueFamilyIndices;
+}
+
+Window::QueueFamilyIndices Window::FindGraphicsQueueFamily(VkPhysicalDevice physicalDevice_) {
+	Window::QueueFamilyIndices indices;
+	std::vector<VkQueueFamilyProperties> queueFamilies = GetQueueFamilyProperties(physicalDevice_);
+
+	int i = 0;
+	for (const auto& queueFamily : queueFamilies) {
+		if (queueFamily.queueCount > 0 && queueFamily.queueFlags && VK_QUEUE_GRAPHICS_BIT) {
+			indices.graphicsFamily = i;
+		}
+
+		if (indices.IsComplete())
+			break;
+
+		i++;
+	}
+
+	return indices;
+}
+
+uint32_t Window::GetQueueFamilyCount(VkPhysicalDevice physicalDevice_) {
+	uint32_t queueFamilyCount = 0;
+	vkGetPhysicalDeviceQueueFamilyProperties(physicalDevice_, &queueFamilyCount, nullptr);
+	return queueFamilyCount;
+}
+
+std::vector<VkQueueFamilyProperties> Window::GetQueueFamilyProperties(VkPhysicalDevice physicalDevice_) {
+	uint32_t queueFamilyCount = GetQueueFamilyCount(physicalDevice_);
+	std::vector<VkQueueFamilyProperties> queueFamilyProperties(queueFamilyCount);
+
+	vkGetPhysicalDeviceQueueFamilyProperties(physicalDevice_, &queueFamilyCount, queueFamilyProperties.data());
+
+	return queueFamilyProperties;
+}
+
+bool Window::OnCreateLogicalDeivce() {
+
+	if (!CreateDeviceCreateInfo())
+		return false;
+
+	return true;
+
+}
+
+bool Window::CreateDeviceCreateInfo() {
+	VkDeviceCreateInfo deviceCreateInfo = {};
+	deviceCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+
+	VkDeviceQueueCreateInfo queueInfo = CreateDeviceQueueCreateInfo(physicalDevice);
+	deviceCreateInfo.pQueueCreateInfos = &queueInfo;
+	deviceCreateInfo.queueCreateInfoCount = 1;
+
+	VkPhysicalDeviceFeatures deviceFeatures = CreatePhysicalDeviceFeatures(physicalDevice);
+	deviceCreateInfo.pEnabledFeatures = &deviceFeatures;
+
+	deviceCreateInfo.enabledExtensionCount = 0;
+
+	if (enableValidationLayers) {
+		deviceCreateInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
+		deviceCreateInfo.ppEnabledLayerNames = validationLayers.data();
+	}
+	else {
+		deviceCreateInfo.enabledLayerCount = 0;
+	}
+
+	if (vkCreateDevice(physicalDevice, &deviceCreateInfo, nullptr, &vkDevice) != VK_SUCCESS) {
+		throw std::runtime_error("Failed to create device!");
+		return false;
+	}
+
+	QueueFamilyIndices indices = FindQueueFamilies(physicalDevice);
+
+	vkGetDeviceQueue(vkDevice, indices.graphicsFamily, 0, &graphicsQueue);
+
+
+	return true;
+	
+}
+
+VkDeviceQueueCreateInfo Window::CreateDeviceQueueCreateInfo(VkPhysicalDevice physicalDevice_) {
+	VkDeviceQueueCreateInfo queueCreateInfo = {};
+
+	Window::QueueFamilyIndices indices = FindQueueFamilies(physicalDevice_);
+
+	queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
+	queueCreateInfo.queueFamilyIndex = indices.graphicsFamily;
+	queueCreateInfo.queueCount = 1;
+	float queuePriority = 1.0f;
+	queueCreateInfo.pQueuePriorities = &queuePriority;
+	
+	return queueCreateInfo;
+}
+
+VkPhysicalDeviceFeatures Window::CreatePhysicalDeviceFeatures(VkPhysicalDevice physicalDevice_) {
+	VkPhysicalDeviceFeatures deviceFeatures = {};
+	// Future development will cover this
+	return deviceFeatures;
 }
 
 void Window::CreateDebugMessengerInfo() {

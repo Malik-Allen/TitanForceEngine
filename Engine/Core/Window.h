@@ -59,7 +59,7 @@ private:
 	std::vector<VkExtensionProperties> GetSupportedExtenions();
 	void PrintSupportedSDLExtensions();
 	
-
+	VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
 	uint32_t GetPhysicalDeviceCount();
 	std::vector<VkPhysicalDevice> GetPhysicalDevices(uint32_t deviceCount);
 	bool IsDeviceSuitable(VkPhysicalDevice deviceCandidate);	// NOTE: This area of the code has room for a whole system for determining the best candidate device(GPU) 
@@ -67,7 +67,31 @@ private:
 
 	bool OnSelectAPhysicalDevice();								// **IMPORTANT: We are currently taking the first Physical Device (GPU) we find.
 	
+	struct QueueFamilyIndices {
+		uint32_t graphicsFamily;
 
+		// IMPORTANT**: NOTE INSIDE FUCNTION
+		bool IsComplete() {
+			// IMPORTANT**: As of right now, I have not found a way to check whether or not 'graphicsFamily' has a value without using c++17
+				return true;
+			
+		}
+	};
+
+	QueueFamilyIndices FindQueueFamilies(VkPhysicalDevice physicalDevice);
+
+	Window::QueueFamilyIndices FindGraphicsQueueFamily(VkPhysicalDevice physicalDevice);
+	uint32_t GetQueueFamilyCount(VkPhysicalDevice physicalDevice);
+	std::vector<VkQueueFamilyProperties> GetQueueFamilyProperties(VkPhysicalDevice physicalDevice);
+
+
+	VkDevice vkDevice;
+	bool OnCreateLogicalDeivce();
+	bool CreateDeviceCreateInfo();
+	VkDeviceQueueCreateInfo CreateDeviceQueueCreateInfo(VkPhysicalDevice physicalDevice);
+	VkPhysicalDeviceFeatures CreatePhysicalDeviceFeatures(VkPhysicalDevice physicalDevice);
+
+	VkQueue graphicsQueue;
 
 	VkDebugUtilsMessengerEXT debugMessenger;
 	VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo;
