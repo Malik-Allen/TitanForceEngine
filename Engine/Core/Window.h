@@ -7,6 +7,7 @@
 #include <SDL_vulkan.h>
 #include <vulkan.h>
 #include <iostream>
+#include <optional>
 
 #ifdef NDEBUG
 const bool enableValidationLayers = false;
@@ -68,12 +69,17 @@ private:
 	bool OnSelectAPhysicalDevice();								// **IMPORTANT: We are currently taking the first Physical Device (GPU) we find.
 	
 	struct QueueFamilyIndices {
-		uint32_t graphicsFamily;
+		std::optional<uint32_t> graphicsFamily;
 
-		// IMPORTANT**: NOTE INSIDE FUCNTION
+		// IMPORTANT**: Updated to the C++17 compiler, just worried the implementation is working but not in the way i expected it
 		bool IsComplete() {
-			// IMPORTANT**: As of right now, I have not found a way to check whether or not 'graphicsFamily' has a value without using c++17
-				return true;
+				if (graphicsFamily.has_value()) {
+					return true;
+				}
+				else {
+					throw std::runtime_error("No graphics family found!");
+					return false;
+				}
 			
 		}
 	};

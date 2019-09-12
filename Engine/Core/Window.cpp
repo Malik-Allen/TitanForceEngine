@@ -321,7 +321,7 @@ bool Window::CreateDeviceCreateInfo() {
 
 	QueueFamilyIndices indices = FindQueueFamilies(physicalDevice);
 
-	vkGetDeviceQueue(vkDevice, indices.graphicsFamily, 0, &graphicsQueue);
+	vkGetDeviceQueue(vkDevice, indices.graphicsFamily.value(), 0, &graphicsQueue);
 
 
 	return true;
@@ -334,7 +334,7 @@ VkDeviceQueueCreateInfo Window::CreateDeviceQueueCreateInfo(VkPhysicalDevice phy
 	Window::QueueFamilyIndices indices = FindQueueFamilies(physicalDevice_);
 
 	queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
-	queueCreateInfo.queueFamilyIndex = indices.graphicsFamily;
+	queueCreateInfo.queueFamilyIndex = indices.graphicsFamily.value();
 	queueCreateInfo.queueCount = 1;
 	float queuePriority = 1.0f;
 	queueCreateInfo.pQueuePriorities = &queuePriority;
