@@ -1,7 +1,7 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-#include <SDL.h>
+#include <Windows.h>
 
 class Timer {
 
@@ -17,17 +17,23 @@ public:
 	~Timer();
 
 	void Start();
+
 	void UpdateFrameTicks();
-	float GetDeltaTime() const;
-	float GetCurrentTime() const;
+	float GetDeltaTime() const;	// When retreiving delta time we convert 'tick-count' to microseconds before dividing by 'ticks-per-second' to avoid a loss in percision.
 	unsigned int GetSleepTime(const unsigned int fps_);
-	
+
+	void SetFPS(const unsigned int fps_);
+	unsigned int GetFPS() const { return fps; }
 
 private:
 
-	unsigned int prevTicks;
-	unsigned int currentTicks;
+	unsigned int fps;
 
+	LARGE_INTEGER frequency;	// 'Ticks-per-second' 
+	LARGE_INTEGER prevTicks, currentTicks;
+
+	//**IMPORTANT: LARGE_INTEGER is a union that has member value called 'QuadPart' which stores a 64bit signed int
+		// 'QuadPart' should be used for a compiler with support for 64-bit integers, where as 'HighPart' and 'LowPart' should be used otherwise.
 
 };
 

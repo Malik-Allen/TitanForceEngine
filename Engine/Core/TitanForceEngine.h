@@ -3,6 +3,7 @@
 
 #include "Window.h"
 #include "Timer.h"
+#include "Debug.h"
 
 class TitanForceEngine {
 
@@ -12,10 +13,7 @@ public:
 	TitanForceEngine(const TitanForceEngine&) = delete;
 	TitanForceEngine& operator=(const TitanForceEngine&) = delete;
 	TitanForceEngine(TitanForceEngine&&) = delete;
-	TitanForceEngine& operator = (TitanForceEngine&&) = delete;
-
-	TitanForceEngine();
-	~TitanForceEngine();
+	TitanForceEngine& operator = (TitanForceEngine&&) = delete;	
 	
 	bool InitEngine(std::string name, const int initWindowWidth, const int initWindowHeight);
 	void Run();
@@ -27,6 +25,9 @@ public:
 	static TitanForceEngine* GetInstance();
 
 private:
+
+	TitanForceEngine();
+	~TitanForceEngine();
 	
 	static std::unique_ptr<TitanForceEngine> engineInstance;
 	friend std::default_delete<TitanForceEngine>;

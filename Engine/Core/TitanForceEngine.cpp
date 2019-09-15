@@ -14,7 +14,8 @@ TitanForceEngine::~TitanForceEngine(){}
 
 bool TitanForceEngine::InitEngine(std::string name, const int initWindowWidth, const int initWindowHeight) {
 	
-	engineInstance.reset(new TitanForceEngine);
+	Debug::DebugInit();
+	Debug::SetSeverity(MessageType::TYPE_INFO);
 
 	window = new Window();
 	if (!window->OnCreate(name, initWindowWidth, initWindowHeight)) {
@@ -28,6 +29,8 @@ bool TitanForceEngine::InitEngine(std::string name, const int initWindowWidth, c
 		return false;
 	}
 
+	Debug::Info("Everythging is fine!", __FILE__, __LINE__);
+
 	return isRunning = true;
 }
 
@@ -35,12 +38,15 @@ void TitanForceEngine::Run() {
 	timer->Start();
 
 	isRunning = true;
+	float currentTime = 0.0f;
 	while (isRunning) {
 		timer->UpdateFrameTicks();
 		Update(timer->GetDeltaTime());
 		Render();
 		HandleEvents();
-		SDL_Delay(timer->GetSleepTime(fps));
+		currentTime += timer->GetDeltaTime();
+		//printf("Current Time: %f\n", currentTime);
+		Sleep(timer->GetSleepTime(timer->GetFPS()));
 	}
 
 }
@@ -92,6 +98,7 @@ void TitanForceEngine::HandleEvents() {
 		switch (sdlEvent.type) {
 		case SDL_EventType::SDL_QUIT:
 			isRunning = false;
+			break;
 		}
 	}
 
