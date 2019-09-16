@@ -2,8 +2,9 @@
 #define TITANFORCEENGINE_H
 
 #include "Window.h"
-#include "Timer.h"
-#include "Debug.h"
+#include "EngineTimer.h"
+#include "..\DebuggingAndProfiling\Debug.h"
+#include "..\DebuggingAndProfiling\Profiler.h"
 
 class TitanForceEngine {
 
@@ -24,6 +25,8 @@ public:
 
 	static TitanForceEngine* GetInstance();
 
+	void SetFPS(const unsigned int fps_);
+
 private:
 
 	TitanForceEngine();
@@ -31,7 +34,6 @@ private:
 	
 	static std::unique_ptr<TitanForceEngine> engineInstance;
 	friend std::default_delete<TitanForceEngine>;
-	
 	
 	void OnDestroy();
 
@@ -41,7 +43,8 @@ private:
 	void HandleEvents();
 
 	Window* window;
-	Timer* timer;
+	EngineTimer* engineTimer;
+	Profiler* engineProfiler;
 
 	bool isRunning;
 	bool isGameRunning;

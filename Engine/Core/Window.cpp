@@ -391,8 +391,6 @@ Window::QueueFamilyIndices Window::FindGraphicsQueueFamily(VkPhysicalDevice phys
 		i++;
 	}
 
-	
-
 	return indices;
 }
 
