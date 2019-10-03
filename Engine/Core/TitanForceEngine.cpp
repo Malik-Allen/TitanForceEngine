@@ -1,6 +1,7 @@
 #include "TitanForceEngine.h"
 
 std::unique_ptr<TitanForceEngine> TitanForceEngine::engineInstance(nullptr);
+void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 TitanForceEngine::TitanForceEngine():
 	window(nullptr),
@@ -8,7 +9,7 @@ TitanForceEngine::TitanForceEngine():
 	engineProfiler(nullptr),
 	isRunning(false),
 	isGameRunning(false),
-	fps(60)
+	fps(120)
 	{}
 
 TitanForceEngine::~TitanForceEngine(){}
@@ -36,6 +37,10 @@ bool TitanForceEngine::InitEngine(std::string name, const int initWindowWidth, c
 		return false;
 	}
 
+	
+	glfwSetKeyCallback(window->GetWindow(), KeyCallback);
+	glfwSetInputMode(window->GetWindow(), GLFW_STICKY_KEYS, 1);
+
 	Debug::Info("Everythging is fine!", __FILE__, __LINE__);
 
 	TitanForceEngine::SetFPS(fps);
@@ -45,13 +50,20 @@ bool TitanForceEngine::InitEngine(std::string name, const int initWindowWidth, c
 
 void TitanForceEngine::Run() {
 	isRunning = true;
-	while (isRunning) {
+
+	// BEGIN_PROFILE("Hello");
+
+	while(isRunning) {
 		engineTimer->UpdateFrameTicks();
 		Update(engineTimer->GetDeltaTime());
 		Render();
-		HandleEvents();
 		Sleep(engineTimer->GetSleepTime(engineTimer->GetFPS()));
+		
 	}
+
+	vkDeviceWaitIdle(window->GetDevice());
+
+	// END_PROFILE("GoodBye");
 }
 
 bool TitanForceEngine::IsRunning() const { return isRunning; }
@@ -99,17 +111,70 @@ void TitanForceEngine::OnDestroy() {
 
 void TitanForceEngine::Update(const float deltaTime){}
 
-void TitanForceEngine::Render(){}
+void TitanForceEngine::Render(){
+	
+	window->Render();
+
+}
 
 void TitanForceEngine::HandleEvents() {
-	SDL_Event sdlEvent;
+	
+	while (!glfwWindowShouldClose(window->GetWindow())) {
+		glfwPollEvents();
+	}
+	/*GLFWkeyfun keyCallback();
+	glfwSetKeyCallback(window->GetWindow, keyCallback());
 
+	while (!glfwWindowShouldClose(window->GetWindow())) {
+		glfwPollEvents();
+	}*/
+
+	/*SDL_Event sdlEvent;
+	
 	while (SDL_PollEvent(&sdlEvent)) {
 		switch (sdlEvent.type) {
 		case SDL_EventType::SDL_QUIT:
 			isRunning = false;
 			break;
+	
 		}
 	}
+*/
 
+}
+
+void KeyCallback(GLFWwindow *window, int key, int code, int action, int mods) {
+	std::cout << key << std::endl;
+
+	if (key == GLFW_KEY_K) {
+
+		switch (action) {
+			case GLFW_PRESS:
+				std::cout << "Key has been pressed!" << std::endl;
+				break;
+
+			case GLFW_REPEAT:
+				std::cout << "Key is being held down!" << std::endl;
+				break;
+
+			case GLFW_RELEASE:
+				std::cout << "Key has been released!" << std::endl;
+				break;
+
+			default:
+				break;
+		}
+		
+	}
+	else if (key == GLFW_KEY_ESCAPE) {
+		switch (action) {
+		case GLFW_PRESS:
+			TitanForceEngine::GetInstance()->Stop();
+			std::cout << "Closing window..." << std::endl;
+			break;
+
+		default:
+			break;
+		}
+	}
 }

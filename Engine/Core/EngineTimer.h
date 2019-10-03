@@ -7,6 +7,7 @@ class EngineTimer : public Timer {
 	
 
 public:
+	// The engine timer will not use the move and copy operators, so we will delete them
 	EngineTimer(const EngineTimer&) = delete;
 	EngineTimer& operator=(const EngineTimer&) = delete;
 	EngineTimer(EngineTimer&&) = delete;

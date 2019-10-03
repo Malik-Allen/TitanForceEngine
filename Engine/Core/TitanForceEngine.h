@@ -1,10 +1,11 @@
 #ifndef TITANFORCEENGINE_H
 #define TITANFORCEENGINE_H
 
-#include "Window.h"
+
 #include "EngineTimer.h"
-#include "..\DebuggingAndProfiling\Debug.h"
-#include "..\DebuggingAndProfiling\Profiler.h"
+#include "Window.h"	// GLFW does re-defines a macro called APREIENTY so keep below engine timer--> b/c it has include windows.h and that redefines APREIENTY
+#include "..\Debug\Debug.h"
+#include "..\Debug\Profiler.h"
 
 class TitanForceEngine {
 
@@ -23,6 +24,7 @@ public:
 	void Stop();
 	void StopGame();
 
+	// Gets the instance of the titan force engine
 	static TitanForceEngine* GetInstance();
 
 	void SetFPS(const unsigned int fps_);
@@ -32,6 +34,8 @@ private:
 	TitanForceEngine();
 	~TitanForceEngine();
 	
+	// Using the singleton design pattern, I am preventing multiple instance of the engine running within the same program.
+	// I only want one instanc of my engine around
 	static std::unique_ptr<TitanForceEngine> engineInstance;
 	friend std::default_delete<TitanForceEngine>;
 	
@@ -50,6 +54,8 @@ private:
 	bool isGameRunning;
 
 	unsigned int fps;
+
+	
 };
 
 #endif
