@@ -14,11 +14,11 @@ enum class MessageType : unsigned short {
 	TYPE_INFO
 };
 
+// Static Debug Log Class
 class Debug {
 
 public:
-	// Debug class will not be instatiated or copy so the copy, remove and init constructors are deleted
-	Debug() = delete;
+	Debug() = delete;	// Static class, no constructor needed
 	Debug(const Debug&) = delete;
 	Debug& operator=(const Debug&) = delete;
 	Debug(Debug&&) = delete;
@@ -28,16 +28,15 @@ public:
 	static void DebugInit();
 	static void SetSeverity(MessageType type);
 
-	// NOTE: Aditional functions will be needed for additional debug types
+	// NOTE: Aditional functions will be needed for additional debug message type
 	static void FatalError(const std::string& message_, const std::string& fileName_, const int line_);
 	static void Error(const std::string& message_, const std::string& fileName_, const int line_);
 	static void Warning(const std::string& message_, const std::string& fileName_, const int line_);
 	static void Trace(const std::string& message_, const std::string& fileName_, const int line_);
 	static void Info(const std::string& message_, const std::string& fileName_, const int line_);
 
-
-
 private:
+
 	static void Log(const MessageType type_, const std::string& message_, const std::string& fileName_, const int line_);
 	static MessageType currentSeverity;
 	static std::string& fileName;

@@ -8,16 +8,11 @@
 class Window {
 
 public:
-	// The Window class will not be using the copy and move operations
-	Window(const Window&) = delete;
-	Window& operator=(const Window&) = delete;
-	Window(Window&&) = delete;
-	Window& operator= (Window&&) = delete;
 
 	Window();
 	~Window();
 
-	bool OnCreate(std::string name, const int width, const int height);	// Starting point!
+	bool OnCreate(std::string name, const int width, const int height);	
 	void OnDestroy();
 
 	GLFWwindow* GetWindow() const;
@@ -25,7 +20,8 @@ public:
 	int GetHeight() const;
 
 	void Render();
-	VkDevice GetDevice() { return vulkanInstance->GetDevice(); }
+
+	VkDevice GetVkDevice() { return vulkanInstance->GetDevice(); }
 	
 
 private:
@@ -35,8 +31,10 @@ private:
 	int width;
 	int height;
 
-	// The window will exist seperate/abstracted from the Vulkan Instance and any other Graphics API only exchanging necessary data
 	VulkanInstance* vulkanInstance;
+
+	void SetPre_Attributes();
+	void SetPost_Attributes();
 	
 };
 

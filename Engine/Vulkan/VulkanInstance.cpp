@@ -5,7 +5,7 @@
 #include <cstring>
 #include <fstream>
 
-VulkanInstance::VulkanInstance(): instance(nullptr){}
+VulkanInstance::VulkanInstance(): instance(nullptr) {}
 
 VulkanInstance::~VulkanInstance() {}
 
@@ -14,44 +14,67 @@ bool VulkanInstance::OnCreate(int width, int height, GLFWwindow* window) {
 	// The order of things is important, as some memeber variables are dependent on others
 	// Moreover the graphics pipeline has its own sequence of operations order of operations
 
-	if (!OnCreateVulkanInstance())				// VkInstance object must be initialized before using the Vulkan API
+	if (!OnCreateVulkanInstance()) {	// VkInstance object must be initialized before using the Vulkan API
+		Debug::FatalError("Failed to created Vulkan Application & Instance Information", __FILE__, __LINE__);
 		return false;
-
+	}
 
 	CreateDebugMessenger();
 
-	if (!OnCreateSurface(window))				
+	if (!OnCreateSurface(window)) {
+		Debug::FatalError("Failed to create Vulkan Surface with GLFW", __FILE__, __LINE__);
 		return false;
+	}
 
-	if (!OnSelectPhysicalDevice())
+	if (!OnSelectPhysicalDevice()) {
+		Debug::FatalError("Failed to select a physical device", __FILE__, __LINE__);
 		return false;
+	}
 
-	if (!OnCreateLogicalDevice())
+	if (!OnCreateLogicalDevice()) {
+		Debug::FatalError("Failed to create logical device", __FILE__, __LINE__);
 		return false;
+	}
 
-	if (!OnCreateSwapChain(width, height))
+	if (!OnCreateSwapChain(width, height)) {
+		Debug::FatalError("Failed to create Vulkan Swapchain", __FILE__, __LINE__);
 		return false;
+	}
 
-	if (!OnCreateImageViews())
+	if (!OnCreateImageViews()) {
+		Debug::FatalError("Failed to create Vulkan Image Views", __FILE__, __LINE__);
 		return false;
+	}
 
-	if (!OnCreateRenderPassAndInfo())
+	if (!OnCreateRenderPassAndInfo()) {
+		Debug::FatalError("Failed to create Vulkan Renderpass", __FILE__, __LINE__);
 		return false;
+	}
 
-	if (!OnCreateGraphicsPipeline())
+	if (!OnCreateGraphicsPipeline()) {
+		Debug::FatalError("Failed to create Vulkan Graphics Pipeline", __FILE__, __LINE__);
 		return false;
+	}
+	
+	if (!OnCreateFramebuffers()) {
+		Debug::FatalError("Failed to create Vulkan Frame Buffers", __FILE__, __LINE__);
+		return false;
+	}
 
-	if (!OnCreateFramebuffers())
+	if (!OnCreateCommandPool()) {
+		Debug::FatalError("Failed to create Vulkan Command Pool", __FILE__, __LINE__);
 		return false;
+	}
 
-	if (!OnCreateCommandPool())
+	if (!OnCreateCommandBuffers()) {
+		Debug::FatalError("Failed to create Vulkan Command Buffer", __FILE__, __LINE__);
 		return false;
+	}
 
-	if (!OnCreateCommandBuffers())
+	if (!OnCreateSemaphores()) {
+		Debug::FatalError("Failed to create Vulkan Semaphores", __FILE__, __LINE__);
 		return false;
-
-	if (!OnCreateSemaphores())
-		return false;
+	}
 
 	return true;
 }
@@ -85,7 +108,7 @@ void VulkanInstance::OnDestroy() {
 bool VulkanInstance::OnCreateVulkanInstance() {
 	
 	if (enableValidationLayers && !HasValidationLayerSupport()) {
-		throw std::runtime_error("Validation layers requested, but not available");
+		return false;
 	}
 
 	CreateApplicationInfo("TF Engine Prototype", "Titan Force Engine");
@@ -190,6 +213,7 @@ void VulkanInstance::CreateDebugMessenger() {
 	CreateDebugMessengerInfo();
 
 	if (OnCreateDebugUtilsMessengerEXT(instance, &debugMessengerInfo, nullptr, &debugMessenger) != VK_SUCCESS) {
+		Debug::Warning("Vulkan Debugger Ext not initialized!", __FILE__, __LINE__);
 		throw std::runtime_error("Failed to set up debug messenger ext");
 	}
 }
@@ -242,7 +266,6 @@ bool VulkanInstance::OnSelectPhysicalDevice() {
 			physicalDevice = pDevice;
 			break;
 		}
-
 	}
 
 	if (physicalDevice == VK_NULL_HANDLE) {
@@ -406,7 +429,6 @@ void VulkanInstance::CreateDeviceAndInfo() {
 
 	vkGetDeviceQueue(device, indices.graphicsFamily.value(), 0, &graphicsQueue);
 	vkGetDeviceQueue(device, indices.presentFamily.value(), 0, &presentationQueue);
-
 }
 
 void VulkanInstance::CreateDeviceQueueInfo() {
@@ -426,14 +448,10 @@ void VulkanInstance::CreatePhysicalDeviceFeatures() {
 }
 
 bool VulkanInstance::OnCreateSurface(GLFWwindow* window) {
-
-	if(glfwCreateWindowSurface(instance, window, nullptr, &surface) != VK_SUCCESS) {
-		throw std::runtime_error("Failed to create vulkan surface!");
+	if (glfwCreateWindowSurface(instance, window, nullptr, &surface) != VK_SUCCESS)
 		return false;
-	}
-	else {
+	else
 		return true;
-	}
 }
 
 bool VulkanInstance::OnCreateSwapChain(int width, int height) {
@@ -576,7 +594,6 @@ bool VulkanInstance::OnCreateImageViews() {
 
 		if (vkCreateImageView(device, &imageViewInfo, nullptr, &swapChainImageViews[i]) != VK_SUCCESS) {
 			throw std::runtime_error("Failed to create image views!");
-			return false;
 		}
 	}
 
@@ -605,8 +622,8 @@ void VulkanInstance::CreateImageView(size_t imageNum) {
 
 bool VulkanInstance::OnCreateGraphicsPipeline() {
 
-	std::vector<char> vertexShaderCode = ReadFile("C:/Users/Malik/source/repos/TitanForceEngine/TitanForceEngine/Engine/RunTime/Shaders/vert.spv");
-	std::vector<char> fragShaderCode = ReadFile("C:/Users/Malik/source/repos/TitanForceEngine/TitanForceEngine/Engine/RunTime/Shaders/frag.spv");
+	std::vector<char> vertexShaderCode = ReadFile("C:/TitanForceEngineLibrary/TitanForceEngine/TitanForceEngine/Engine/RunTime/Shaders/vert.spv");
+	std::vector<char> fragShaderCode = ReadFile("C:/TitanForceEngineLibrary/TitanForceEngine/TitanForceEngine/Engine/RunTime/Shaders/frag.spv");
 	
 	vertexShaderModule = CreateShaderModuleAndInfo(vertexShaderCode);
 	fragShaderModule = CreateShaderModuleAndInfo(fragShaderCode);
@@ -909,9 +926,7 @@ bool VulkanInstance::OnCreateFramebuffers() {
 
 		if (vkCreateFramebuffer(device, &framebufferInfo, nullptr, &swapChainFramebuffers[i]) != VK_SUCCESS) {
 			throw std::runtime_error("Failed to create framebuffer for swapchain image views");
-			return false;
 		}
-
 	}
 
 	return true;
@@ -927,9 +942,7 @@ bool VulkanInstance::OnCreateCommandPool() {
 
 	if (vkCreateCommandPool(device, &commandPoolInfo, nullptr, &commandPool) != VK_SUCCESS) {
 		throw std::runtime_error("Failed to create command pool!");
-		return false;
 	}
-
 
 	return true;
 }
@@ -946,7 +959,6 @@ bool VulkanInstance::OnCreateCommandBuffers() {
 
 	if (vkAllocateCommandBuffers(device, &bufferAllocInfo, commandBuffers.data()) != VK_SUCCESS) {
 		throw std::runtime_error("Failed to allocate command buffer memory!");
-		return false;
 	}
 
 	InitCommandBufferAndRenderPass();
@@ -986,20 +998,16 @@ void VulkanInstance::InitCommandBufferAndRenderPass() {
 		if (vkEndCommandBuffer(commandBuffers[i]) != VK_SUCCESS) {
 			throw std::runtime_error("Failed to record command buffer!");
 		}
-
 	}
-
 }
 
 bool VulkanInstance::OnCreateSemaphores() {
-
 	VkSemaphoreCreateInfo semaphoreInfo = {};
 	semaphoreInfo.sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO;
 
 	if (vkCreateSemaphore(device, &semaphoreInfo, nullptr, &imageAvailableSemaphore) != VK_SUCCESS || 
 		vkCreateSemaphore(device, &semaphoreInfo, nullptr, &renderFinishedSemaphore) != VK_SUCCESS) {
 		throw std::runtime_error("Failed to create semaphores!");
-		return false;
 	}
 
 	return true;
@@ -1031,7 +1039,6 @@ void VulkanInstance::RenderFrame() {
 		throw std::runtime_error("Failed to create draw command buffer!");
 	}
 
-
 	VkPresentInfoKHR presentInfo = {};
 	presentInfo.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
 	presentInfo.waitSemaphoreCount = 1;
@@ -1044,6 +1051,5 @@ void VulkanInstance::RenderFrame() {
 
 	presentInfo.pResults = nullptr;	//Optional
 	
-
 	vkQueuePresentKHR(presentationQueue, &presentInfo);
 }

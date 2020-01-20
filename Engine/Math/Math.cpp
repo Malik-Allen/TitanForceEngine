@@ -764,6 +764,8 @@ Quaternion Quaternion::normalized() {
 	y /= mag;
 	z /= mag;
 	w /= mag;
+
+	return *this;
 }
 
 /// Calculates the normalized conjugate of a Quaternion

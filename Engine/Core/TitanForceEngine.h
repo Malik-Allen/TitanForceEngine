@@ -4,9 +4,14 @@
 
 #include "EngineTimer.h"
 #include "Window.h"	// GLFW does re-defines a macro called APREIENTY so keep below engine timer--> b/c it has include windows.h and that redefines APREIENTY
-#include "..\Debug\Debug.h"
-#include "..\Debug\Profiler.h"
+#include "../Debug/Profiler.h"
+#include "..//Game/GameInterface.h"
+#include "..//Game/SceneInterface.h"
 
+// To be used to control whether or not the game will run on start of engine or later in the process
+#define RUN_GAME_ON_START 1	
+
+// Singleton Engine Class
 class TitanForceEngine {
 
 public:
@@ -21,41 +26,48 @@ public:
 	void Run();
 	bool IsRunning() const;
 	bool IsGameRunning() const;
-	void Stop();
-	void StopGame();
+	void Exit();
+	void ExitGame();
 
 	// Gets the instance of the titan force engine
 	static TitanForceEngine* GetInstance();
 
 	void SetFPS(const unsigned int fps_);
+	void SetGameInterface(GameInterface*);
+
+	int GetCurrentSceneNum() const;
+	void SetCurrentSceneNum(int sceneNum);
 
 private:
 
 	TitanForceEngine();
 	~TitanForceEngine();
 	
-	// Using the singleton design pattern, I am preventing multiple instance of the engine running within the same program.
-	// I only want one instanc of my engine around
 	static std::unique_ptr<TitanForceEngine> engineInstance;
 	friend std::default_delete<TitanForceEngine>;
-	
+
 	void OnDestroy();
 
-	void Update(const float deltaTime);	// NOTE: Should this be overridable? If, so then why? What are the beneifits?
-	void Render();						// NOTE: Consider the ECS model, this may become a job system
+	Window *window;
+	EngineTimer *engineTimer;
+	Profiler *engineProfiler;
 
-	void HandleEvents();
-
-	Window* window;
-	EngineTimer* engineTimer;
-	Profiler* engineProfiler;
+	GameInterface *gameInterface;
 
 	bool isRunning;
 	bool isGameRunning;
 
 	unsigned int fps;
 
-	
+	int currentSceneNum;
+
+	void Update(const float deltaTime);	
+	void Render();
+	void HandleEvents();
+
+	void SetUpInput();
+
+
 };
 
 #endif

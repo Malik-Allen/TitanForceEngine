@@ -8,6 +8,8 @@
 #include <iostream>
 #include <optional>
 
+#include "..//Debug/Debug.h"
+
 #ifdef NDEBUG
 const bool enableValidationLayers = false;
 #else
@@ -37,20 +39,17 @@ struct SwapChainSupportDetails {
 	std::vector<VkPresentModeKHR> presentModes;
 };
 
-
 /*Vulkan Instance will contain all set up data and functionality associated with Vulkan setup*/
 /*In order to abstract the unnecessary data accessbility inside the window class*/
 /*GLFW should have been initialized before using this class*/
 class VulkanInstance {
 
 public:
-	// Vulkan instance will not need the copy and move operators
 	VulkanInstance(const VulkanInstance&) = delete;
 	VulkanInstance& operator=(const VulkanInstance&) = delete;
 	VulkanInstance(VulkanInstance&&) = delete;
 	VulkanInstance& operator=(VulkanInstance&&) = delete;
 
-	
 	VulkanInstance();
 	~VulkanInstance();
 

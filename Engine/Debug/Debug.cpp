@@ -39,7 +39,7 @@
 	 outputFile.open("TitanForceEngineLog.txt", std::ios::app | std::ios::out);
 
 	 if (type_ <= currentSeverity && currentSeverity > MessageType::TYPE_NONE) {
-		 outputFile << message_ << "in: " << fileName_ << " on line: " << line_ << std::endl;
+		 outputFile << message_ << " in: " << fileName_ << " on line: " << line_ << std::endl;
 	 }
 	 outputFile.flush();
 	 outputFile.close();

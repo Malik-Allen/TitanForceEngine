@@ -7,7 +7,6 @@ class EngineTimer : public Timer {
 	
 
 public:
-	// The engine timer will not use the move and copy operators, so we will delete them
 	EngineTimer(const EngineTimer&) = delete;
 	EngineTimer& operator=(const EngineTimer&) = delete;
 	EngineTimer(EngineTimer&&) = delete;
@@ -21,13 +20,13 @@ public:
 
 	void Reset();
 	void UpdateFrameTicks();
-	float GetDeltaTime() const;	// When retreiving delta time we convert 'tick-count' to microseconds before dividing by 'ticks-per-second' to avoid a loss in percision.
-	float GetSleepTime(const unsigned int fps_);
+	float GetDeltaTime() const;	
+	unsigned int GetSleepTime(const unsigned int fps_);
+	float GetCurrentTicks() const;
 
 private:
 
-	float prevTicks, currentTicks;
-	unsigned int fps;
+	unsigned int prevTicks, currentTicks, fps;
 
 
 };
