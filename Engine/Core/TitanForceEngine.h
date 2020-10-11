@@ -3,7 +3,9 @@
 
 
 #include "EngineTimer.h"
-#include "Window.h"	// GLFW does re-defines a macro called APREIENTY so keep below engine timer--> b/c it has include windows.h and that redefines APREIENTY
+#include "../Vulkan/Devices/Window.h"	// GLFW does re-defines a macro called APREIENTY so keep below engine timer--> b/c it has include windows.h and that redefines APREIENTY
+
+
 #include "../Debug/Profiler.h"
 #include "..//Game/GameInterface.h"
 #include "..//Game/SceneInterface.h"
@@ -22,7 +24,7 @@ public:
 	TitanForceEngine(TitanForceEngine&&) = delete;
 	TitanForceEngine& operator = (TitanForceEngine&&) = delete;	
 	
-	bool InitEngine(std::string name, const int initWindowWidth, const int initWindowHeight);
+	bool InitEngine(const std::string& name, const int initWindowWidth, const int initWindowHeight);
 	void Run();
 	bool IsRunning() const;
 	bool IsGameRunning() const;
@@ -48,9 +50,10 @@ private:
 
 	void OnDestroy();
 
-	Window *window;
 	EngineTimer *engineTimer;
 	Profiler *engineProfiler;
+
+	Vulkan::Window* window;
 
 	GameInterface *gameInterface;
 

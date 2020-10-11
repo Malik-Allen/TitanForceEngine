@@ -1,12 +1,16 @@
 #include "TitanForceEngine.h"
 
+#include "../Vulkan/Graphics.h"
+
+#include "../Debug/Debug.h"
+
 std::unique_ptr<TitanForceEngine> TitanForceEngine::engineInstance(nullptr);
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 TitanForceEngine::TitanForceEngine():
-	window(nullptr),
 	engineTimer(nullptr),
 	engineProfiler(nullptr),
+	window(nullptr),
 	gameInterface(nullptr),
 	isRunning(false),
 	isGameRunning(false),
@@ -16,16 +20,18 @@ TitanForceEngine::TitanForceEngine():
 
 TitanForceEngine::~TitanForceEngine() {}
 
-bool TitanForceEngine::InitEngine(std::string name, const int initWindowWidth, const int initWindowHeight) {
+bool TitanForceEngine::InitEngine(const std::string& name, const int initWindowWidth, const int initWindowHeight) {
 	Debug::DebugInit();
 	Debug::SetSeverity(MessageType::TYPE_INFO);
 
-	window = new Window();
+	window = new Vulkan::Window();
 	if (!window->OnCreate(name, initWindowWidth, initWindowHeight)) {
 		Debug::FatalError("Failed to create window!", __FILE__, __LINE__);
 		return false;
 	}
 
+	Vulkan::Graphics::GetInstance()->OnCreate("Prototype", name, 1, true, window, initWindowWidth, initWindowHeight);
+	
 	engineTimer = new EngineTimer();
 	if (engineTimer == nullptr) {
 		Debug::FatalError("Failed to create engine timer!", __FILE__, __LINE__);
@@ -39,7 +45,10 @@ bool TitanForceEngine::InitEngine(std::string name, const int initWindowWidth, c
 		return false;
 	}
 
-	SetUpInput();
+	
+
+
+	// SetUpInput();
 
 	if (gameInterface) {
 		if (!gameInterface->OnCreate()) {
@@ -64,12 +73,10 @@ void TitanForceEngine::Run() {
 
 	while(isRunning) {
 		engineTimer->UpdateFrameTicks();
-		Update(engineTimer->GetDeltaTime());
-		Render();
+		// Update(engineTimer->GetDeltaTime());
+		// Render();
 		Sleep(engineTimer->GetSleepTime(engineTimer->GetFPS()));
 	}
-
-	// vkDeviceWaitIdle(window->GetVkDevice());
 
 	if (!isRunning) {
 		OnDestroy();
@@ -99,6 +106,7 @@ void TitanForceEngine::SetFPS(const unsigned int fps_) { engineTimer->SetFPS(fps
 void TitanForceEngine::SetGameInterface(GameInterface* game) { gameInterface = game; }
 
 void TitanForceEngine::OnDestroy() {
+
 	if (window) {
 		window->OnDestroy();
 		delete window;
@@ -131,17 +139,17 @@ void TitanForceEngine::Update(const float deltaTime)
 }
 
 void TitanForceEngine::Render() {
-	window->Render();
+	// window->Render();
 }
 
 void TitanForceEngine::SetUpInput() {
-	glfwSetKeyCallback(window->GetWindow(), KeyCallback);
-	glfwSetInputMode(window->GetWindow(), GLFW_STICKY_KEYS, 1);
+	// glfwSetKeyCallback(window->GetWindow(), KeyCallback);
+	// glfwSetInputMode(window->GetWindow(), GLFW_STICKY_KEYS, 1);
 }
 
 void TitanForceEngine::HandleEvents() {
-	if (window)
-		glfwPollEvents();
+	/*if (window)
+		glfwPollEvents();*/
 
 }
 
