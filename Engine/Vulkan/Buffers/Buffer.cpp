@@ -39,8 +39,8 @@ namespace Vulkan {
 		vkUnmapMemory(device, stagingBufferMemory);
 
 		// Creating Buffer that be used as a destination in a memory transfer operation
-		CreateBuffer(size, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,
-			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, buffer, bufferMemory);
+		CreateBuffer(size, VK_BUFFER_USAGE_TRANSFER_DST_BIT | usage,
+			properties, buffer, bufferMemory);
 
 		CopyBuffer(stagingBuffer, buffer, size);
 
@@ -152,6 +152,16 @@ namespace Vulkan {
 		vkQueueWaitIdle(graphicsQueue);
 
 		vkFreeCommandBuffers(device, commandPool, 1, &commandBuffer);	// Command buffer clean up
+	}
+
+	void Buffer::UpdateData(uint64_t size, void* data_) {
+		auto device = Vulkan::Graphics::GetInstance()->GetLogicalDevice()->GetVkDevice();
+
+		void* data;
+		vkMapMemory(device, bufferMemory, 0, size, 0, &data);
+		memcpy(data, data_, size);
+		vkUnmapMemory(device, bufferMemory);
+
 	}
 
 }

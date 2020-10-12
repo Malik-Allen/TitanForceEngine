@@ -19,6 +19,7 @@ namespace Vulkan {
 		VkDeviceSize GetSize() const { return size; }
 		const VkDeviceMemory& GetBufferMemory() const { return bufferMemory; }
 
+		void UpdateData(uint64_t size, void* data);
 	private:
 
 		void OnCreate(uint64_t size_, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, void* data = nullptr);

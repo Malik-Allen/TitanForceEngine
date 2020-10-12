@@ -16,6 +16,7 @@
 #include "RenderPass/FrameBuffers.h"
 #include "Commands/CommandPool.h"
 #include "Commands/CommandBuffer.h"
+#include "Buffers/Buffer.h"
 
 const int MAX_FRAMES_IN_FLIGHT = 3;
 
@@ -42,7 +43,10 @@ namespace Vulkan {
 		LogicalDevice* GetLogicalDevice() const { return logicalDevice.get(); }
 		PhysicalDevice* GetPhysicalDevice() const { return physicalDevice.get(); }
 		CommandPool* GetCommandPool() const { return commandPool; }
-
+		GraphicsPipeline* GetGraphicsPipeline() const { return graphicsPipeline; }
+		
+		void BindVertexBuffers(const std::vector<Vulkan::Buffer*>& vertexBuffers);
+		void BindIndexBuffer(Buffer* indexBuffer);
 
 		// void CreateShader()
 

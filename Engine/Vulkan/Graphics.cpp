@@ -233,6 +233,27 @@ namespace Vulkan {
 	}
 
 
+
+	void Graphics::BindVertexBuffers(const std::vector<Vulkan::Buffer*>& vertexBuffers) {
+		
+		for (int i = 0; i < commandBuffers.size(); ++i) {
+
+			commandBuffers[i]->BindVertexBuffers(vertexBuffers);
+
+		}
+
+	}
+
+
+	void Graphics::BindIndexBuffer(Vulkan::Buffer* indexBuffer) {
+		for (int i = 0; i < commandBuffers.size(); ++i) {
+
+			commandBuffers[i]->BindIndexBuffer(indexBuffer);
+
+		}
+	}
+
+
 	void Graphics::CreateVulkanInstance(const std::string& appName, const std::string& engineName, int version, bool enableValidationLayers) {
 		
 		instance.reset(new Vulkan::Instance(appName, engineName, version, enableValidationLayers));

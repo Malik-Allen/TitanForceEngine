@@ -23,18 +23,21 @@ namespace Vulkan {
 
 		const VkCommandBuffer& GetVkCommandBuffer() const { return commandBuffer; }
 
-		void Begin(VkCommandBufferUsageFlags usage);
-		void End();
+		void Begin(VkCommandBufferUsageFlags usage) const;
+		void End() const;
 
-		void BeginRenderPass(const VkRenderPassBeginInfo& renderPassBeginInfo);
+		void BeginRenderPass(const VkRenderPassBeginInfo& renderPassBeginInfo) const;
 
-		void EndRenderPass();
+		void EndRenderPass() const;
 
-		void BindPipeline(const VkPipeline& pipeline);
+		void BindPipeline(const VkPipeline& pipeline) const;
 
-		void BindVertexBuffers(const std::vector<class Buffer*>& vertexBuffers);
+		void BindVertexBuffers(const std::vector<class Buffer*>& vertexBuffers) const;
 
-		void BindIndexBuffer(Buffer* indexBuffer);
+		void BindIndexBuffer(Buffer* indexBuffer) const;
+
+		void Draw(uint32_t vertexCount) const;
+		void DrawIndex(uint32_t indexCount) const;
 
 	private:
 

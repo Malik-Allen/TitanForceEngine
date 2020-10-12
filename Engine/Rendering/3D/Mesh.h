@@ -69,6 +69,14 @@ struct Vertex {
 
 };
 
+struct MVPUniform {
+
+	glm::mat4 model;
+	glm::mat4 view;
+	glm::mat4 proj;
+
+};
+
 struct SubMesh {
 
 	std::vector<Vertex> vertexList;
@@ -89,8 +97,14 @@ public:
 private:
 
 	SubMesh subMesh;
+	MVPUniform mvpUniform;
 
 	void GenerateBuffers();
+
+	Vulkan::Buffer* vertexBuffer;
+	Vulkan::Buffer* indexBuffer;
+	Vulkan::Buffer* mvpUniformBuffer;
+
 
 };
 

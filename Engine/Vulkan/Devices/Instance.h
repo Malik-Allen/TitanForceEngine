@@ -47,6 +47,8 @@ namespace Vulkan {
 
 	private:
 
+		uint32_t GetApiVersion();
+
 		
 		std::vector<const char*> GetRequiredExtensions();	// Returns the extensions required for GLFW
 		bool HasValidationLayerSupport();	// Returns true if this device has validation layer support					

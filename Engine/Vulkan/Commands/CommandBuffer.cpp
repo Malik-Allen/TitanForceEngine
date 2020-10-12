@@ -54,7 +54,7 @@ namespace Vulkan {
 	void CommandBuffer::OnDestroy() {}
 
 
-	void CommandBuffer::Begin(VkCommandBufferUsageFlags usage) {
+	void CommandBuffer::Begin(VkCommandBufferUsageFlags usage) const {
 
 		VkCommandBufferBeginInfo commandBuffBeginInfo = {};
 		commandBuffBeginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
@@ -68,7 +68,7 @@ namespace Vulkan {
 	}
 
 
-	void CommandBuffer::End() {
+	void CommandBuffer::End() const {
 
 		if (vkEndCommandBuffer(commandBuffer) != VK_SUCCESS) {
 			throw std::runtime_error("Failed to record command buffer!");
@@ -76,25 +76,25 @@ namespace Vulkan {
 
 	}
 
-	void CommandBuffer::BeginRenderPass(const VkRenderPassBeginInfo& renderPassBeginInfo) {
+	void CommandBuffer::BeginRenderPass(const VkRenderPassBeginInfo& renderPassBeginInfo) const {
 
 		vkCmdBeginRenderPass(commandBuffer, &renderPassBeginInfo, VK_SUBPASS_CONTENTS_INLINE);
 
 	}
 
-	void CommandBuffer::EndRenderPass() {
+	void CommandBuffer::EndRenderPass() const {
 
 		vkCmdEndRenderPass(commandBuffer);
 
 	}
 
-	void CommandBuffer::BindPipeline(const VkPipeline& pipeline) {
+	void CommandBuffer::BindPipeline(const VkPipeline& pipeline) const {
 
 		vkCmdBindPipeline(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, pipeline);
 
 	}
 
-	void CommandBuffer::BindVertexBuffers(const std::vector<Buffer*>& vertexBuffers) {
+	void CommandBuffer::BindVertexBuffers(const std::vector<Buffer*>& vertexBuffers) const {
 
 		std::vector<VkBuffer> buffers;
 		buffers.resize(vertexBuffers.size());
@@ -108,12 +108,20 @@ namespace Vulkan {
 
 	}
 
-	void CommandBuffer::BindIndexBuffer(Buffer* indexBuffer) {
+	void CommandBuffer::BindIndexBuffer(Buffer* indexBuffer) const {
 
 		vkCmdBindIndexBuffer(commandBuffer, indexBuffer->GetBuffer(), 0, VK_INDEX_TYPE_UINT16);
 
 	}
 
+
+	void CommandBuffer::Draw(uint32_t vertexCount) const {
+		vkCmdDraw(commandBuffer, vertexCount, 1, 0, 0);
+	}
+
+	void CommandBuffer::DrawIndex(uint32_t indexCount) const {
+		vkCmdDrawIndexed(commandBuffer, indexCount, 1, 0, 0, 0);
+	}
 	
 
 }

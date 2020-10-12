@@ -213,6 +213,8 @@ namespace Vulkan{
 
 	}
 
+	// TODO:
+	// Implement this is some waye that it is handled outside of this 
 	void GraphicsPipeline::CreateDescriptorSetLayout() {
 
 		// Every uniform binding needs to be described using the DescriptorSetLayoutBinding Struct

@@ -103,6 +103,15 @@ namespace Vulkan {
 		vkDestroyInstance(instance, nullptr);
 	}
 
+
+	// Queries the version supported by the instance
+	uint32_t Instance::GetApiVersion() {
+		uint32_t version;
+		vkEnumerateInstanceVersion(&version);
+		return version;
+	}
+
+
 	// Returns the extensions required for GLFW
 	std::vector<const char*> Instance::GetRequiredExtensions() {
 		uint32_t extensionCount = 0;
