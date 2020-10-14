@@ -15,10 +15,10 @@ namespace Vulkan {
 		DescriptorSet(DescriptorSet&&) = delete;
 		DescriptorSet& operator = (DescriptorSet&&) = delete;
 
-		DescriptorSet(VkPipelineBindPoint bindPoint);
+		DescriptorSet(VkPipelineBindPoint bindPoint, const VkDescriptorPool& descriptorPool_);
 		~DescriptorSet();
 
-		void OnCreate();
+		void OnCreate(VkPipelineBindPoint bindPoint, const VkDescriptorPool& descriptorPool_);
 		void OnDestroy();
 
 		void BindDescriptor(class CommandBuffer* commandBuffer) const;

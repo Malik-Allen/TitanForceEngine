@@ -1,6 +1,8 @@
 #ifndef UNIFORMBUFFER_H
 #define UNIFORMBUFFER_H
 
+#include <vulkan.h>
+
 #include "Buffer.h"
 
 namespace Vulkan{
@@ -10,12 +12,20 @@ namespace Vulkan{
 
 	public:
 
-		explicit UniformBuffer(uint64_t size, void* data = nullptr);
+		UniformBuffer(uint64_t size, void* data = nullptr);
 
 		~UniformBuffer();
 
-		void OnCreate();
-		void OnDestroy();
+		void UpdateDescriptorSet(VkDescriptorType type, VkPipelineBindPoint pipelineBindPoint);
+
+
+	private:
+
+		VkDescriptorBufferInfo bufferInfo = {};
+		VkWriteDescriptorSet descriptorWrite = {};
+
+		class DescriptorSet* descriptorSet;
+
 
 	};
 

@@ -113,6 +113,14 @@ namespace Vulkan {
 
 	}
 
+	void SwapChain::CleanUpImageViews() {
+
+		for (size_t i = 0; i < swapChainImageViews.size(); i++) {
+			vkDestroyImageView(vkDevice, swapChainImageViews[i], nullptr);
+		}
+
+	}
+
 	// Checking if the passed physical device supports swap chains, returns the devices capapbilities
 	SwapChainSupportDetails SwapChain::QuerySwapChainSupport(VkPhysicalDevice pDevice, VkSurfaceKHR surface) {
 

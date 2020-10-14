@@ -9,7 +9,6 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 
 TitanForceEngine::TitanForceEngine():
 	engineTimer(nullptr),
-	engineProfiler(nullptr),
 	window(nullptr),
 	gameInterface(nullptr),
 	isRunning(false),
@@ -38,17 +37,10 @@ bool TitanForceEngine::InitEngine(const std::string& name, const int initWindowW
 		return false;
 	}
 
-	// Compiler directive to say whether or not initialize engine with profiler attached
-	engineProfiler = new Profiler();
-	if (!engineProfiler->OnCreate()) {
-		Debug::FatalError("Failed to create engine profiler!", __FILE__, __LINE__);
-		return false;
-	}
-
 	
 
 
-	// SetUpInput();
+	SetUpInput();
 
 	if (gameInterface) {
 		if (!gameInterface->OnCreate()) {
@@ -73,7 +65,7 @@ void TitanForceEngine::Run() {
 
 	while(isRunning) {
 		engineTimer->UpdateFrameTicks();
-		// Update(engineTimer->GetDeltaTime());
+		Update(engineTimer->GetDeltaTime());
 		// Render();
 		Sleep(engineTimer->GetSleepTime(engineTimer->GetFPS()));
 	}
@@ -113,14 +105,11 @@ void TitanForceEngine::OnDestroy() {
 		window = nullptr;
 	}
 
+	Vulkan::Graphics::GetInstance()->OnDestroy();
+
 	if (engineTimer) {
 		delete engineTimer;
 		engineTimer = nullptr;
-	}
-
-	if (engineProfiler) {
-		delete engineProfiler;
-		engineProfiler = nullptr;
 	}
 
 	if (engineInstance != nullptr) {
@@ -139,17 +128,20 @@ void TitanForceEngine::Update(const float deltaTime)
 }
 
 void TitanForceEngine::Render() {
-	// window->Render();
+	
+	if (Vulkan::Graphics::GetInstance()->IsRendering())
+		Vulkan::Graphics::GetInstance()->Render();
+
 }
 
 void TitanForceEngine::SetUpInput() {
-	// glfwSetKeyCallback(window->GetWindow(), KeyCallback);
-	// glfwSetInputMode(window->GetWindow(), GLFW_STICKY_KEYS, 1);
+	glfwSetKeyCallback(window->GetWindow(), KeyCallback);
+	glfwSetInputMode(window->GetWindow(), GLFW_STICKY_KEYS, 1);
 }
 
 void TitanForceEngine::HandleEvents() {
-	/*if (window)
-		glfwPollEvents();*/
+	if (window)
+		glfwPollEvents();
 
 }
 

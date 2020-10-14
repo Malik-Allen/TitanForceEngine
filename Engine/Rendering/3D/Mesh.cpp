@@ -1,6 +1,5 @@
 #include "Mesh.h"
 
-#include "../../Vulkan/Buffers/Buffer.h"
 #include "../../Vulkan/Graphics.h"
 
 Mesh::Mesh(SubMesh subMesh_) :

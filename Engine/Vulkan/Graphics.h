@@ -17,6 +17,7 @@
 #include "Commands/CommandPool.h"
 #include "Commands/CommandBuffer.h"
 #include "Buffers/Buffer.h"
+#include "Descriptors/DescriptorPool.h"
 
 const int MAX_FRAMES_IN_FLIGHT = 3;
 
@@ -40,10 +41,13 @@ namespace Vulkan {
 		void Render();
 		void WaitIdle();
 
+		bool IsRendering() const { return isRendering; }
+
 		LogicalDevice* GetLogicalDevice() const { return logicalDevice.get(); }
 		PhysicalDevice* GetPhysicalDevice() const { return physicalDevice.get(); }
 		CommandPool* GetCommandPool() const { return commandPool; }
 		GraphicsPipeline* GetGraphicsPipeline() const { return graphicsPipeline; }
+		DescriptorPool* GetGraphicsDescriptorPool() const { return graphicsDescriptorPool; }
 		
 		void BindVertexBuffers(const std::vector<Vulkan::Buffer*>& vertexBuffers);
 		void BindIndexBuffer(Buffer* indexBuffer);
@@ -97,6 +101,9 @@ namespace Vulkan {
 		size_t currentFrame;
 		bool framebufferResized;
 
+		Vulkan::DescriptorPool* graphicsDescriptorPool;
+
+		bool isRendering;
 		const uint32_t initWidth;
 		const uint32_t initHeight;
 		const std::string name;
@@ -115,6 +122,8 @@ namespace Vulkan {
 		
 		void RecreateSwapChain();
 		void CleanUpSwapChain();
+
+		void CreateDescriptorPool();
 	};
 
 }

@@ -30,6 +30,8 @@ namespace Vulkan {
 		commandPool(nullptr),
 		currentFrame(0),
 		framebufferResized(false),
+		graphicsDescriptorPool(nullptr),
+		isRendering(false),
 		initWidth(1280),
 		initHeight(720),
 		name("")
@@ -67,33 +69,25 @@ namespace Vulkan {
 
 		CreateCommandPool();
 
-		/*
-		CreateVertexBuffer();
-		CreateIndexBuffer();
-		CreateUniformBuffers();
-		CreateDescriptorPool();
-		CreateDescriptorSets();
-		*/
+		CreateDescriptorPool();		
 
 		CreateCommandBuffers();
 
 		CreateSemaphoresAndFences();
+
+		isRendering = true;
 		
 	}
 
 
 	void Graphics::OnDestroy() {
 
+		isRendering = false;
+
 		if (frameBuffers) {
 			frameBuffers->OnDestroy();
 			delete frameBuffers;
 			frameBuffers = nullptr;
-		}
-
-		if (surface) {
-			surface->OnDestroy();
-			delete surface;
-			surface = nullptr;
 		}
 
 		if (commandPool) {
@@ -106,6 +100,12 @@ namespace Vulkan {
 			swapChain->OnDestroy();
 			delete swapChain;
 			swapChain = nullptr;
+		}
+
+		if (surface) {
+			surface->OnDestroy();
+			delete surface;
+			surface = nullptr;
 		}
 
 		for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++) {
@@ -142,6 +142,12 @@ namespace Vulkan {
 			commandBuffer->OnDestroy();
 		}
 
+		if (graphicsDescriptorPool) {
+			graphicsDescriptorPool->OnDestroy();
+			delete graphicsDescriptorPool;
+			graphicsDescriptorPool = nullptr;
+		}
+
 
 		logicalDevice->OnDestroy();
 		instance->OnDestroy();
@@ -174,8 +180,6 @@ namespace Vulkan {
 
 		// Mark this image as now being in use by this frame
 		imagesInFlight[imageIndex] = inFlightFences[currentFrame];
-
-		UpdateUniformBuffer(imageIndex);
 
 		VkSubmitInfo submitInfo = {};
 		submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
@@ -308,8 +312,8 @@ namespace Vulkan {
 		if(renderPass == nullptr)
 			renderPass = new Vulkan::RenderPass(logicalDevice->GetVkDevice(), swapChain->GetImageFormat());
 		else {
-			renderPass->OnDestroy();
-			renderPass = new Vulkan::RenderPass(logicalDevice->GetVkDevice(), swapChain->GetImageFormat());
+			
+			renderPass->OnCreate(logicalDevice->GetVkDevice(), swapChain->GetImageFormat());
 		}
 	
 	}
@@ -319,9 +323,11 @@ namespace Vulkan {
 		// Loop through the Shader Stages to add to the graphics pipeline
 	void Graphics::CreateGraphicsPipeline() {
 	
-		vertexShader = new Vulkan::Shader(logicalDevice->GetVkDevice(), VK_SHADER_STAGE_VERTEX_BIT, "vertex", "C:/TitanForceEngineLibrary/TitanForceEngine/TitanForceEngine/Engine/RunTime/Shaders/vert.spv", "main");
+		if(vertexShader == nullptr)
+			vertexShader = new Vulkan::Shader(logicalDevice->GetVkDevice(), VK_SHADER_STAGE_VERTEX_BIT, "vertex", "C:/TitanForceEngineLibrary/TitanForceEngine/TitanForceEngine/Engine/Shaders/vert.spv", "main");
 
-		fragmentShader = new Vulkan::Shader(logicalDevice->GetVkDevice(), VK_SHADER_STAGE_FRAGMENT_BIT, "fragment", "C:/TitanForceEngineLibrary/TitanForceEngine/TitanForceEngine/Engine/RunTime/Shaders/frag.spv", "main");
+		if(fragmentShader == nullptr)
+			fragmentShader = new Vulkan::Shader(logicalDevice->GetVkDevice(), VK_SHADER_STAGE_FRAGMENT_BIT, "fragment", "C:/TitanForceEngineLibrary/TitanForceEngine/TitanForceEngine/Engine/Shaders/frag.spv", "main");
 
 
 		std::vector<VkPipelineShaderStageCreateInfo> stages;
@@ -346,8 +352,10 @@ namespace Vulkan {
 
 	void Graphics::CreateFrameBuffers() {
 	
-		frameBuffers = new Vulkan::FrameBuffers(logicalDevice->GetVkDevice(), swapChain, renderPass->GetRenderPass());
-	
+		if (frameBuffers == nullptr)
+			frameBuffers = new Vulkan::FrameBuffers(logicalDevice->GetVkDevice(), swapChain, renderPass->GetRenderPass());
+		else
+			frameBuffers->OnCreate(logicalDevice->GetVkDevice(), swapChain, renderPass->GetRenderPass());
 	}
 
 
@@ -364,7 +372,9 @@ namespace Vulkan {
 
 		for (int i = 0; i < commandBuffers.size(); i++) {
 
-			commandBuffers[i] = new Vulkan::CommandBuffer();
+			if(commandBuffers[i] == nullptr)
+				commandBuffers[i] = new Vulkan::CommandBuffer();
+
 			commandBuffers[i]->OnCreate(logicalDevice->GetVkDevice(), commandPool->GetVkCommandPool(), renderPass->GetRenderPass());
 
 			commandBuffers[i]->Begin(VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT);
@@ -450,7 +460,7 @@ namespace Vulkan {
 
 		// CreateUniformBuffers();
 
-		// CreateDescriptorPool();
+		CreateDescriptorPool();
 
 		// CreateDescriptorSets();
 
@@ -462,7 +472,42 @@ namespace Vulkan {
 
 	void Graphics::CleanUpSwapChain() {
 
+		if (frameBuffers) {
+			frameBuffers->OnDestroy();
+		}
 
+		if (swapChain) {
+			swapChain->OnDestroy();
+		}
+
+		if (renderPass) {
+			renderPass->OnDestroy();
+		}
+
+		if (graphicsPipeline) {
+			graphicsPipeline->OnDestroy();
+		}
+
+		for (auto commandBuffer : commandBuffers) {
+			commandBuffer->OnDestroy();
+		}
+
+		// Uniform buffers too
+
+	}
+
+	void Graphics::CreateDescriptorPool() {
+
+		if (graphicsDescriptorPool == nullptr) {
+
+			graphicsDescriptorPool = new Vulkan::DescriptorPool(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1);
+
+		}
+		else {
+
+			graphicsDescriptorPool->OnCreate(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1);
+
+		}
 
 	}
 

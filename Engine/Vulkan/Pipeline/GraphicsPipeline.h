@@ -28,7 +28,7 @@ namespace Vulkan {
 
 		void OnDestroy();
 
-		const VkPipeline GetVkPipeline() const { return pipeline; }
+		const VkPipeline& GetVkPipeline() const { return pipeline; }
 		const VkDescriptorSetLayout& GetDescriptorSetLayout() const { return descriptorSetLayout; }
 
 	private:

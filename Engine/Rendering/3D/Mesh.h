@@ -7,6 +7,8 @@
 
 #include <vulkan.h>
 
+#include "../../Vulkan/Buffers/UniformBuffer.h"
+
 
 struct Vertex {
 

@@ -13,7 +13,10 @@ namespace Vulkan{
 		device(device_),
 		pipelineLayout(VK_NULL_HANDLE),
 		renderPass(renderPass_)
-	{}
+	{
+		OnCreate(device_, renderPass_, shaderStages, vertexBinding, attributeBinding,
+			windowWidth, windowHeight, name);
+	}
 
 	GraphicsPipeline::~GraphicsPipeline() {}
 

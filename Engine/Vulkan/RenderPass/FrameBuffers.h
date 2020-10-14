@@ -19,15 +19,14 @@ namespace Vulkan {
 
 		FrameBuffers(const VkDevice& device_, class SwapChain* swapChain, const VkRenderPass& renderPass);
 		~FrameBuffers();
-
 		
+		void OnCreate(const VkDevice& device, SwapChain* swapChain, const VkRenderPass& renderPass);
 		void OnDestroy();
 
 		const std::vector<VkFramebuffer>& GetVkFrameBuffers() const { return swapChainFramebuffers; }
 
 	private:
 
-		void OnCreate(const VkDevice& device, SwapChain* swapChain, const VkRenderPass& renderPass);
 
 		std::vector<VkFramebuffer> swapChainFramebuffers;
 

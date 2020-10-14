@@ -10,7 +10,7 @@ namespace Vulkan {
 	public:
 
 		Buffer(uint64_t size_, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, void* data = nullptr);
-		~Buffer();
+		virtual ~Buffer();
 
 		
 		void OnDestroy();
@@ -20,7 +20,8 @@ namespace Vulkan {
 		const VkDeviceMemory& GetBufferMemory() const { return bufferMemory; }
 
 		void UpdateData(uint64_t size, void* data);
-	private:
+
+	protected:
 
 		void OnCreate(uint64_t size_, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, void* data = nullptr);
 

@@ -5,8 +5,6 @@
 #include "EngineTimer.h"
 #include "../Vulkan/Devices/Window.h"	// GLFW does re-defines a macro called APREIENTY so keep below engine timer--> b/c it has include windows.h and that redefines APREIENTY
 
-
-#include "../Debug/Profiler.h"
 #include "..//Game/GameInterface.h"
 #include "..//Game/SceneInterface.h"
 
@@ -51,7 +49,6 @@ private:
 	void OnDestroy();
 
 	EngineTimer *engineTimer;
-	Profiler *engineProfiler;
 
 	Vulkan::Window* window;
 

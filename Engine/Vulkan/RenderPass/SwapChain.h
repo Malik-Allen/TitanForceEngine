@@ -34,6 +34,8 @@ namespace Vulkan {
 		void OnCreate(const VkSurfaceKHR& surface, const VkExtent2D& extent2D_, const VkDevice& device, class PhysicalDevice* physicalDevice_);
 		void OnDestroy();
 
+		void CleanUpImageViews();
+
 		// Checking if the passed physical device supports swap chains, returns the devices capapbilities
 		static SwapChainSupportDetails QuerySwapChainSupport(VkPhysicalDevice pDevice, VkSurfaceKHR surface);
 
