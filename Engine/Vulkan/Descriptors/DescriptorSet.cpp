@@ -1,6 +1,6 @@
 #include "DescriptorSet.h"
 
-#include "../Graphics.h"
+#include "../VulkanRenderer.h"
 #include "../Commands/CommandBuffer.h"
 
 namespace Vulkan {
@@ -27,11 +27,11 @@ namespace Vulkan {
 
 		}
 
-		auto device = Vulkan::Graphics::GetInstance()->GetLogicalDevice()->GetVkDevice();
+		auto device = Vulkan::VulkanRenderer::GetInstance()->GetLogicalDevice()->GetVkDevice();
 
 		// Specifying the descriptor pool to allocate from
 
-		std::vector<VkDescriptorSetLayout> layouts(1, Vulkan::Graphics::GetInstance()->GetGraphicsPipeline()->GetDescriptorSetLayout());
+		std::vector<VkDescriptorSetLayout> layouts(1, Vulkan::VulkanRenderer::GetInstance()->GetGraphicsPipeline()->GetDescriptorSetLayout());
 		VkDescriptorSetAllocateInfo allocInfo{};
 		allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
 		allocInfo.descriptorPool = descriptorPool;

@@ -2,7 +2,7 @@
 
 #include <chrono>
 
-#include "../Graphics.h"
+#include "../VulkanRenderer.h"
 
 namespace Vulkan {
 
@@ -19,7 +19,7 @@ namespace Vulkan {
 
 	void Buffer::OnCreate(uint64_t size_, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, void* data) {
 		
-		auto device = Vulkan::Graphics::GetInstance()->GetLogicalDevice()->GetVkDevice();
+		auto device = Vulkan::VulkanRenderer::GetInstance()->GetLogicalDevice()->GetVkDevice();
 
 		size = size_;
 
@@ -53,7 +53,7 @@ namespace Vulkan {
 
 	void Buffer::OnDestroy() {
 	
-		auto device = Vulkan::Graphics::GetInstance()->GetLogicalDevice()->GetVkDevice();
+		auto device = Vulkan::VulkanRenderer::GetInstance()->GetLogicalDevice()->GetVkDevice();
 
 		vkDestroyBuffer(device, buffer, nullptr);
 		vkFreeMemory(device, bufferMemory, nullptr);
@@ -64,7 +64,7 @@ namespace Vulkan {
 	void Buffer::CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties,
 		VkBuffer& buffer, VkDeviceMemory& bufferMemory) {
 
-		auto device = Vulkan::Graphics::GetInstance()->GetLogicalDevice()->GetVkDevice();
+		auto device = Vulkan::VulkanRenderer::GetInstance()->GetLogicalDevice()->GetVkDevice();
 
 		VkBufferCreateInfo bufferInfo = {};
 		bufferInfo.sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
@@ -94,7 +94,7 @@ namespace Vulkan {
 
 	uint32_t Buffer::findMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties) {
 		
-		auto physicalDevice = Vulkan::Graphics::GetInstance()->GetPhysicalDevice()->GetVkPhysicalDevice();
+		auto physicalDevice = Vulkan::VulkanRenderer::GetInstance()->GetPhysicalDevice()->GetVkPhysicalDevice();
 		VkPhysicalDeviceMemoryProperties memProperties;
 		vkGetPhysicalDeviceMemoryProperties(physicalDevice, &memProperties);
 
@@ -111,9 +111,9 @@ namespace Vulkan {
 	// Helper function to copy the contents of one buffer to another
 	void Buffer::CopyBuffer(VkBuffer sourceBuffer, VkBuffer destinationBuffer, VkDeviceSize size) {
 		
-		auto commandPool = Vulkan::Graphics::GetInstance()->GetCommandPool()->GetVkCommandPool();
-		auto device = Vulkan::Graphics::GetInstance()->GetLogicalDevice()->GetVkDevice();
-		auto graphicsQueue = Vulkan::Graphics::GetInstance()->GetLogicalDevice()->GetGraphicsQueue();
+		auto commandPool = Vulkan::VulkanRenderer::GetInstance()->GetCommandPool()->GetVkCommandPool();
+		auto device = Vulkan::VulkanRenderer::GetInstance()->GetLogicalDevice()->GetVkDevice();
+		auto graphicsQueue = Vulkan::VulkanRenderer::GetInstance()->GetLogicalDevice()->GetGraphicsQueue();
 
 		// Memory transfer operations are executed using command buffers, just lke drawing commands
 			// Therefore we first allocate a temporary comand buffer
@@ -155,7 +155,7 @@ namespace Vulkan {
 	}
 
 	void Buffer::UpdateData(uint64_t size, void* data_) {
-		auto device = Vulkan::Graphics::GetInstance()->GetLogicalDevice()->GetVkDevice();
+		auto device = Vulkan::VulkanRenderer::GetInstance()->GetLogicalDevice()->GetVkDevice();
 
 		void* data;
 		vkMapMemory(device, bufferMemory, 0, size, 0, &data);

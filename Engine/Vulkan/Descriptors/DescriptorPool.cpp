@@ -1,6 +1,6 @@
 #include "DescriptorPool.h"
 
-#include "../Graphics.h"
+#include "../VulkanRenderer.h"
 
 namespace Vulkan {
 
@@ -16,7 +16,7 @@ namespace Vulkan {
 
 	void DescriptorPool::OnCreate(VkDescriptorType type, uint32_t descriptorCount) {
 
-		auto device = Vulkan::Graphics::GetInstance()->GetLogicalDevice()->GetVkDevice();
+		auto device = Vulkan::VulkanRenderer::GetInstance()->GetLogicalDevice()->GetVkDevice();
 
 		// First, describe which descriptor types our descriptor sets are going to contain and how many of them
 		VkDescriptorPoolSize poolSize{};
@@ -40,7 +40,7 @@ namespace Vulkan {
 
 	void DescriptorPool::OnDestroy() {
 
-		auto device = Vulkan::Graphics::GetInstance()->GetLogicalDevice()->GetVkDevice();
+		auto device = Vulkan::VulkanRenderer::GetInstance()->GetLogicalDevice()->GetVkDevice();
 
 		vkDestroyDescriptorPool(device, descriptorPool, nullptr);
 

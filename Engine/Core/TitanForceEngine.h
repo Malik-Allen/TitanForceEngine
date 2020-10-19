@@ -3,7 +3,7 @@
 
 
 #include "EngineTimer.h"
-#include "../Vulkan/Devices/Window.h"	// GLFW does re-defines a macro called APREIENTY so keep below engine timer--> b/c it has include windows.h and that redefines APREIENTY
+#include "../Graphics/Window.h"	// GLFW does re-defines a macro called APREIENTY so keep below engine timer--> b/c it has include windows.h and that redefines APREIENTY
 
 #include "..//Game/GameInterface.h"
 #include "..//Game/SceneInterface.h"
@@ -50,7 +50,7 @@ private:
 
 	EngineTimer *engineTimer;
 
-	Vulkan::Window* window;
+	Window* window;
 
 	GameInterface *gameInterface;
 

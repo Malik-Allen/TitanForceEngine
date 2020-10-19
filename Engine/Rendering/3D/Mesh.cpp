@@ -1,6 +1,6 @@
 #include "Mesh.h"
 
-#include "../../Vulkan/Graphics.h"
+#include "../../Vulkan/VulkanRenderer.h"
 
 Mesh::Mesh(SubMesh subMesh_) :
 	subMesh(subMesh_),
@@ -31,8 +31,8 @@ void Mesh::GenerateBuffers() {
 	// Binding vertex and index buffers
 	std::vector<Vulkan::Buffer*> vertexBuffers = { vertexBuffer };
 
-	Vulkan::Graphics::GetInstance()->BindVertexBuffers(vertexBuffers);
-	Vulkan::Graphics::GetInstance()->BindIndexBuffer(indexBuffer);
+	Vulkan::VulkanRenderer::GetInstance()->BindVertexBuffers(vertexBuffers);
+	Vulkan::VulkanRenderer::GetInstance()->BindIndexBuffer(indexBuffer);
 
 
 	// Creating Uniform Buffer

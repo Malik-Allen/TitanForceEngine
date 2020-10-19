@@ -1,6 +1,6 @@
 #include "TitanForceEngine.h"
 
-#include "../Vulkan/Graphics.h"
+#include "../Vulkan/VulkanRenderer.h"
 
 #include "../Debug/Debug.h"
 
@@ -23,13 +23,13 @@ bool TitanForceEngine::InitEngine(const std::string& name, const int initWindowW
 	Debug::DebugInit();
 	Debug::SetSeverity(MessageType::TYPE_INFO);
 
-	window = new Vulkan::Window();
+	window = new Window();
 	if (!window->OnCreate(name, initWindowWidth, initWindowHeight)) {
 		Debug::FatalError("Failed to create window!", __FILE__, __LINE__);
 		return false;
 	}
 
-	Vulkan::Graphics::GetInstance()->OnCreate("Prototype", name, 1, true, window, initWindowWidth, initWindowHeight);
+	Vulkan::VulkanRenderer::GetInstance()->OnCreate("Prototype", name.c_str(), 1, true, window);
 	
 	engineTimer = new EngineTimer();
 	if (engineTimer == nullptr) {
@@ -66,7 +66,7 @@ void TitanForceEngine::Run() {
 	while(isRunning) {
 		engineTimer->UpdateFrameTicks();
 		Update(engineTimer->GetDeltaTime());
-		// Render();
+		Render();
 		Sleep(engineTimer->GetSleepTime(engineTimer->GetFPS()));
 	}
 
@@ -105,7 +105,7 @@ void TitanForceEngine::OnDestroy() {
 		window = nullptr;
 	}
 
-	Vulkan::Graphics::GetInstance()->OnDestroy();
+	Vulkan::VulkanRenderer::GetInstance()->OnDestroy();
 
 	if (engineTimer) {
 		delete engineTimer;
@@ -129,9 +129,10 @@ void TitanForceEngine::Update(const float deltaTime)
 
 void TitanForceEngine::Render() {
 	
-	if (Vulkan::Graphics::GetInstance()->IsRendering())
-		Vulkan::Graphics::GetInstance()->Render();
-
+	if (Vulkan::VulkanRenderer::GetInstance()->IsRendering()) {
+		Vulkan::VulkanRenderer::GetInstance()->Render();
+		Vulkan::VulkanRenderer::GetInstance()->Wait();
+	}
 }
 
 void TitanForceEngine::SetUpInput() {

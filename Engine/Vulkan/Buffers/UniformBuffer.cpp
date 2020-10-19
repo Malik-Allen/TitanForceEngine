@@ -2,7 +2,7 @@
 
 #include "../Descriptors/DescriptorSet.h"
 
-#include "../Graphics.h"
+#include "../VulkanRenderer.h"
 
 
 
@@ -18,7 +18,7 @@ namespace Vulkan {
 
 	void UniformBuffer::UpdateDescriptorSet(VkDescriptorType type, VkPipelineBindPoint pipelineBindPoint) {
 
-		auto descriptorPool = Vulkan::Graphics::GetInstance()->GetGraphicsDescriptorPool()->GetVkDescriptorPool();
+		auto descriptorPool = Vulkan::VulkanRenderer::GetInstance()->GetGraphicsDescriptorPool()->GetVkDescriptorPool();
 
 		if (descriptorSet == nullptr)
 			descriptorSet = new Vulkan::DescriptorSet(VK_PIPELINE_BIND_POINT_GRAPHICS, descriptorPool);
@@ -26,7 +26,7 @@ namespace Vulkan {
 			descriptorSet->OnCreate(VK_PIPELINE_BIND_POINT_GRAPHICS, descriptorPool);
 
 
-		auto device = Vulkan::Graphics::GetInstance()->GetLogicalDevice()->GetVkDevice();
+		auto device = Vulkan::VulkanRenderer::GetInstance()->GetLogicalDevice()->GetVkDevice();
 
 		// Descriptors that refer to buffers, like our uniform buffer descriptor
 		bufferInfo = {};
