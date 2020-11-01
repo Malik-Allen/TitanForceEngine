@@ -2,6 +2,9 @@
 #define GAMEALPHA_H
 
 #include "..//..//Engine/Core/TitanForceEngine.h"
+#include "../../Engine/Core/Camera.h"
+
+#include "../../Engine/Core/Object.h"
 
 class GameAlpha : public GameInterface
 {
@@ -17,6 +20,11 @@ private:
 
 	SceneInterface* sceneInterface;
 	int currentSceneNum;
+
+	Camera* m_camera;
+	DemoObject* test;
+
+	class ObjLoader* objLoader;
 
 	void BuildScene();
 

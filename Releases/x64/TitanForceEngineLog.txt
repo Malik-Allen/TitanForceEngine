@@ -1,3 +1,0 @@
-INFO: Created Game! in: c:\titanforceenginelibrary\titanforceengine\titanforceengine\game\core\gamealpha.cpp on line: 12
-INFO: All Core Engine Systems Have be successfully initialized! in: c:\titanforceenginelibrary\titanforceengine\titanforceengine\engine\core\titanforceengine.cpp on line: 54
-INFO: Engine Stopped Running Successfully in: c:\titanforceenginelibrary\titanforceengine\titanforceengine\engine\core\titanforceengine.cpp on line: 122

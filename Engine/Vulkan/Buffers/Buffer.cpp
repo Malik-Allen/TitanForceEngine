@@ -6,10 +6,7 @@
 
 namespace Vulkan {
 
-	Buffer::Buffer(uint64_t size_, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, void* data) :
-		buffer(VK_NULL_HANDLE),
-		size(size_),
-		bufferMemory(VK_NULL_HANDLE)
+	Buffer::Buffer(uint64_t size_, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, void* data)
 	{
 		OnCreate(size_, usage, properties, data);
 	}

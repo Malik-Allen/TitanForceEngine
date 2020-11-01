@@ -97,11 +97,15 @@ namespace Vulkan {
 	void CommandBuffer::BindVertexBuffers(const std::vector<Buffer*>& vertexBuffers) const {
 
 		std::vector<VkBuffer> buffers;
-		buffers.resize(vertexBuffers.size());
+		// buffers.resize(vertexBuffers.size());
 
-		for (auto buffer : vertexBuffers) {
+		for (Buffer* buffer : vertexBuffers) {
 			buffers.push_back(buffer->GetBuffer());
 		}
+
+
+		VkBuffer pBuffers[] = { buffers[0] };
+		
 
 		VkDeviceSize offsets[] = { 0 };
 		vkCmdBindVertexBuffers(commandBuffer, 0, 1, buffers.data(), offsets);

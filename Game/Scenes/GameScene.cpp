@@ -1,5 +1,7 @@
 #include "GameScene.h"
 
+#include "../../Engine/Debug/Debug.h"
+
 GameScene::GameScene() {}
 
 GameScene::~GameScene() {}

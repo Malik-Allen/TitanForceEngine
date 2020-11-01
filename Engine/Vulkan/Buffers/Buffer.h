@@ -21,9 +21,9 @@ namespace Vulkan {
 
 		void UpdateData(uint64_t size, void* data);
 
+		void OnCreate(uint64_t size_, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, void* data = nullptr);
 	protected:
 
-		void OnCreate(uint64_t size_, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, void* data = nullptr);
 
 		VkBuffer buffer;
 		VkDeviceSize size;

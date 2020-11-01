@@ -5,11 +5,14 @@
 #include <vector>
 #include <array>
 
-#include "../../Vulkan/Buffers/UniformBuffer.h"
-
-
 #include <vulkan.h>
 
+#include "../../Vulkan/Commands/CommandBuffer.h"
+#include "../../Vulkan/Buffers/UniformBuffer.h"
+
+#include "../../Core/Camera.h"
+
+#include "../../Kobe/Math.h"
 
 
 struct Vertex {
@@ -23,10 +26,10 @@ struct Vertex {
 	};
 
 
-	glm::vec3 position;
-	glm::vec3 normal;
-	glm::vec2 texCoords;
-	glm::vec3 colour;
+	Vector3 position;
+	Vector3 normal;
+	Vector2 texCoords;
+	Vector3 colour;
 	
 	// The Vertex Binding will descrive at which to load data from memory throughout the vertices
 	// Specifing the number of bytes between data entries and whether to move to the next data entry after each vertex or instance
@@ -75,9 +78,9 @@ struct Vertex {
 
 struct MVPUniform {
 
-	glm::mat4 model;
-	glm::mat4 view;
-	glm::mat4 proj;
+	Matrix4 model;
+	Matrix4 view;
+	Matrix4 proj;
 
 };
 
@@ -88,27 +91,31 @@ struct SubMesh {
 	// class Material material;
 };
 
-
 class Mesh {
 
 public:
 
-	Mesh(SubMesh subMesh_ /* Shader Program*/);
+	Mesh(SubMesh subMesh, Vulkan::CommandBuffer* commandBuffer);
 	~Mesh();
 
-	void Render();
+	void Render(Camera* camera, const Matrix4& modelMatrix);
+
 
 private:
 
-	SubMesh subMesh;
-	MVPUniform mvpUniform;
+	SubMesh	m_subMesh;
+	MVPUniform	m_mvpUniform;
+
+	Vulkan::CommandBuffer*			m_commandBuffer;
+
+
+	Vulkan::Buffer*					m_vertexBuffer;
+	Vulkan::Buffer*					m_indexBuffer;
+	Vulkan::Buffer*					m_mvpUniformBuffer;
+
+public:
 
 	void GenerateBuffers();
-
-	Vulkan::Buffer* vertexBuffer;
-	Vulkan::Buffer* indexBuffer;
-	Vulkan::Buffer* mvpUniformBuffer;
-
 
 };
 

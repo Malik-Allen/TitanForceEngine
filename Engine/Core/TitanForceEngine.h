@@ -4,7 +4,7 @@
 
 #include "EngineTimer.h"
 #include "../Graphics/Window.h"	// GLFW does re-defines a macro called APREIENTY so keep below engine timer--> b/c it has include windows.h and that redefines APREIENTY
-
+#include "../Graphics/Renderer.h"
 #include "..//Game/GameInterface.h"
 #include "..//Game/SceneInterface.h"
 
@@ -12,17 +12,19 @@
 #define RUN_GAME_ON_START 1	
 
 // Singleton Engine Class
-class TitanForceEngine {
+class TitanForceEngine
+{
 
 public:
 
 	// The TitanForceEngine class should not be copied or moved hence removing the functionality
-	TitanForceEngine(const TitanForceEngine&) = delete;
-	TitanForceEngine& operator=(const TitanForceEngine&) = delete;
-	TitanForceEngine(TitanForceEngine&&) = delete;
-	TitanForceEngine& operator = (TitanForceEngine&&) = delete;	
-	
-	bool InitEngine(const std::string& name, const int initWindowWidth, const int initWindowHeight);
+	TitanForceEngine( const TitanForceEngine& ) = delete;
+	TitanForceEngine& operator=( const TitanForceEngine& ) = delete;
+	TitanForceEngine( TitanForceEngine&& ) = delete;
+	TitanForceEngine& operator = ( TitanForceEngine&& ) = delete;
+
+	bool InitEngine( const std::string& engineName, const int windowWidth, const int windowHeight, const RendererType& typeOfRenderer );
+	bool InitEngineRenderer( const Renderer& renderer );
 	void Run();
 	bool IsRunning() const;
 	bool IsGameRunning() const;
@@ -32,36 +34,41 @@ public:
 	// Gets the instance of the titan force engine
 	static TitanForceEngine* GetInstance();
 
-	void SetFPS(const unsigned int fps_);
-	void SetGameInterface(GameInterface*);
+	void SetFPS( const unsigned int fps_ );
+	void SetGameInterface( GameInterface* );
 
 	int GetCurrentSceneNum() const;
-	void SetCurrentSceneNum(int sceneNum);
+	void SetCurrentSceneNum( int sceneNum );
 
 private:
 
 	TitanForceEngine();
 	~TitanForceEngine();
-	
+
 	static std::unique_ptr<TitanForceEngine> engineInstance;
 	friend std::default_delete<TitanForceEngine>;
 
 	void OnDestroy();
 
-	EngineTimer *engineTimer;
 
-	Window* window;
+	EngineTimer*		engineTimer;
 
-	GameInterface *gameInterface;
+	Window*			window;
 
-	bool isRunning;
-	bool isGameRunning;
+	Renderer*			renderer;
+	
+	GameInterface*		gameInterface;
 
-	unsigned int fps;
+	bool				isRunning;
+	bool				isGameRunning;
 
-	int currentSceneNum;
+	unsigned int		fps;
 
-	void Update(const float deltaTime);	
+	int				currentSceneNum;
+
+
+
+	void Update( const float deltaTime );
 	void Render();
 	void HandleEvents();
 

@@ -27,10 +27,10 @@ public:
 
 private:
 
-	GLFWwindow* window;
+	GLFWwindow*		window;
 
-	int width;
-	int height;
+	int				width;
+	int				height;
 
 		
 

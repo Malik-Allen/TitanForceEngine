@@ -49,7 +49,8 @@ namespace Vulkan {
 		CommandPool* GetCommandPool() const { return commandPool; }
 		GraphicsPipeline* GetGraphicsPipeline() const { return graphicsPipeline; }
 		DescriptorPool* GetGraphicsDescriptorPool() const { return graphicsDescriptorPool; }
-		
+		CommandBuffer* GetGraphicsCommandBuffer() const { return commandBuffers[0]; }
+
 		void BindVertexBuffers(const std::vector<Vulkan::Buffer*>& vertexBuffers);
 		void BindIndexBuffer(Buffer* indexBuffer);
 

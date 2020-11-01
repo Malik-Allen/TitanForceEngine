@@ -1,5 +1,7 @@
 #include "StartScene.h"
 
+#include "../../Engine/Debug/Debug.h"
+
 StartScene::StartScene() {}
 
 StartScene::~StartScene() {}

@@ -1,6 +1,11 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
+enum class RendererType
+{
+	Vulkan = 0
+};
+
 class Window;
 
 // Virtual class, representing a renderer and its expected basic functionality
