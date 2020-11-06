@@ -1,0 +1,3 @@
+[submodule "TitanForceEngine/EntityComponentSystem"]
+	path = TitanForceEngine/EntityComponentSystem
+	url = https://github.com/Malik-Allen/EntityComponentSystem.git
