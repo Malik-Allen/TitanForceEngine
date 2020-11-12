@@ -38,7 +38,7 @@ public:
 	// Get Instance of Engine
 	static Engine* Get();
 
-	
+	Window* GetWindow() const { return m_window; }
 
 private:
 

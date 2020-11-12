@@ -155,7 +155,6 @@ void Engine::Update( const float deltaTime ) {
 		}
 	}
 
-	
 }
 
 
