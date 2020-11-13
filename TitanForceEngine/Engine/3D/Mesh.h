@@ -1,7 +1,7 @@
 #ifndef MESH_H
 #define MESH_H
 
-#include "../../EntityComponentSystem/ECS/ECS.h"
+
 
 #include <glm.hpp>
 #include <vector>

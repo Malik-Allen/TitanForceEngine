@@ -1,7 +1,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "../../EntityComponentSystem/ECS/ECS.h"
+#include "ECSLibrary.h"
 
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
