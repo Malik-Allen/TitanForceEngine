@@ -1,6 +1,7 @@
 #include "TestRun.h"
 
 #include "../../Engine/Camera/Camera.h"
+#include "../../Engine/3D/Mesh.h"
 
 TestRun::TestRun() :
 	App( "Test Run" ),
@@ -17,6 +18,7 @@ bool TestRun::OnCreate()
 
 	// Entities
 	m_world->CreateEntitiesWithComponents<CameraComponent>( 1 );
+	
 	
 
 	return true;

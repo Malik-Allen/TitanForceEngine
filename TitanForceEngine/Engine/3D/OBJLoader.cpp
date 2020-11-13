@@ -1,9 +1,12 @@
-#include "LoadOBJModel.h"
+#include "OBJLoader.h"
+
 #include "../Debug/Debug.h"
 
 #include <fstream>
 
-LoadOBJModel::LoadOBJModel(){
+OBJLoaderSystem::OBJLoaderSystem() :
+	System(ID)
+{
 	vertices.reserve(200);
 	normals.reserve(200);
 	textureCoords.reserve(200);
@@ -15,17 +18,17 @@ LoadOBJModel::LoadOBJModel(){
 	
 }
 
-LoadOBJModel::~LoadOBJModel()
+OBJLoaderSystem::~OBJLoaderSystem()
 {
 }
 
-void LoadOBJModel::LoadModel(const std::string& objFilePath_, const std::string& mtlFilePath_)
+void OBJLoaderSystem::LoadModel(const std::string& objFilePath_, const std::string& mtlFilePath_)
 {
 	LoadMaterialLibrary(mtlFilePath_);
 	LoadModel(objFilePath_);
 }
 
-void LoadOBJModel::LoadModel(const std::string& filePath_)
+void OBJLoaderSystem::LoadModel(const std::string& filePath_)
 {
 	std::ifstream in(filePath_.c_str(), std::ios::in);
 	if (!in) {
@@ -113,24 +116,24 @@ void LoadOBJModel::LoadModel(const std::string& filePath_)
 
 }
 
-std::vector<Vertex> LoadOBJModel::GetVerts()
+std::vector<Vertex> OBJLoaderSystem::GetVerts()
 {
 	return meshVertices;
 }
 
-std::vector<int> LoadOBJModel::GetIndices()
+std::vector<int> OBJLoaderSystem::GetIndices()
 {
 	return indices;
 }
 
-std::vector<SubMesh> LoadOBJModel::GetSubMeshes()
+std::vector<SubMesh> OBJLoaderSystem::GetSubMeshes()
 {
 	return subMeshes;
 }
 
 
 
-void LoadOBJModel::OnDestroy()
+void OBJLoaderSystem::OnDestroy()
 {
 	vertices.clear();
 	normals.clear();
@@ -142,7 +145,7 @@ void LoadOBJModel::OnDestroy()
 	subMeshes.clear();
 }
 
-void LoadOBJModel::PostProcessing(){
+void OBJLoaderSystem::PostProcessing(){
 	for (int i = 0; i < indices.size(); i++) {
 		Vertex vert;
 		vert.position = vertices[indices[i]];
@@ -163,10 +166,10 @@ void LoadOBJModel::PostProcessing(){
 
 }
 
-void LoadOBJModel::LoadMaterial(const std::string& matName_){
+void OBJLoaderSystem::LoadMaterial(const std::string& matName_){
 
 }
 
-void LoadOBJModel::LoadMaterialLibrary(const std::string& matFilePath_){
+void OBJLoaderSystem::LoadMaterialLibrary(const std::string& matFilePath_){
 
 }

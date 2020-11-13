@@ -1,9 +1,16 @@
 #include "Mesh.h"
 
-Mesh::Mesh( SubMesh subMesh ) :
-	m_subMesh(subMesh),
-	m_uboMVP( UBO_MVP())
+MeshComponent::MeshComponent() :
+	Component( ID ),
+	m_subMesh( SubMesh() ),
+	m_uboMVP( UBO_MVP() )
 {}
 
-Mesh::~Mesh()
+MeshComponent::MeshComponent( SubMesh subMesh ) :
+	Component( ID ),
+	m_subMesh( subMesh ),
+	m_uboMVP( UBO_MVP() )
+{}
+
+MeshComponent::~MeshComponent()
 {}

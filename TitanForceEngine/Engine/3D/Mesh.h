@@ -1,6 +1,8 @@
 #ifndef MESH_H
 #define MESH_H
 
+#include "../../EntityComponentSystem/ECS/ECS.h"
+
 #include <glm.hpp>
 #include <vector>
 
@@ -8,6 +10,8 @@
 struct Vertex
 {
 	glm::vec3 position;
+	glm::vec3 normal;
+	glm::vec2 texCoords;
 	glm::vec3 colour;
 };
 
@@ -26,18 +30,17 @@ struct SubMesh
 };
 
 
-class Mesh
+class MeshComponent : public ECS::Component
 {
 
 public:
 
-	explicit Mesh(SubMesh subMesh);
-	~Mesh();
+	static constexpr uint64_t ID = GENERATE_ID( "MeshComponent" );
+	MeshComponent();
+	MeshComponent(SubMesh subMesh);
+	~MeshComponent();
 
-
-	virtual void GenerateBuffers() = 0;
-
-protected:
+private:
 
 	SubMesh		m_subMesh;
 	UBO_MVP		m_uboMVP;
