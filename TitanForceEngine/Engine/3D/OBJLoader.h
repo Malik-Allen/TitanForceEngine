@@ -3,23 +3,18 @@
 
 #include "Mesh.h"
 
-#include "../../EntityComponentSystem/ECS/ECS.h"
-
-#include <sstream>
+#include <string>
 
 
-class OBJLoaderSystem : ECS::System<MeshComponent>
+
+class LoadOBJModel
 {
-
 public:
 
-	static constexpr uint64_t ID = GENERATE_ID( "OBJLoaderSystem" );
+	LoadOBJModel();
+	~LoadOBJModel();
 
-	OBJLoaderSystem();
-	~OBJLoaderSystem();
-
-	void LoadModel( const std::string& objFilePath_, const std::string& mtlFilePath_ );
-	void LoadModel( const std::string& filePath_ );
+	void LoadModel( const std::string& filePath );
 	std::vector<Vertex> GetVerts();
 	std::vector<int> GetIndices();
 	std::vector<SubMesh> GetSubMeshes();
@@ -28,7 +23,6 @@ public:
 	glm::vec3 fVector;
 
 private:
-
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec3> normals;
 	std::vector<glm::vec2> textureCoords;
@@ -37,10 +31,10 @@ private:
 	std::vector<SubMesh> subMeshes;
 
 	void PostProcessing();
-	void LoadMaterial( const std::string& matName_ );
-	void LoadMaterialLibrary( const std::string& matFilePath_ );
+
 	bool firstCheck;
 };
+
 
 #endif // ! OBJLOADER_H
 

@@ -8,6 +8,7 @@
 std::unique_ptr<Engine> Engine::g_engineInstance( nullptr );
 
 Engine::Engine() :
+	m_engineName(""),
 	m_engineClock( nullptr ),
 	m_isRunning( false ),
 	m_isAppRunning( false ),
@@ -19,10 +20,16 @@ Engine::Engine() :
 Engine::~Engine() {}
 
 // Initializes Engine Components
-bool Engine::Init( const unsigned int fps, const int windowWidth, const int windowHeight )
+bool Engine::Init( 
+	const char* engineName, 
+	const unsigned int fps, 
+	const int windowWidth, 
+	const int windowHeight )
 {
 	Debug::DebugInit ();
 	Debug::SetSeverity ( MessageType::TYPE_INFO );
+
+	m_engineName = engineName;
 
 	m_engineClock = new EngineClock();
 	if (m_engineClock == nullptr)
@@ -63,7 +70,22 @@ bool Engine::LoadApplication(App* app)
 
 	m_app = app;
 
-	return m_isAppRunning = m_app->OnCreate();
+	if ( m_app->CreateRenderer( m_engineName, 1, true, m_window ) == false )
+	{
+		Debug::FatalError( "Failed to create renderer for application!", __FILE__, __LINE__ );
+		return false;
+	}
+
+	if ( m_app->OnCreate() == false )
+	{
+		Debug::FatalError( "Failed to create application!", __FILE__, __LINE__ );
+		return false;
+	}
+
+	m_isAppRunning = true;
+
+	return m_isAppRunning;
+
 }
 
 
@@ -154,6 +176,9 @@ void Engine::Update( const float deltaTime ) {
 			m_app->OnDestroy ();
 		}
 	}
+
+	
+	glfwPollEvents();
 
 }
 

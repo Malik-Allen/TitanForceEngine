@@ -3,137 +3,156 @@
 #include "../Debug/Debug.h"
 
 #include <fstream>
+#include <sstream>
 
-OBJLoaderSystem::OBJLoaderSystem() :
-	System(ID)
+LoadOBJModel::LoadOBJModel()
 {
-	vertices.reserve(200);
-	normals.reserve(200);
-	textureCoords.reserve(200);
-	indices.reserve(200);
-	normalIndices.reserve(200);
-	textureIndices.reserve(200);
-	meshVertices.reserve(200);
-	subMeshes.reserve(10);
-	
+	vertices.reserve( 200 );
+	normals.reserve( 200 );
+	textureCoords.reserve( 200 );
+	indices.reserve( 200 );
+	normalIndices.reserve( 200 );
+	textureIndices.reserve( 200 );
+	meshVertices.reserve( 200 );
+	subMeshes.reserve( 10 );
+
 }
 
-OBJLoaderSystem::~OBJLoaderSystem()
-{
-}
+LoadOBJModel::~LoadOBJModel()
+{}
 
-void OBJLoaderSystem::LoadModel(const std::string& objFilePath_, const std::string& mtlFilePath_)
-{
-	LoadMaterialLibrary(mtlFilePath_);
-	LoadModel(objFilePath_);
-}
 
-void OBJLoaderSystem::LoadModel(const std::string& filePath_)
+void LoadOBJModel::LoadModel( const std::string& filePath_ )
 {
-	std::ifstream in(filePath_.c_str(), std::ios::in);
-	if (!in) {
-		Debug::Error("Cannot open OBJ file: " + filePath_, __FILE__, __LINE__);
+	subMeshes.clear();
+
+	std::ifstream in( filePath_.c_str(), std::ios::in );
+	if ( !in )
+	{
+		Debug::Error( "Cannot open OBJ file: " + filePath_, __FILE__, __LINE__ );
 		return;
 	}
 	std::string line;
 
 	firstCheck = true;
 
-	while (std::getline(in, line)) {
-		//VERTEX DATA
-		if (line.substr(0, 2) == "v ") {
-			std::stringstream v(line.substr(2));
+	while ( std::getline( in, line ) )
+	{
+//VERTEX DATA
+		if ( line.substr( 0, 2 ) == "v " )
+		{
+			std::stringstream v( line.substr( 2 ) );
 			float x, y, z;
 			v >> x >> y >> z;
-			vertices.push_back(glm::vec3(x, y, z));
+			if ( firstCheck )
+			{
+				fVector.x = x;
+				fVector.y = y;
+				fVector.z = z;
+				firstCheck = false;
+			}
+			//check max for the radius
+			if ( abs( x ) >= fVector.x )
+			{
+				fVector.x = abs( x );
+			}
+			if ( abs( y ) >= fVector.y )
+			{
+				fVector.y = abs( y );
+			}
+			if ( abs( z ) >= fVector.z )
+			{
+				fVector.z = abs( z );
+			}
+
+			vertices.push_back( glm::vec3( x, y, z ) );
 		}
 		//NORMAL DATA
-		else if (line.substr(0, 3) == "vn ") {
-			std::stringstream v(line.substr(3));
+		else if ( line.substr( 0, 3 ) == "vn " )
+		{
+			std::stringstream v( line.substr( 3 ) );
 			float x, y, z;
 			v >> x >> y >> z;
-			normals.push_back(glm::vec3(x, y, z));
+			normals.push_back( glm::vec3( x, y, z ) );
 		}
 		//TEXTURE DATA
-		else if (line.substr(0, 3) == "vt ") {
-			std::stringstream v(line.substr(3));
+		else if ( line.substr( 0, 3 ) == "vt " )
+		{
+			std::stringstream v( line.substr( 3 ) );
 			glm::vec2 vec;
 			v >> vec.x >> vec.y;
-			textureCoords.push_back(vec);
+			textureCoords.push_back( vec );
 		}
 		//FACE DATA
-		else if (line.substr(0, 2) == "f ") {
-			std::string data = line.substr(2);
+		else if ( line.substr( 0, 2 ) == "f " )
+		{
+			std::string data = line.substr( 2 );
 			int currentEndPos = 0;
-			while ((currentEndPos = data.find(' ')) != std::string::npos) {
-				std::string chunk = data.substr(0, currentEndPos);
+			while ( ( currentEndPos = data.find( ' ' ) ) != std::string::npos )
+			{
+				std::string chunk = data.substr( 0, currentEndPos );
 				int subEndPos = 0;
 				int vector = 0;
 
 
-				for (int i = 0; i < 3; i++) {
+				for ( int i = 0; i < 3; i++ )
+				{
 					int pushBack;
-					if ((subEndPos = chunk.find('/')) != std::string::npos) {
+					if ( ( subEndPos = chunk.find( '/' ) ) != std::string::npos )
+					{
 
-						pushBack = std::stoi(chunk.substr(0, subEndPos));
+						pushBack = std::stoi( chunk.substr( 0, subEndPos ) );
 
-						chunk.erase(0, subEndPos + 1);
+						chunk.erase( 0, subEndPos + 1 );
 					}
-					else {
-						pushBack = std::stoi(chunk);
+					else
+					{
+						pushBack = std::stoi( chunk );
 					}
 
 					pushBack--;
 
-					switch (i) {
+					switch ( i )
+					{
 					default:
 					case 0:
-						indices.push_back(pushBack);
+						indices.push_back( pushBack );
 						break;
 					case 1:
-						textureIndices.push_back(pushBack);
+						textureIndices.push_back( pushBack );
 						break;
 					case 2:
-						normalIndices.push_back(pushBack);
+						normalIndices.push_back( pushBack );
 						break;
 					}
 				}
 
 				vector = 0;
-				data.erase(0, currentEndPos + 1);
+				data.erase( 0, currentEndPos + 1 );
 			}
-			
-		}
-		//new Material / new Mesh
-		else if (line.substr(0, 7) == "usemtl ") {
-			if (indices.size() > 0) {
-				PostProcessing();
-			}
-			LoadMaterial(line.substr(7));
+
 		}
 	}
 	PostProcessing();
 
 }
 
-std::vector<Vertex> OBJLoaderSystem::GetVerts()
+std::vector<Vertex> LoadOBJModel::GetVerts()
 {
 	return meshVertices;
 }
 
-std::vector<int> OBJLoaderSystem::GetIndices()
+std::vector<int> LoadOBJModel::GetIndices()
 {
 	return indices;
 }
 
-std::vector<SubMesh> OBJLoaderSystem::GetSubMeshes()
+std::vector<SubMesh> LoadOBJModel::GetSubMeshes()
 {
 	return subMeshes;
 }
 
-
-
-void OBJLoaderSystem::OnDestroy()
+void LoadOBJModel::OnDestroy()
 {
 	vertices.clear();
 	normals.clear();
@@ -145,11 +164,15 @@ void OBJLoaderSystem::OnDestroy()
 	subMeshes.clear();
 }
 
-void OBJLoaderSystem::PostProcessing(){
-	for (int i = 0; i < indices.size(); i++) {
+void LoadOBJModel::PostProcessing()
+{
+	for ( int i = 0; i < indices.size(); i++ )
+	{
 		Vertex vert;
 		vert.position = vertices[indices[i]];
-		meshVertices.push_back(vert);
+		vert.normal = normals[normalIndices[i]];
+		vert.texCoords = textureCoords[textureIndices[i]];
+		meshVertices.push_back( vert );
 
 	}
 	SubMesh subMesh;
@@ -157,19 +180,11 @@ void OBJLoaderSystem::PostProcessing(){
 	subMesh.vertexList = meshVertices;
 	subMesh.meshIndices = indices;
 
-	subMeshes.push_back(subMesh);
+	subMeshes.push_back( subMesh );
 
 	indices.clear();
 	normalIndices.clear();
 	textureIndices.clear();
 	meshVertices.clear();
-
-}
-
-void OBJLoaderSystem::LoadMaterial(const std::string& matName_){
-
-}
-
-void OBJLoaderSystem::LoadMaterialLibrary(const std::string& matFilePath_){
 
 }

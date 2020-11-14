@@ -15,7 +15,12 @@ class Engine
 public:
 
 	// Initialize Engine at passed fps, inits window at passed window width and height
-	bool Init(const unsigned int fps, const int windowWidth, const int windowHeight );
+	bool Init( 
+		const char* engineName, 
+		const unsigned int fps, 
+		const int windowWidth, 
+		const int windowHeight 
+	);
 
 	// Loads passed application into Engine, application will be executed when Engine's Run is called
 	bool LoadApplication(App* app);
@@ -56,6 +61,8 @@ private:
 
 	void OnDestroy();
 	void Update(const float deltaTime);
+
+	const char*			m_engineName;
 
 	EngineClock*		m_engineClock;
 

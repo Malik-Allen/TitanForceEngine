@@ -1,8 +1,6 @@
 #ifndef MESH_H
 #define MESH_H
 
-
-
 #include <glm.hpp>
 #include <vector>
 
@@ -15,35 +13,47 @@ struct Vertex
 	glm::vec3 colour;
 };
 
-
-struct UBO_MVP
-{
-	glm::mat4 projectionMatrix;
-	glm::mat4 modelMatrix;
-	glm::mat4 viewMatrix;
-};
-
 struct SubMesh
 {
 	std::vector<Vertex>			vertexList;
 	std::vector<int>			meshIndices;
 };
 
+struct MVP_Matrix
+{
+	glm::mat4 projection;
+	glm::mat4 model;
+	glm::mat4 view;
+};
 
-class MeshComponent : public ECS::Component
+class CameraComponent;
+
+class Mesh
 {
 
 public:
 
-	static constexpr uint64_t ID = GENERATE_ID( "MeshComponent" );
-	MeshComponent();
-	MeshComponent(SubMesh subMesh);
-	~MeshComponent();
+	explicit Mesh( CameraComponent* camera, SubMesh subMesh, const char* shader ) :
+		m_camera( camera ),
+		m_subMesh( subMesh ),
+		m_mvpMatrix( MVP_Matrix() ),
+		m_shader( "" )
+	{}
 
-private:
+	virtual ~Mesh() {}
 
-	SubMesh		m_subMesh;
-	UBO_MVP		m_uboMVP;
+	virtual void Render( glm::mat4 transform ) = 0;
+
+	const char* GetShader() const { return m_shader; }
+
+protected:
+
+	CameraComponent*	m_camera;
+	SubMesh				m_subMesh;
+	MVP_Matrix			m_mvpMatrix;
+	const char*			m_shader;
+
+	virtual void GenerateBuffers() = 0;
 
 };
 

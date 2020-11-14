@@ -2,9 +2,8 @@
 #define TESTRUN_H
 
 #include "../../Engine/Core/App.h"
-#include "../../EntityComponentSystem/ECS/ECS.h"
 
-
+#include "../../EntityComponentSystem/EntityComponentSystem/ECS/ECS.h"
 
 class TestRun : public App
 {
@@ -19,9 +18,10 @@ public:
 
 	virtual void Update( const float deltaTime ) override final;
 
+
 private:
 
-	ECS::World* m_world;
+	ECS::World*		m_world;
 
 };
 
