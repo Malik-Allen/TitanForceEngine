@@ -3,7 +3,7 @@
 
 #include "../../../3D/Mesh.h"
 
-#include <glew.h>
+#include <glad/glad.h>
 
 class OpenGLMesh : public Mesh
 {
@@ -24,6 +24,7 @@ private:
 	GLuint shaderProgram;
 	GLuint modelLoc, viewLoc, projLoc;
 
+	GLuint normalLoc;
 	GLuint viewPositionLoc;
 	GLuint lightPositionLoc;
 	GLuint ambientLoc;

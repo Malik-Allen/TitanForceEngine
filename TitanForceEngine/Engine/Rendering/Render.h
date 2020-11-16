@@ -46,7 +46,7 @@ public:
 
 	virtual void Update( const float deltaTime ) override final;
 
-	const std::vector<Mesh*>& GetAllMeshes() const;
+	std::vector<Mesh*> GetAllMeshes() const;
 };
 
 

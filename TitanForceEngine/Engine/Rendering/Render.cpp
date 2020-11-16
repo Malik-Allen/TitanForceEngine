@@ -40,7 +40,7 @@ void RenderSystem::Update( const float deltaTime )
 
 }
 
-const std::vector<Mesh*>& RenderSystem::GetAllMeshes() const
+std::vector<Mesh*> RenderSystem::GetAllMeshes() const
 {
 	std::vector<Mesh*> meshes;
 

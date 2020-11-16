@@ -7,8 +7,8 @@
 
 OpenGLMesh::OpenGLMesh( CameraComponent* camera, SubMesh subMesh, const char * shader ) :
 	Mesh( camera, subMesh, shader ),
-	VAO( 0 ), VBO( 0 ), shaderProgram(0), 
-	modelLoc( 0 ), viewLoc( 0 ), projLoc( 0 ),
+	VAO( 0 ), VBO( 0 ), shaderProgram( 0 ),
+	modelLoc( 0 ), viewLoc( 0 ), projLoc( 0 ), normalLoc( 0 ),
 	viewPositionLoc( 0 ), lightPositionLoc( 0 ), ambientLoc( 0 ), diffuseLoc( 0 ), colorLoc( 0 )
 {}
 
@@ -56,35 +56,41 @@ void OpenGLMesh::GenerateBuffers()
 	glBindVertexArray( 0 );
 	glBindBuffer( GL_ARRAY_BUFFER, 0 );
 
-	modelLoc = glGetUniformLocation( shaderProgram, "model" );
-	viewLoc = glGetUniformLocation( shaderProgram, "view" );
-	projLoc = glGetUniformLocation( shaderProgram, "proj" );
-	
+	modelLoc = glGetUniformLocation( shaderProgram, "modelMatrix" );
+	viewLoc = glGetUniformLocation( shaderProgram, "viewMatrix" );
+	projLoc = glGetUniformLocation( shaderProgram, "projectionMatrix" );
 
-	viewPositionLoc = glGetUniformLocation( shaderProgram, "viewPosition" );
-	lightPositionLoc = glGetUniformLocation( shaderProgram, "lightSource.lightPosition" );
-	ambientLoc = glGetUniformLocation( shaderProgram, "lightSource.ambient" );
-	diffuseLoc = glGetUniformLocation( shaderProgram, "lightSource.diffuse" );
-	colorLoc = glGetUniformLocation( shaderProgram, "lightSource.lightColor" );
-	
+	normalLoc = glGetUniformLocation( shaderProgram, "normalMatrix" );
+
+	// viewPositionLoc = glGetUniformLocation( shaderProgram, "viewPosition" );
+	lightPositionLoc = glGetUniformLocation( shaderProgram, "lightPos" );
+	// ambientLoc = glGetUniformLocation( shaderProgram, "lightSource.ambient" );
+	// diffuseLoc = glGetUniformLocation( shaderProgram, "lightSource.diffuse" );
+	// colorLoc = glGetUniformLocation( shaderProgram, "lightSource.lightColor" );
+
 }
 
 void OpenGLMesh::Render( glm::mat4 transform )
 {
-	glUniform3fv( viewPositionLoc, 1, glm::value_ptr( m_camera->GetCameraPosition() ) );
 
-	glUniform3fv( lightPositionLoc, 1, glm::value_ptr( glm::vec3( 10.0f, 25.0f, 15.0f ) ) );
-	glUniform1fv( ambientLoc, 1, m_camera->GetLightSources().front()->GetAmbient() );
-	glUniform1fv( diffuseLoc, 1, m_camera->GetLightSources().front()->GetDiffuse() );
-	glUniform3fv( colorLoc, 1, glm::value_ptr( m_camera->GetLightSources().front()->GetColour() ) );
-
+	// glUseProgram( shaderProgram );
+	// glUniform3fv( viewPositionLoc, 1, glm::value_ptr( m_camera->GetCameraPosition() ) );
 	glUniformMatrix4fv( viewLoc, 1, GL_FALSE, glm::value_ptr( m_camera->GetView() ) );
 	glUniformMatrix4fv( projLoc, 1, GL_FALSE, glm::value_ptr( m_camera->GetPerspective() ) );
+	glUniform3fv( lightPositionLoc, 1, glm::value_ptr( glm::vec3( 0.0f, 0.0f, 10.0f ) ) );
+	// glUniform1fv( ambientLoc, 1, m_camera->GetLightSources().front()->GetAmbient() );
+	// glUniform1fv( diffuseLoc, 1, m_camera->GetLightSources().front()->GetDiffuse() );
+	// glUniform3fv( colorLoc, 1, glm::value_ptr( m_camera->GetLightSources().front()->GetColour() ) );
+
+
+	glUniformMatrix4fv( modelLoc, 1, GL_FALSE, glm::value_ptr( transform ) );
+
+	glm::mat3 normals = glm::transpose( glm::inverse( transform ) );
+
+	glUniformMatrix3fv( normalLoc, 1, GL_FALSE, glm::value_ptr( normals ) );
 
 	glBindVertexArray( VAO );
-	glUniformMatrix4fv( modelLoc, 1, GL_FALSE, glm::value_ptr( transform ) );
-	glDrawArrays( GL_TRIANGLES, 0, m_subMesh.vertexList.size() ); 
-
-	
+	glDrawArrays( GL_TRIANGLES, 0, m_subMesh.vertexList.size() );
+	glBindVertexArray( 0 );
 
 }

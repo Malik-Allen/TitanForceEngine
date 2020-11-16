@@ -24,8 +24,8 @@ TestRun::~TestRun()
 bool TestRun::OnCreate()
 {
 	// Systems
-	m_world->RegisterSystem<CameraSystem>();
 	m_world->RegisterSystem<TransformUpdater>();
+	m_world->RegisterSystem<CameraSystem>();
 	RenderSystem* renderSystem = m_world->RegisterSystem<RenderSystem>();
 
 
@@ -33,21 +33,21 @@ bool TestRun::OnCreate()
 	ECS::EntityId camera = m_world->CreateEntities( 1 ).front();
 	ECS::EntityId gameObject = m_world->CreateEntities( 1 ).front();
 	ECS::EntityId light = m_world->CreateEntities( 1 ).front();
-	
 
-	
+
+
 	// Components
 	LightSourceComponent* lightComponent = m_world->AddComponentToEntity<LightSourceComponent>( light );
 
 	std::vector<LightSourceComponent*> lights;
 	lights.push_back( lightComponent );
-	
+
 	CameraComponent* cameraComponent = m_world->AddComponentToEntity<CameraComponent>( camera, lights );
 	m_world->AddComponentToEntity<TransformComponent>( camera );
 
 	// 1. Load Mesh Obj through obj loader
 	LoadOBJModel* objLoader = new LoadOBJModel();
-	objLoader->LoadModel( "./Resource/Models/F-16C.obj" );
+	objLoader->LoadModel( "./Resources/Models/F-16C.obj" );
 	std::vector<Mesh*> meshes;
 	for ( auto& s : objLoader->GetSubMeshes() )
 	{
@@ -55,17 +55,24 @@ bool TestRun::OnCreate()
 		meshes.push_back( m );
 	}
 
-	
+
 
 	m_world->AddComponentToEntity<RenderComponent>( gameObject, meshes );
-	m_world->AddComponentToEntity<TransformComponent>( gameObject );
+	m_world->AddComponentToEntity<TransformComponent>( 
+		gameObject,
+		glm::vec3(-5.0f, 0.0f, 0.0f), 
+		0.0f, 
+		glm::vec3(0.0f, 1.0f, 0.0f), 
+		glm::vec3(10.0f, 10.0f, 10.0f) 
+	);
 
-	for ( auto& m : renderSystem->GetAllMeshes() )
+	for ( auto m : renderSystem->GetAllMeshes() )
 	{
-		m_renderer->AddMesh( m );
+		if ( m )
+			m_renderer->AddMesh( m );
 
 	}
-	
+
 
 	return true;
 }
@@ -78,13 +85,14 @@ void TestRun::OnDestroy()
 		m_world = nullptr;
 	}
 
-	
+
 }
 
 void TestRun::Update( const float deltaTime )
 {
-	m_world->Update( deltaTime );
-
 	m_renderer->Render();
 
+	m_world->Update( deltaTime );
+
+	m_renderer->Wait();
 }

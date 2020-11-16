@@ -16,11 +16,16 @@ public:
 	TransformComponent() :
 		Component( ID ),
 		m_position( glm::vec3( 0.0f ) ),
-		m_rotation( glm::vec3( 0.0f ) ),
+		m_rotation( glm::vec3( 0.0f, 1.0f, 0.0f ) ),
 		m_angle( 0.0f ),
-		m_scale( glm::vec3( 1.0f, 1.0f, 1.0f ) ),
-		m_transform( glm::mat4() )
-	{}
+		m_scale( glm::vec3( 1.0f, 1.0f, 1.0f ) )
+	{
+		glm::mat4 model = glm::mat4(1.0f);
+		model = glm::translate( model, m_position );
+		model = glm::rotate( model, m_angle, m_rotation );
+		model = glm::scale( model, m_scale );
+		m_transform = model;
+	}
 
 	TransformComponent( glm::vec3 position, float angle, glm::vec3 rotation, glm::vec3 scale ) :
 		Component( ID ),
@@ -29,10 +34,11 @@ public:
 		m_rotation( rotation ),
 		m_scale( scale )
 	{
-		m_transform = glm::mat4();
-		m_transform = glm::translate( m_transform, m_position );
-		m_transform = glm::rotate( m_transform, m_angle, m_rotation );
-		m_transform = glm::scale( m_transform, m_scale );
+		glm::mat4 model = glm::mat4( 1.0f );
+		model = glm::translate( model, m_position );
+		model = glm::rotate( model, m_angle, m_rotation );
+		model = glm::scale( model, m_scale );
+		m_transform = model;
 	}
 
 	~TransformComponent() {}

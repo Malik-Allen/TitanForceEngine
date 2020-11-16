@@ -37,7 +37,7 @@ public:
 		m_camera( camera ),
 		m_subMesh( subMesh ),
 		m_mvpMatrix( MVP_Matrix() ),
-		m_shader( "" )
+		m_shader( shader )
 	{}
 
 	virtual ~Mesh() {}

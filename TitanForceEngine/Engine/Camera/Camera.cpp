@@ -9,13 +9,13 @@ CameraComponent::CameraComponent( std::vector<LightSourceComponent*> lightSource
 	m_pWindow( nullptr ),
 	m_lightSources( lightSources )
 {
-	m_position = glm::vec3(0.0f, 0.0f, 5.0f);
+	m_position = glm::vec3(0.0f, 0.0f, 25.0f);
 	m_fieldOfView = 45.0f;
 	m_forward = glm::vec3( 0.0f, 0.0f, -1.0f );
 	m_up = glm::vec3( 0.0f, 1.0f, 0.0f );
 	m_worldUp = m_up;
-	m_nearPlane = 1.0f;
-	m_farPlane = 50.0f;
+	m_nearPlane = 0.5f;
+	m_farPlane = 100.0f;
 	m_yaw = -90.0f;
 	m_pitch = 0.0f;
 

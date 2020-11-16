@@ -7,8 +7,6 @@
 #include <vector>
 #include <sstream>
 
-#include <GLFW/glfw3.h>
-
 OpenGLRenderer::OpenGLRenderer() :
 	m_window( nullptr )
 {}
@@ -25,29 +23,23 @@ void OpenGLRenderer::OnCreate(
 {
 	m_window = window;
 
-	glfwMakeContextCurrent( m_window->GetGLFW_Window() );
-
-	// int major, minor;
-	// GetInstalledOpenGLInfo( &major, &minor );
-
-	glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 2 );
-	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 0 );
-	glfwWindowHint( GLFW_DOUBLEBUFFER, true );
-	glfwWindowHint( GLFW_DEPTH_BITS, 32 );
-	GLenum error = glewInit();
-	if ( error != GLEW_OK )
+	if ( !gladLoadGL() )
 	{
-		Debug::FatalError( "Failed to initialize GLEW", __FILE__, __LINE__ );
+		Debug::Error( "Failed Init GL with Glad", __FILE__, __LINE__ );
 		return;
 	}
 
+	int major, minor;
+	GetInstalledOpenGLInfo( &major, &minor );
+
+	glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, major );
+	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, minor );
 	glEnable( GL_DEPTH_TEST );
 	glEnable( GL_MULTISAMPLE ); // enables multisampling
 
 	glViewport( 0, 0, m_window->GetWidth(), m_window->GetHeight() );
 
 	CreateShaderProgram( "PhongShader", "./Engine/Shaders/PhongVertex.glsl", "./Engine/Shaders/PhongFragment.glsl" );
-
 }
 
 void OpenGLRenderer::OnDestroy()
@@ -65,13 +57,21 @@ void OpenGLRenderer::OnDestroy()
 
 void OpenGLRenderer::Render()
 {
-	glClear( GL_COLOR_BUFFER_BIT );
-	glUseProgram( 0 );
+	glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+	glEnable( GL_DEPTH_TEST );
+	glEnable( GL_CULL_FACE );
+
+	glUseProgram( m_shaderPrograms["PhongShader"] );
+
 	// TODO: Have the meshes added store to an a map where the GLuint (shader program is the key and a vector of meshes with that shader as the data)
 }
 
 void OpenGLRenderer::Wait()
-{}
+{
+	glfwSwapBuffers( glfwGetCurrentContext() );
+	glUseProgram( 0 );
+}
 
 void OpenGLRenderer::AddMesh( Mesh * mesh )
 {
@@ -180,6 +180,7 @@ GLuint OpenGLRenderer::CreateShader(
 	glShaderSource( shader, 1, &shaderCodePtr, &shaderCodeSize );
 	glCompileShader( shader );
 
+	
 	glGetShaderiv( shader, GL_COMPILE_STATUS, &compileResult );
 
 	if ( !compileResult )
