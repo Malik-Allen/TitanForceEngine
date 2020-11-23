@@ -1,0 +1,19 @@
+#ifndef GRAPHICS_H
+#define GRAPHICS_H
+
+#ifndef GRAPHICS_API
+#define GRAPHICS_API GRAPHICS_OPENGL
+#endif // !GRAPHICS_API
+
+
+#ifndef GRAPHICS_OPENGL
+#define GRAPHICS_OPENGL 0
+#endif // !GRAPHICS_OPENGL
+
+#ifndef GRAPHICS_VULKAN
+#define GRAPHICS_VULKAN 1
+#endif // !GRAPHICS_VULKAN
+
+
+
+#endif // !GRAPHICS_H

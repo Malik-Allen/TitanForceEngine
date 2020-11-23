@@ -2,7 +2,7 @@
 #define CAMERA_H
 
 #include "../../EntityComponentSystem/EntityComponentSystem/ECS/ECS.h"
-#include "../Math/Transform.h"
+#include "../../Components/TransformComponent.h"
 
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
@@ -10,7 +10,6 @@
 #include <vector>
 
 class Window;
-class LightSourceComponent;
 
 class CameraComponent : public ECS::Component
 {
@@ -21,8 +20,7 @@ public:
 
 	static constexpr uint64_t ID = GENERATE_ID( "CameraComponent" );
 
-	CameraComponent( std::vector<LightSourceComponent*> lightSources );
-	CameraComponent( Window* window, std::vector<LightSourceComponent*> lightSources );
+	CameraComponent();
 	~CameraComponent();
 
 	glm::mat4 GetView() const { return glm::lookAt( m_position, m_position + m_forward, m_up ); }
@@ -31,11 +29,10 @@ public:
 	glm::vec3 GetCameraPosition() const { return m_position; }
 	glm::vec2 GetClippingPlanes() const { return glm::vec2( m_nearPlane, m_farPlane ); }
 
-	const std::vector<LightSourceComponent*>& GetLightSources() const { return m_lightSources; }
 
 private:
 
-	Window*				m_pWindow;
+	Window*				m_window;
 
 	glm::vec3			m_position;
 	glm::mat4			m_perspective;
@@ -43,7 +40,6 @@ private:
 	float				m_fieldOfView;
 	float				m_yaw;
 	float				m_pitch;
-	float				m_roll;
 	float				m_nearPlane;
 	float				m_farPlane;
 	glm::vec3			m_forward;
@@ -51,7 +47,6 @@ private:
 	glm::vec3			m_right;
 	glm::vec3			m_worldUp;
 
-	std::vector<LightSourceComponent*>	m_lightSources;
 
 };
 
@@ -70,11 +65,14 @@ public:
 
 	virtual void Update( float deltaTime ) override final;
 
+	std::vector<CameraComponent*> GetCameras();
+
 private:
 
 	void UpdateCameraVector(CameraComponent* camera);
 
-	// TODO: Implement some sort of Proxy to receive whether or not to update camera component's position and rotation
+	// TODO: 
+	// Implement some sort of Proxy to receive whether or not to update camera component's position and rotation
 	void UpdateCameraPosition( CameraComponent* camera, glm::vec3 position );
 	void UpdateCameraRotation( CameraComponent* camera, glm::vec3 rotation );
 

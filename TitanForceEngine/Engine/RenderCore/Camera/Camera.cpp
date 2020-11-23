@@ -1,13 +1,11 @@
 #include "Camera.h"
 
-#include"../Core/Engine.h"
-#include "../Devices/Window.h"
+#include "../../../Engine/Core/Engine.h"
+#include "../../Devices/Window.h"
 
 
-CameraComponent::CameraComponent( std::vector<LightSourceComponent*> lightSources ) :
-	Component( ID ),
-	m_pWindow( nullptr ),
-	m_lightSources( lightSources )
+CameraComponent::CameraComponent( ) :
+	Component( ID )
 {
 	m_position = glm::vec3(0.0f, 0.0f, 25.0f);
 	m_fieldOfView = 45.0f;
@@ -18,53 +16,11 @@ CameraComponent::CameraComponent( std::vector<LightSourceComponent*> lightSource
 	m_farPlane = 100.0f;
 	m_yaw = -90.0f;
 	m_pitch = 0.0f;
-
-	m_pWindow = Engine::Get()->GetWindow();
-
-	float aspect = static_cast<float>( m_pWindow->GetWidth() ) / static_cast<float>( m_pWindow->GetHeight() );
-
-	m_perspective = glm::perspective(
-		m_fieldOfView,
-		aspect,
-		m_nearPlane,
-		m_farPlane
-	);
-
-	m_orthographic = glm::ortho(
-		0.0f,
-		static_cast<float>( m_pWindow->GetWidth() ),
-		0.0f,
-		static_cast<float>( m_pWindow->GetHeight() ),
-		-1.0f,
-		-1.0f
-	);
-
-
-}
-
-CameraComponent::CameraComponent( Window* window, std::vector<LightSourceComponent*> lightSources ) :
-	Component( ID ),
-	m_pWindow( window ),
-	m_lightSources( lightSources )
-{
-	m_position = glm::vec3();
-	m_fieldOfView = 45.0f;
-	m_forward = glm::vec3( 0.0f, 0.0f, -1.0f );
-	m_up = glm::vec3( 0.0f, 1.0f, 0.0f );
-	m_worldUp = m_up;
-	m_nearPlane = 1.0f;
-	m_farPlane = 50.0f;
-	m_yaw = -90.0f;
-	m_pitch = 0.0f;
-	m_roll = 0.0f;
 	m_right = glm::vec3();
 
-	if ( m_pWindow == nullptr )
-	{
-		m_pWindow = Engine::Get()->GetWindow();
-	}
+	m_window = Engine::Get()->GetWindow();
 
-	float aspect = static_cast<float>( m_pWindow->GetWidth() ) / static_cast<float>( m_pWindow->GetHeight() );
+	float aspect = static_cast<float>( m_window->GetWidth() ) / static_cast<float>( m_window->GetHeight() );
 
 	m_perspective = glm::perspective(
 		m_fieldOfView,
@@ -75,12 +31,13 @@ CameraComponent::CameraComponent( Window* window, std::vector<LightSourceCompone
 
 	m_orthographic = glm::ortho(
 		0.0f,
-		static_cast<float>( m_pWindow->GetWidth() ),
+		static_cast<float>( m_window->GetWidth() ),
 		0.0f,
-		static_cast<float>( m_pWindow->GetHeight() ),
+		static_cast<float>( m_window->GetHeight() ),
 		-1.0f,
 		-1.0f
 	);
+
 
 }
 
@@ -104,6 +61,16 @@ void CameraSystem::Update( float deltaTime )
 
 
 	}
+}
+
+std::vector<CameraComponent*> CameraSystem::GetCameras()
+{
+	std::vector<CameraComponent*> cameras;
+	for ( auto& c : m_components )
+	{
+		cameras.push_back( std::get<CameraComponent*>( c ) );
+	}
+	return cameras;
 }
 
 
@@ -134,5 +101,4 @@ void CameraSystem::UpdateCameraRotation( CameraComponent * camera, glm::vec3 rot
 {
 	camera->m_yaw = rotation.x;
 	camera->m_pitch = rotation.y;
-	camera->m_roll = rotation.z;
 }

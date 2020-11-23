@@ -1,5 +1,5 @@
 #include "Engine.h"
-#include "App.h"
+#include "../AppCore/App.h"
 #include "../Devices/Window.h"
 #include "../Debug/Debug.h"
 
@@ -47,7 +47,7 @@ bool Engine::Init(
 	if ( m_app != nullptr )	
 		// If an application already exists lets name the window after that application
 	{
-		appName = m_app->GetAppName();
+		appName = m_app->GetAppName().c_str();
 	}
 
 	if ( m_window->OnCreate( appName, windowWidth, windowHeight ) == false )
@@ -60,7 +60,8 @@ bool Engine::Init(
 	return m_isRunning;
 }
 
-bool Engine::LoadApplication(App* app)
+// Loads Passed Application, beginning with creating its desired renderer
+bool Engine::LoadApplication(IApp* app)
 {
 
 	if (app == nullptr) {
@@ -69,7 +70,8 @@ bool Engine::LoadApplication(App* app)
 	}
 
 	m_app = app;
-
+	
+	// TODO: RendererManager on the IApp* will used to create renderer
 	if ( m_app->CreateRenderer( m_engineName, 1, true, m_window ) == false )
 	{
 		Debug::FatalError( "Failed to create renderer for application!", __FILE__, __LINE__ );
@@ -89,7 +91,7 @@ bool Engine::LoadApplication(App* app)
 }
 
 
-
+// Runs current application
 void Engine::Run()
 {
 
@@ -106,6 +108,7 @@ void Engine::Run()
 	}
 
 }
+
 
 bool Engine::IsRunning() const
 {

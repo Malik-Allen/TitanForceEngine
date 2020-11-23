@@ -6,22 +6,36 @@ VulkanRenderer::VulkanRenderer()
 VulkanRenderer::~VulkanRenderer()
 {}
 
-void VulkanRenderer::OnCreate( 
-	const char * applicationName, 
-	const char * engineName, 
-	int version, 
-	bool enableValidationLayers, 
+bool VulkanRenderer::OnCreate(
+	const char * applicationName,
+	const char * engineName,
+	int version,
+	bool enableValidationLayers,
 	Window * window )
-{}
+{
+	return false;
+}
 
 void VulkanRenderer::OnDestroy()
 {}
 
-void VulkanRenderer::Render()
+void VulkanRenderer::RenderScene( IScene * scene )
 {}
 
-void VulkanRenderer::Wait()
+void VulkanRenderer::BeginScene( IScene * scene )
 {}
 
-void VulkanRenderer::AddMesh( Mesh * mesh )
+void VulkanRenderer::EndScene()
+{}
+
+void VulkanRenderer::Begin()
+{}
+
+void VulkanRenderer::Present()
+{}
+
+void VulkanRenderer::End()
+{}
+
+void VulkanRenderer::SubmitModel( Model* model )
 {}

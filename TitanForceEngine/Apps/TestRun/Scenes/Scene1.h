@@ -1,27 +1,17 @@
-#ifndef TESTRUN_H
-#define TESTRUN_H
+#pragma once
 
-#include "../../Engine/AppCore/App.h"
+#include "../../../Engine/AppCore/Scene.h"
 
-class TestRun : public IApp
+class Scene1 : public IScene
 {
-
 public:
 
-	TestRun();
-	~TestRun();
+	Scene1();
+	~Scene1();
 
 	virtual bool OnCreate() override final;
 	virtual void OnDestroy() override final;
-
 	virtual void Update( const float deltaTime ) override final;
 
 
-private:
-
-
 };
-
-
-#endif // !TESTRUN_H
-

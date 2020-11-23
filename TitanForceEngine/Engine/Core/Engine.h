@@ -5,7 +5,7 @@
 
 #include <memory>
 
-class App;
+class IApp;
 class Window;
 
 // Singleton Engine Class
@@ -22,8 +22,8 @@ public:
 		const int windowHeight 
 	);
 
-	// Loads passed application into Engine, application will be executed when Engine's Run is called
-	bool LoadApplication(App* app);
+	// Loads Passed Application, beginning with creating its desired renderer
+	bool LoadApplication(IApp* app);
 
 	// Runs current application
 	void Run();
@@ -71,7 +71,7 @@ private:
 
 	unsigned int		m_fps;
 
-	App*				m_app;
+	IApp*				m_app;
 
 	Window*				m_window;
 	

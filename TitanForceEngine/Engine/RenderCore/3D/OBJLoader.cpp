@@ -1,41 +1,30 @@
 #include "OBJLoader.h"
 
-#include "../Debug/Debug.h"
+#include "../../Debug/Debug.h"
 
 #include <fstream>
 #include <sstream>
 
-LoadOBJModel::LoadOBJModel()
+// Loads Obj from the passed obj file name, if the file does not exist or is unreadable, this function returns null
+SubMesh * OBJLoader::LoadObj( const std::string & filePath )
 {
-	vertices.reserve( 200 );
-	normals.reserve( 200 );
-	textureCoords.reserve( 200 );
-	indices.reserve( 200 );
-	normalIndices.reserve( 200 );
-	textureIndices.reserve( 200 );
-	meshVertices.reserve( 200 );
-	subMeshes.reserve( 10 );
+	std::vector<glm::vec3> vertices;
+	std::vector<glm::vec3> normals;
+	std::vector<glm::vec2> textureCoords;
+	std::vector<int> indices, normalIndices, textureIndices;
+	std::vector<Vertex> meshVertices;
+	std::vector<SubMesh> subMeshes;
+	glm::vec3 fVector;
 
-}
-
-LoadOBJModel::~LoadOBJModel()
-{}
-
-
-void LoadOBJModel::LoadModel( const std::string& filePath_ )
-{
-	subMeshes.clear();
-
-	std::ifstream in( filePath_.c_str(), std::ios::in );
+	std::ifstream in( filePath.c_str(), std::ios::in );
 	if ( !in )
 	{
-		Debug::Error( "Cannot open OBJ file: " + filePath_, __FILE__, __LINE__ );
-		return;
+		Debug::Error( "Cannot open OBJ file: " + filePath, __FILE__, __LINE__ );
+		return nullptr;
 	}
 	std::string line;
 
-	firstCheck = true;
-
+	bool firstCheck = true;
 	while ( std::getline( in, line ) )
 	{
 //VERTEX DATA
@@ -133,39 +122,7 @@ void LoadOBJModel::LoadModel( const std::string& filePath_ )
 
 		}
 	}
-	PostProcessing();
-
-}
-
-std::vector<Vertex> LoadOBJModel::GetVerts()
-{
-	return meshVertices;
-}
-
-std::vector<int> LoadOBJModel::GetIndices()
-{
-	return indices;
-}
-
-std::vector<SubMesh> LoadOBJModel::GetSubMeshes()
-{
-	return subMeshes;
-}
-
-void LoadOBJModel::OnDestroy()
-{
-	vertices.clear();
-	normals.clear();
-	textureCoords.clear();
-	indices.clear();
-	normalIndices.clear();
-	textureIndices.clear();
-	meshVertices.clear();
-	subMeshes.clear();
-}
-
-void LoadOBJModel::PostProcessing()
-{
+	// Post Processing
 	for ( int i = 0; i < indices.size(); i++ )
 	{
 		Vertex vert;
@@ -175,16 +132,9 @@ void LoadOBJModel::PostProcessing()
 		meshVertices.push_back( vert );
 
 	}
-	SubMesh subMesh;
 
-	subMesh.vertexList = meshVertices;
-	subMesh.meshIndices = indices;
-
-	subMeshes.push_back( subMesh );
-
-	indices.clear();
-	normalIndices.clear();
-	textureIndices.clear();
-	meshVertices.clear();
-
+	SubMesh* subMesh = new SubMesh();
+	subMesh->vertexList = meshVertices;
+	subMesh->meshIndices = indices;
+	return subMesh;
 }

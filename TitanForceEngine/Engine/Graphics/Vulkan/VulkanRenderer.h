@@ -1,9 +1,9 @@
 #ifndef VULKANRENDERER_H
 #define VULKANRENDERER_H
 
-#include "../../Core/Renderer.h"
+#include "../../RenderCore/Renderer.h"
 
-class VulkanRenderer : public Renderer
+class VulkanRenderer : public IRenderer
 {
 
 public:
@@ -11,19 +11,27 @@ public:
 	VulkanRenderer();
 	~VulkanRenderer();
 
-	virtual void OnCreate(
+	// Initializes Renderer
+	virtual bool OnCreate(
 		const char* applicationName,
 		const char* engineName,
 		int version,
 		bool enableValidationLayers,
 		Window* window ) override final;
-
 	virtual void OnDestroy() override final;
 
-	virtual void Render() override final;
-	virtual void Wait() override final;
+	virtual void RenderScene( IScene* scene ) override final;
 
-	virtual void AddMesh( Mesh* mesh ) override final;
+private:
+
+	virtual void BeginScene( IScene* scene ) override final;
+	virtual void EndScene() override final;
+
+	virtual void Begin() override final;
+	virtual void Present() override final;
+	virtual void End() override final;
+
+	virtual void SubmitModel( Model* model ) override final;
 
 };
 

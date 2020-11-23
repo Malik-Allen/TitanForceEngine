@@ -1,60 +1,42 @@
 #ifndef OPENGLRENDERER_H
 #define OPENGLRENDERER_H
 
-#include "../../Core/Renderer.h"
+#include "../../RenderCore/Renderer.h"
 
 #include <glad/glad.h>
-#include <memory>
 
-#include <map>
-#include <string>
-
-class OpenGLRenderer : public Renderer
+class OpenGLRenderer : public IRenderer
 {
 public:
 
 	OpenGLRenderer();
 	~OpenGLRenderer();
 
-	virtual void OnCreate(
+	// Initializes Renderer
+	virtual bool OnCreate(
 		const char* applicationName,
 		const char* engineName,
 		int version,
 		bool enableValidationLayers,
 		Window* window ) override final;
-
 	virtual void OnDestroy() override final;
 
-	virtual void Render() override final;
-	virtual void Wait() override final;
-
-	virtual void AddMesh( Mesh* mesh ) override final;
+	virtual void RenderScene( IScene* scene ) override final;
 
 private:
 
-	void CreateShaderProgram(
-		const std::string& shaderName,
-		const std::string& vertexShaderFileName,
-		const std::string& fragmentShaderFileName
-	);
+	virtual void BeginScene( IScene* scene ) override final;
+	virtual void EndScene() override final;
 
-	GLuint GetShaderProgram( const std::string& shaderName );
+	virtual void Begin() override final;
+	virtual void Present() override final;
+	virtual void End() override final;
 
-
-
-
-	std::string ReadShader( const std::string& filePath );
-	GLuint CreateShader( GLenum shaderType, const std::string& source, const std::string& shaderName );
-
-
-
-
-	Window*		m_window;
-	std::map<std::string, GLuint> m_shaderPrograms;
-
+	virtual void SubmitModel( Model* model ) override final;
 
 	void GetInstalledOpenGLInfo( int* major, int* minor );
 
+	
 
 };
 

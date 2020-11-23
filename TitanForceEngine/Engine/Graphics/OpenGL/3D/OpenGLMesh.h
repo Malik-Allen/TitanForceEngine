@@ -1,35 +1,26 @@
 #ifndef OPENGLMESH_H
 #define OPENGLMESH_H
 
-#include "../../../3D/Mesh.h"
+#include "../../../RenderCore/3D/Mesh.h"
 
 #include <glad/glad.h>
 
-class OpenGLMesh : public Mesh
+class OpenGLMesh : public IMesh
 {
 	friend class OpenGLRenderer;
 
 public:
 
-	OpenGLMesh( CameraComponent* camera, SubMesh subMesh, const char* shader );
+	OpenGLMesh( const char* objFileName );
 	~OpenGLMesh();
 
 	virtual void GenerateBuffers() override final;
 
-	virtual void Render( glm::mat4 transform ) override final;
+	virtual void Render() override final;
 
 private:
 
 	GLuint VAO, VBO;
-	GLuint shaderProgram;
-	GLuint modelLoc, viewLoc, projLoc;
-
-	GLuint normalLoc;
-	GLuint viewPositionLoc;
-	GLuint lightPositionLoc;
-	GLuint ambientLoc;
-	GLuint diffuseLoc;
-	GLuint colorLoc;
 
 };
 

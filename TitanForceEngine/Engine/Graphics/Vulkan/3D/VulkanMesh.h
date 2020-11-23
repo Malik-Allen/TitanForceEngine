@@ -1,19 +1,19 @@
 #ifndef VULKANMESH_H
 #define VULKANMESH_H
 
-#include "../../../3D/Mesh.h"
+#include "../../../RenderCore/3D/Mesh.h"
 
-class VulkanMesh : public Mesh
+class VulkanMesh : public IMesh
 {
 
 public:
 	
-	VulkanMesh( CameraComponent* camera, SubMesh subMesh, const char* shader );
+	VulkanMesh(const char* objFileName );
 	~VulkanMesh();
 
 	virtual void GenerateBuffers() override final;
 
-	virtual void Render( glm::mat4 transform ) override final;
+	virtual void Render() override final;
 };
 
 #endif // !VULKANMESH_H

@@ -3,13 +3,7 @@
 
 #include "../../EntityComponentSystem/EntityComponentSystem/ECS/ECS.h"
 
-#include "../Math/Transform.h"
-
-#include "../Core/Renderer.h"
-
-#include <vector>
-
-class Mesh;
+#include "../RenderCore/Model/Model.h"
 
 class RenderComponent : public ECS::Component
 {
@@ -20,13 +14,13 @@ public:
 	static constexpr uint64_t ID = GENERATE_ID( "RenderComponent" );
 
 
-	RenderComponent( std::vector<Mesh*> subMeshes );
+	RenderComponent( Model* model );
 
 	~RenderComponent();
 
 private:
 
-	std::vector<Mesh*>	m_subMeshes;
+	Model*	m_model;
 
 };
 
@@ -46,7 +40,7 @@ public:
 
 	virtual void Update( const float deltaTime ) override final;
 
-	std::vector<Mesh*> GetAllMeshes() const;
+	std::vector<Model*> GetModels();
 };
 
 
