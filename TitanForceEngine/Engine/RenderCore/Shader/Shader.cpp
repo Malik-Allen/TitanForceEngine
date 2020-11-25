@@ -54,7 +54,7 @@ const EShaderType & Shader::GetType() const
 
 std::string Shader::ReadShaderFromFile( const std::string& fileName )
 {
-	std::string filePath = "./Resources/Shaders/" + fileName;
+	std::string filePath = "D://mklal//Documents//GitHub//TitanForceEngine//TitanForceEngine//Resources//Shaders//" + fileName;
 	std::string shaderCode = "";
 	std::ifstream file;
 	file.exceptions( std::ifstream::badbit );

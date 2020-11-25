@@ -20,5 +20,5 @@ void main() {
 	eyeDir = -vertDir;
 	lightDir = normalize(lightPos - vertPos); /// Create the light direction. I do the math with in class 
 	
-	gl_Position =  projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0); 
+	gl_Position =  projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
 }

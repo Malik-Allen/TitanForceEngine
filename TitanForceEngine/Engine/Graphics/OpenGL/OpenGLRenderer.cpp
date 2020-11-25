@@ -3,13 +3,14 @@
 #include "../../Devices/Window.h"
 #include "../../RenderCore/Model/Model.h"
 #include "../../Components/RenderComponent.h"
+#include "../../Components/TransformComponent.h"
 #include "../../RenderCore/Camera/Camera.h"
 
 #include "../../Debug/Debug.h"
 
 #include <string>
 
-OpenGLRenderer::OpenGLRenderer() : 
+OpenGLRenderer::OpenGLRenderer() :
 	IRenderer()
 {}
 
@@ -60,7 +61,7 @@ void OpenGLRenderer::RenderScene( IScene * scene )
 
 void OpenGLRenderer::BeginScene( IScene * scene )
 {
-	
+
 	if ( scene == nullptr )
 	{
 		return;
@@ -70,20 +71,18 @@ void OpenGLRenderer::BeginScene( IScene * scene )
 		// What I will be doing in the future is clearing out command queue, instead of vector of meshes
 
 	m_models.clear();
-
-	for ( auto m : scene->m_world->GetSystem<RenderSystem>()->GetModels() )
+	
+	auto registry = ECS::Parser<RenderComponent, TransformComponent>( scene->m_world );
+	registry.GetComponents();
+	for ( auto c : registry.GetComponents() )
 	{
-		SubmitModel( m );
+		RenderComponent* r = std::get<RenderComponent*>( c );
+		
+		SubmitModel( r->GetModel() );
 	}
 
-	m_camera = scene->m_world->GetSystem<CameraSystem>()->GetCameras().front();
-	// m_camera = m_scene->GetAllComponent<CameraComponent>().front();
-
-	// std::vector<RenderComponent*> renderComponents = m_scene->m_world->GetAllComponent<RenderComponent>();
-	// for ( auto r : renderComponents )
-	// {
-	// 	SubmitModel( r->m_model );
-	// }
+	auto cameraRegistry = ECS::Parser<CameraComponent, TransformComponent>( scene->m_world );
+	m_camera = std::get<CameraComponent*>( cameraRegistry.GetComponents().front() );
 
 }
 

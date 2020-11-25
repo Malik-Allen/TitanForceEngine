@@ -18,6 +18,8 @@ public:
 
 	~RenderComponent();
 
+	Model* GetModel() const { return m_model; }
+
 private:
 
 	Model*	m_model;

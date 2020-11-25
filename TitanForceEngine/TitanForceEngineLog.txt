@@ -1,5 +1,5 @@
 INFO: Creating OpenGL Application: Test Run in: D:\mklal\Documents\GitHub\TitanForceEngine\TitanForceEngine\Engine\AppCore\App.cpp on line: 48
-INFO: OpenGL version: 4.6.0 NVIDIA 452.06 in: D:\mklal\Documents\GitHub\TitanForceEngine\TitanForceEngine\Engine\Graphics\OpenGL\OpenGLRenderer.cpp on line: 135
-INFO: Graphics card vendor NVIDIA Corporation in: D:\mklal\Documents\GitHub\TitanForceEngine\TitanForceEngine\Engine\Graphics\OpenGL\OpenGLRenderer.cpp on line: 136
-INFO: Graphics card name GeForce GTX 1660 Ti/PCIe/SSE2 in: D:\mklal\Documents\GitHub\TitanForceEngine\TitanForceEngine\Engine\Graphics\OpenGL\OpenGLRenderer.cpp on line: 137
-INFO: GLSL Version 4.60 NVIDIA in: D:\mklal\Documents\GitHub\TitanForceEngine\TitanForceEngine\Engine\Graphics\OpenGL\OpenGLRenderer.cpp on line: 138
+INFO: OpenGL version: 4.6.0 NVIDIA 452.06 in: D:\mklal\Documents\GitHub\TitanForceEngine\TitanForceEngine\Engine\Graphics\OpenGL\OpenGLRenderer.cpp on line: 134
+INFO: Graphics card vendor NVIDIA Corporation in: D:\mklal\Documents\GitHub\TitanForceEngine\TitanForceEngine\Engine\Graphics\OpenGL\OpenGLRenderer.cpp on line: 135
+INFO: Graphics card name GeForce GTX 1660 Ti/PCIe/SSE2 in: D:\mklal\Documents\GitHub\TitanForceEngine\TitanForceEngine\Engine\Graphics\OpenGL\OpenGLRenderer.cpp on line: 136
+INFO: GLSL Version 4.60 NVIDIA in: D:\mklal\Documents\GitHub\TitanForceEngine\TitanForceEngine\Engine\Graphics\OpenGL\OpenGLRenderer.cpp on line: 137

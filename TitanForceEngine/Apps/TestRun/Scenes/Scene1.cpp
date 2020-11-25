@@ -42,7 +42,7 @@ bool Scene1::OnCreate()
 		);
 
 	// Model
-	Model* model1 = new Model( "./Resources/Models/F-16C.obj", "", shaderLinker, nullptr, transform );
+	Model* model1 = new Model( "D://mklal//Documents//GitHub//TitanForceEngine//TitanForceEngine//Resources//Models//F-16C.obj", "", shaderLinker, nullptr, transform );
 
 	// Render component
 	RenderComponent* r = m_world->AddComponentToEntity<RenderComponent>( gameObject, model1 );
@@ -50,6 +50,7 @@ bool Scene1::OnCreate()
 	// Generating a lot of Entities
 	std::vector<ECS::EntityId> entities = m_world->CreateEntities( 200 );
 
+	// return true;
 	glm::vec3 pos = glm::vec3( -50.0f, 0.0f, 0.0f );
 	glm::vec3 scale = glm::vec3( 1.0f, 1.0f, 1.0f );
 
@@ -69,12 +70,12 @@ bool Scene1::OnCreate()
 
 		if ( i % 2 == 0 )
 		{
-			Model* model1 = new Model( "./Resources/Models/F-16C.obj", "", shaderLinker, nullptr, t );
+			Model* model1 = new Model( "Resources/Models/F-16C.obj", "", shaderLinker, nullptr, t );
 			m_world->AddComponentToEntity<RenderComponent>( entities[i], model1 );
 		}
 		else
 		{
-			Model* model2 = new Model( "./Resources/Models/Mario.obj", "", shaderLinker, nullptr, t );
+			Model* model2 = new Model( "Resources/Models/Mario.obj", "", shaderLinker, nullptr, t );
 			m_world->AddComponentToEntity<RenderComponent>( entities[i], model2 );
 		}
 		
