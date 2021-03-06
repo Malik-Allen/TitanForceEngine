@@ -1,7 +1,5 @@
 #include "TestRun.h"
 
-#include "../../Engine/Debug/Debug.h"
-
 #include "Scenes/Scene1.h"
 
 TestRun::TestRun() :
@@ -13,11 +11,11 @@ TestRun::~TestRun()
 
 bool TestRun::OnCreate()
 {
-	
+
 	m_scene = new Scene1();
 	if ( !m_scene->OnCreate() )
 	{
-		Debug::Error( "Failed to create Scene1 in Test Run!", __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::ERROR, "Failed to create Scene1 in Test Run!" );
 		return false;
 	}
 
@@ -36,5 +34,5 @@ void TestRun::Update( const float deltaTime )
 
 	m_renderer->RenderScene( m_scene );
 
-	
+
 }

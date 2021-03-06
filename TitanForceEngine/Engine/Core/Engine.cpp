@@ -26,9 +26,7 @@ bool Engine::Init(
 	const int windowWidth, 
 	const int windowHeight )
 {
-	Debug::DebugInit ();
-	Debug::SetSeverity ( MessageType::TYPE_INFO );
-
+	Debug::DebugInit();
 	m_engineName = engineName;
 
 	m_engineClock = new EngineClock();

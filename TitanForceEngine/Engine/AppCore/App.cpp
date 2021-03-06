@@ -45,18 +45,18 @@ bool IApp::CreateRenderer(
 #if GRAPHICS_API == GRAPHICS_OPENGL
 
 	m_renderer = new OpenGLRenderer();
-	Debug::Info( "Creating OpenGL Application: " + m_appName, __FILE__, __LINE__ );
+	DEBUG_LOG( LOG::INFO, "Creating OpenGL Application: " + m_appName );
 
 #elif GRAPHICS_API == GRAPHICS_VULKAN
 
 	m_renderer = new VulkanRenderer();
-	Debug::Info( "Creating Vulkan Application: " + *m_appName, __FILE__, __LINE__ );
+	DEBUG_LOG( LOG::INFO, "Creating Vulkan Application: " + m_appName );
 
 #endif
-	
+
 	if ( m_renderer == nullptr )
 	{
-		Debug::Error( "Failed to create renderer for app: " + m_appName, __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::ERROR, "Failed to create renderer for app: " + m_appName );
 		return false;
 	}
 	else
