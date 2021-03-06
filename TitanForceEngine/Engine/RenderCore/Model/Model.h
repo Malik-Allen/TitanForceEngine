@@ -31,7 +31,7 @@ private:
 
 	// TODO:
 	// Replace a single mesh reference with a dynamic array of meshes
-	// OBJLoader Will need to support loaqding multiple meshes
+	// OBJLoader Will need to support loading multiple meshes
 	IMesh*				m_mesh;	
 	Material*			m_material;
 	ShaderLinker*		m_shaderLinker;
