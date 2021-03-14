@@ -8,7 +8,7 @@
 
 #endif
 
-#include "../../Debug/Debug.h"
+#include "../../EntityComponentSystem/EntityComponentSystem/ECS/include/Utility/Debug.h"
 
 #include <vector>
 
@@ -38,7 +38,8 @@ void ShaderLinker::SubmitShader( Shader * shader )
 {
 	if ( shader == nullptr )
 	{
-		Debug::Error( "Failed to submit shader to shader linker: " + m_name, __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::ERRORLOG, "Failed to submit shader to shader linker: " + m_name );
+		CONSOLE_LOG( LOG::ERRORLOG, "Failed to submit shader to shader linker: " + m_name );
 		return;
 	}
 
@@ -46,7 +47,8 @@ void ShaderLinker::SubmitShader( Shader * shader )
 	if ( m_shaderChain[type] != nullptr )
 		// In the case when the shader type already exists we need to delete it from the array before we assign the new one
 	{
-		Debug::Error( "Replacing Shader Type: " + std::to_string( type ) + "Old Shader Name: " + m_shaderChain[type]->GetFileName() + "New Shader: " + shader->GetFileName(), __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::ERRORLOG, "Replacing Shader Type: " + std::to_string( type ) + "Old Shader Name: " + m_shaderChain[type]->GetFileName() + "New Shader: " + shader->GetFileName() );
+		CONSOLE_LOG( LOG::ERRORLOG, "Replacing Shader Type: " + std::to_string( type ) + "Old Shader Name: " + m_shaderChain[type]->GetFileName() + "New Shader: " + shader->GetFileName() );
 		delete m_shaderChain[type];
 	}
 
@@ -79,7 +81,8 @@ void ShaderLinker::LinkShaders()
 {
 	if ( m_id != 0 )
 	{
-		Debug::Info( m_name + ": Deleting old program:" + std::to_string( m_id ), __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::INFO, m_name + ": Deleting old program:" + std::to_string( m_id ) );
+		CONSOLE_LOG( LOG::INFO, m_name + ": Deleting old program:" + std::to_string( m_id ) );
 		GLuint oldProgram = m_id;
 		glDeleteProgram( oldProgram );
 	}
@@ -112,7 +115,8 @@ void ShaderLinker::LinkShaders()
 			std::vector<char> programLog( infoLogLength );
 			glGetProgramInfoLog( program, infoLogLength, NULL, &programLog[0] );
 			std::string programString( programLog.begin(), programLog.end() );
-			Debug::Error( "Failed to link shader " + s->GetFileName() + ". Error: " + programString, __FILE__, __LINE__ );
+			DEBUG_LOG( LOG::ERRORLOG, "Failed to link shader " + s->GetFileName() + ". Error: " + programString );
+			CONSOLE_LOG( LOG::ERRORLOG, "Failed to link shader " + s->GetFileName() + ". Error: " + programString );
 			glDeleteShader( shader );
 			glDeleteProgram( program );
 			return;

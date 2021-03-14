@@ -1,7 +1,8 @@
 #include "Engine.h"
 #include "../AppCore/App.h"
 #include "../Devices/Window.h"
-#include "../Debug/Debug.h"
+
+#include "../../EntityComponentSystem/EntityComponentSystem/ECS/include/Utility/Debug.h"
 
 #include <iostream>
 
@@ -26,13 +27,14 @@ bool Engine::Init(
 	const int windowWidth, 
 	const int windowHeight )
 {
-	Debug::DebugInit();
+	DEBUG_INIT();
 	m_engineName = engineName;
 
 	m_engineClock = new EngineClock();
 	if (m_engineClock == nullptr)
 	{
-		Debug::FatalError ( "Engine Failed to initialize Engine Clock!", __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::FATAL, "Failed to create engine clock!" );
+		CONSOLE_LOG( LOG::FATAL, "Failed to create engine clock!" );
 		return false;
 	}
 
@@ -50,7 +52,8 @@ bool Engine::Init(
 
 	if ( m_window->OnCreate( appName, windowWidth, windowHeight ) == false )
 	{
-		Debug::FatalError( "Engine Failed to Create Window!", __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::FATAL, "Failed to create window!" );
+		CONSOLE_LOG( LOG::FATAL, "Failed to create window!" );
 		return false;
 	}
 
@@ -63,7 +66,8 @@ bool Engine::LoadApplication(IApp* app)
 {
 
 	if (app == nullptr) {
-		Debug::Error ( "Failed to Load Application in Engine. App is null!", __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::WARNING, "Failed to laod application: App is null" );
+		CONSOLE_LOG( LOG::WARNING, "Failed to laod application: App is null" );
 		return false;
 	}
 
@@ -72,13 +76,15 @@ bool Engine::LoadApplication(IApp* app)
 	// TODO: RendererManager on the IApp* will used to create renderer
 	if ( m_app->CreateRenderer( m_engineName, 1, true, m_window ) == false )
 	{
-		Debug::FatalError( "Failed to create renderer for application!", __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::ERRORLOG, "Failed to create application renderer!" );
+		CONSOLE_LOG( LOG::ERRORLOG, "Failed to create application renderer!" );
 		return false;
 	}
 
 	if ( m_app->OnCreate() == false )
 	{
-		Debug::FatalError( "Failed to create application!", __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::ERRORLOG, "Failed to create application!" );
+		CONSOLE_LOG( LOG::ERRORLOG, "Failed to create application!" );
 		return false;
 	}
 

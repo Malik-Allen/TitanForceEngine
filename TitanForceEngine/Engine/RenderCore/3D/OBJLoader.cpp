@@ -1,6 +1,6 @@
 #include "OBJLoader.h"
 
-#include "../../Debug/Debug.h"
+#include "../../EntityComponentSystem/EntityComponentSystem/ECS/include/Utility/Debug.h"
 
 #include <fstream>
 #include <sstream>
@@ -19,7 +19,8 @@ SubMesh * OBJLoader::LoadObj( const std::string & filePath )
 	std::ifstream in( filePath.c_str(), std::ios::in );
 	if ( !in )
 	{
-		Debug::Error( "Cannot open OBJ file: " + filePath, __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::ERRORLOG, "Cannot open OBJ file: " + filePath );
+		CONSOLE_LOG( LOG::ERRORLOG, "Cannot open OBJ file: " + filePath );
 		return nullptr;
 	}
 	std::string line;

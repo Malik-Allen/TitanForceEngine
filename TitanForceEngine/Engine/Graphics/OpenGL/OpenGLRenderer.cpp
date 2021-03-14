@@ -6,7 +6,7 @@
 #include "../../Components/TransformComponent.h"
 #include "../../RenderCore/Camera/Camera.h"
 
-#include "../../Debug/Debug.h"
+#include "../../EntityComponentSystem/EntityComponentSystem/ECS/include/Utility/Debug.h"
 
 #include <string>
 
@@ -28,7 +28,8 @@ bool OpenGLRenderer::OnCreate(
 
 	if ( !gladLoadGL() )
 	{
-		Debug::Error( "Failed Init GL with Glad", __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::FATAL, "Failed to init GL with GLAD!" );
+		CONSOLE_LOG( LOG::FATAL, "Failed to init GL with GLAD!" );
 		return false;
 	}
 
@@ -131,9 +132,15 @@ void OpenGLRenderer::GetInstalledOpenGLInfo( int * major, int * minor )
 
 	glGetIntegerv( GL_MAJOR_VERSION, major );
 	glGetIntegerv( GL_MINOR_VERSION, minor );
-	Debug::Info( "OpenGL version: " + std::string( (char*)glGetString( GL_VERSION ) ), __FILE__, __LINE__ );
-	Debug::Info( "Graphics card vendor " + std::string( (char*)vendor ), __FILE__, __LINE__ );
-	Debug::Info( "Graphics card name " + std::string( (char*)renderer ), __FILE__, __LINE__ );
-	Debug::Info( "GLSL Version " + std::string( (char*)glslVersion ), __FILE__, __LINE__ );
+
+	DEBUG_LOG( LOG::INFO, "OpenGL version: " + std::string( (char*)glGetString( GL_VERSION ) ) );
+	DEBUG_LOG( LOG::INFO, "Graphics card vendor " + std::string( (char*)vendor ) );
+	DEBUG_LOG( LOG::INFO, "Graphics card name " + std::string( (char*)renderer ) );
+	DEBUG_LOG( LOG::INFO, "GLSL Version " + std::string( (char*)glslVersion ) );
+	CONSOLE_LOG( LOG::INFO, "OpenGL version: " + std::string( (char*)glGetString( GL_VERSION ) ) );
+	CONSOLE_LOG( LOG::INFO, "Graphics card vendor " + std::string( (char*)vendor ) );
+	CONSOLE_LOG( LOG::INFO, "Graphics card name " + std::string( (char*)renderer ) );
+	CONSOLE_LOG( LOG::INFO, "GLSL Version " + std::string( (char*)glslVersion ) );
+
 	return;
 }

@@ -8,7 +8,7 @@
 
 #endif
 
-#include "../../Debug/Debug.h"
+#include "../../EntityComponentSystem/EntityComponentSystem/ECS/include/Utility/Debug.h"
 
 #include <fstream>
 #include <sstream>
@@ -68,7 +68,8 @@ std::string Shader::ReadShaderFromFile( const std::string& fileName )
 	}
 	catch ( std::ifstream::failure error_ )
 	{
-		Debug::Error( "Could not read the shader: " + filePath, __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::ERRORLOG, "Cannot read shader at: " + filePath );
+		CONSOLE_LOG( LOG::ERRORLOG, "Cannot read shader at: " + filePath );
 		return "";
 	}
 
@@ -97,7 +98,8 @@ unsigned int Shader::CompileShader()
 		shaderType = GL_FRAGMENT_SHADER;
 		break;
 	default:
-		Debug::Error( "Invalid ShaderType Passed!", __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::ERRORLOG, "Invalid ShaderType Passed!" );
+		CONSOLE_LOG( LOG::ERRORLOG, "Invalid ShaderType Passed!" );
 		return 0;
 		break;
 	}
@@ -120,7 +122,8 @@ unsigned int Shader::CompileShader()
 		std::vector<char> shaderLog( infoLogLength );
 		glGetShaderInfoLog( shader, infoLogLength, NULL, &shaderLog[0] );
 		std::string shaderString( shaderLog.begin(), shaderLog.end() );
-		Debug::Error( "Error Compiling shader " + m_fileName + ". Error: \n" + shaderString, __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::ERRORLOG, "Error Compiling shader " + m_fileName + ". Error: \n" + shaderString );
+		CONSOLE_LOG( LOG::ERRORLOG, "Error Compiling shader " + m_fileName + ". Error: \n" + shaderString );
 		return 0;
 	}
 

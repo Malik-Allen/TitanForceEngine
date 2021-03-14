@@ -1,6 +1,6 @@
 #include "Window.h"
 
-#include "../Debug/Debug.h"
+#include "../../EntityComponentSystem/EntityComponentSystem/ECS/include/Utility/Debug.h"
 
 
 
@@ -18,7 +18,8 @@ bool Window::OnCreate( const std::string& name, const int width, const int heigh
 
 	if ( !glfwInit() )
 	{
-		Debug::FatalError( "Failed to init GLFW!", __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::FATAL, "Failed to init GLFW!" );
+		CONSOLE_LOG( LOG::FATAL, "Failed to init GLFW!" );
 		return false;
 	}
 
@@ -31,7 +32,8 @@ bool Window::OnCreate( const std::string& name, const int width, const int heigh
 
 	if ( !m_glfwWindow )
 	{
-		Debug::FatalError( "Failed to create GLFW Window", __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::FATAL, "Failed to create GLFW window!" );
+		CONSOLE_LOG( LOG::FATAL, "Failed to create GLFW window!" );
 		return false;
 	}
 
@@ -41,7 +43,8 @@ bool Window::OnCreate( const std::string& name, const int width, const int heigh
 
 	if ( !gladLoadGLLoader( (GLADloadproc)glfwGetProcAddress ) )
 	{
-		Debug::FatalError( "Failed to initialize GLAD!", __FILE__, __LINE__ );
+		DEBUG_LOG( LOG::FATAL, "Failed to init GLAD!" );
+		CONSOLE_LOG( LOG::FATAL, "Failed to init GLAD!" );
 		return false;
 	}
 

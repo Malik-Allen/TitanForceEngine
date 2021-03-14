@@ -1,6 +1,6 @@
 #include "App.h"
 
-#include "../Debug/Debug.h"
+#include "../../EntityComponentSystem/EntityComponentSystem/ECS/include/Utility/Debug.h"
 
 #if GRAPHICS_API == GRAPHICS_OPENGL
 #include "../Graphics/OpenGL/OpenGLRenderer.h"
@@ -56,7 +56,7 @@ bool IApp::CreateRenderer(
 
 	if ( m_renderer == nullptr )
 	{
-		DEBUG_LOG( LOG::ERROR, "Failed to create renderer for app: " + m_appName );
+		DEBUG_LOG( LOG::ERRORLOG, "Failed to create renderer for app: " + m_appName );
 		return false;
 	}
 	else
