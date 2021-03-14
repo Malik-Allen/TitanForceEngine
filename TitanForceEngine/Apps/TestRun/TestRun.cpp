@@ -15,7 +15,7 @@ bool TestRun::OnCreate()
 	m_scene = new Scene1();
 	if ( !m_scene->OnCreate() )
 	{
-		DEBUG_LOG( LOG::ERRORLOG, "Failed to create Scene1 in Test Run!" );
+		// DEBUG_LOG( LOG::ERRORLOG, "Failed to create Scene1 in Test Run!" );
 		return false;
 	}
 
