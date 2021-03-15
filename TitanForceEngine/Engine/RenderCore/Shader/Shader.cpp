@@ -54,7 +54,8 @@ const EShaderType & Shader::GetType() const
 
 std::string Shader::ReadShaderFromFile( const std::string& fileName )
 {
-	std::string filePath = "D://mklal//Documents//GitHub//TitanForceEngine//TitanForceEngine//Resources//Shaders//" + fileName;
+	std::string filePath = "./Resources/Shaders/" + fileName;
+	// std::string filePath = "D://mklal//Documents//GitHub//TitanForceEngine//TitanForceEngine//Resources//Shaders//" + fileName;
 	std::string shaderCode = "";
 	std::ifstream file;
 	file.exceptions( std::ifstream::badbit );
@@ -141,7 +142,8 @@ void Shader::SetUpUniformLocations( unsigned int programId )
 	unsigned int loc;
 
 	glGetProgramiv( programId, GL_ACTIVE_UNIFORMS, &count );
-	printf( "There are %d active Uniforms\n", count );
+	DEBUG_LOG( LOG::INFO, "Active Uniform Count: " + std::to_string( count ) );
+	CONSOLE_LOG( LOG::INFO, "Active Uniform Count: " + std::to_string( count ) );
 
 	/// get the length of the longest named uniform 
 	glGetProgramiv( programId, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxUniformListLength );
@@ -159,7 +161,8 @@ void Shader::SetUpUniformLocations( unsigned int programId )
 		std::string uniformName = name;
 		m_uniformMap[uniformName] = loc;
 
-		printf( "\"%s\" loc:%d\n", uniformName.c_str(), m_uniformMap[uniformName] );
+		DEBUG_LOG( LOG::INFO, "Uniform: " + uniformName + " \t\t Location: " + std::to_string( m_uniformMap[uniformName] ) );
+		CONSOLE_LOG( LOG::INFO, "Uniform: " + uniformName + " \t\t Location: " + std::to_string( m_uniformMap[uniformName] ) );
 	}
 	free( name );
 }

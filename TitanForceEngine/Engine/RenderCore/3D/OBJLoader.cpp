@@ -16,11 +16,13 @@ SubMesh * OBJLoader::LoadObj( const std::string & filePath )
 	std::vector<SubMesh> subMeshes;
 	glm::vec3 fVector;
 
-	std::ifstream in( filePath.c_str(), std::ios::in );
+	std::string relativeFilePath = "./Resources/Models/" + filePath;
+
+	std::ifstream in( relativeFilePath.c_str(), std::ios::in );
 	if ( !in )
 	{
-		DEBUG_LOG( LOG::ERRORLOG, "Cannot open OBJ file: " + filePath );
-		CONSOLE_LOG( LOG::ERRORLOG, "Cannot open OBJ file: " + filePath );
+		DEBUG_LOG( LOG::ERRORLOG, "Cannot open OBJ file: " + relativeFilePath );
+		CONSOLE_LOG( LOG::ERRORLOG, "Cannot open OBJ file: " + relativeFilePath );
 		return nullptr;
 	}
 	std::string line;
