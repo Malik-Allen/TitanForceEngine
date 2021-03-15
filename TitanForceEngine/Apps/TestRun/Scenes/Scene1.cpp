@@ -19,9 +19,7 @@ bool Scene1::OnCreate()
 	// Camera
 	ECS::EntityId camera = m_world->CreateEntities( 1 ).front();
 	m_world->AddComponentToEntity<CameraComponent>( camera );
-	m_world->AddComponentToEntity<TransformComponent>(
-		camera
-	);
+	m_world->AddComponentToEntity<TransformComponent>( camera );
 
 	// Shader
 	ShaderLinker* shaderLinker = new ShaderLinker( "PhongShader" );
@@ -70,7 +68,7 @@ bool Scene1::OnCreate()
 
 		if ( i % 2 == 0 )
 		{
-			Model* model1 = new Model( "F-16C.obj", "", shaderLinker, nullptr, t );
+			Model* model1 = new Model( "viking_room.obj", "", shaderLinker, nullptr, t );
 			m_world->AddComponentToEntity<RenderComponent>( entities[i], model1 );
 		}
 		else

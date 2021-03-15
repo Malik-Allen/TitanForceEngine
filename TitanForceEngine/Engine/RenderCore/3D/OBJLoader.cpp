@@ -5,139 +5,49 @@
 #include <fstream>
 #include <sstream>
 
+#define TINYOBJLOADER_IMPLEMENTATION
+#include <tiny_obj_loader.h>
+
 // Loads Obj from the passed obj file name, if the file does not exist or is unreadable, this function returns null
-SubMesh * OBJLoader::LoadObj( const std::string & filePath )
+SubMesh * OBJLoader::LoadObj( const std::string & objFileName )
 {
-	std::vector<glm::vec3> vertices;
-	std::vector<glm::vec3> normals;
-	std::vector<glm::vec2> textureCoords;
-	std::vector<int> indices, normalIndices, textureIndices;
-	std::vector<Vertex> meshVertices;
-	std::vector<SubMesh> subMeshes;
-	glm::vec3 fVector;
 
-	std::string relativeFilePath = "./Resources/Models/" + filePath;
+	std::string relativeFilePath = "./Resources/Models/" + objFileName;
+	tinyobj::attrib_t attrib;
+	std::vector<tinyobj::shape_t> shapes;
+	std::vector<tinyobj::material_t> materials;
+	std::string warn, err;
+	DEBUG_LOG( LOG::INFO, "Loading OBJ file: " + relativeFilePath );
+	CONSOLE_LOG( LOG::INFO, "Loading OBJ file: " + relativeFilePath );
 
-	std::ifstream in( relativeFilePath.c_str(), std::ios::in );
-	if ( !in )
+	if ( !tinyobj::LoadObj( &attrib, &shapes, &materials, &warn, &err, relativeFilePath.c_str() ) )
 	{
 		DEBUG_LOG( LOG::ERRORLOG, "Cannot open OBJ file: " + relativeFilePath );
 		CONSOLE_LOG( LOG::ERRORLOG, "Cannot open OBJ file: " + relativeFilePath );
-		return nullptr;
-	}
-	std::string line;
-
-	bool firstCheck = true;
-	while ( std::getline( in, line ) )
-	{
-//VERTEX DATA
-		if ( line.substr( 0, 2 ) == "v " )
-		{
-			std::stringstream v( line.substr( 2 ) );
-			float x, y, z;
-			v >> x >> y >> z;
-			if ( firstCheck )
-			{
-				fVector.x = x;
-				fVector.y = y;
-				fVector.z = z;
-				firstCheck = false;
-			}
-			//check max for the radius
-			if ( abs( x ) >= fVector.x )
-			{
-				fVector.x = abs( x );
-			}
-			if ( abs( y ) >= fVector.y )
-			{
-				fVector.y = abs( y );
-			}
-			if ( abs( z ) >= fVector.z )
-			{
-				fVector.z = abs( z );
-			}
-
-			vertices.push_back( glm::vec3( x, y, z ) );
-		}
-		//NORMAL DATA
-		else if ( line.substr( 0, 3 ) == "vn " )
-		{
-			std::stringstream v( line.substr( 3 ) );
-			float x, y, z;
-			v >> x >> y >> z;
-			normals.push_back( glm::vec3( x, y, z ) );
-		}
-		//TEXTURE DATA
-		else if ( line.substr( 0, 3 ) == "vt " )
-		{
-			std::stringstream v( line.substr( 3 ) );
-			glm::vec2 vec;
-			v >> vec.x >> vec.y;
-			textureCoords.push_back( vec );
-		}
-		//FACE DATA
-		else if ( line.substr( 0, 2 ) == "f " )
-		{
-			std::string data = line.substr( 2 );
-			int currentEndPos = 0;
-			while ( ( currentEndPos = data.find( ' ' ) ) != std::string::npos )
-			{
-				std::string chunk = data.substr( 0, currentEndPos );
-				int subEndPos = 0;
-				int vector = 0;
-
-
-				for ( int i = 0; i < 3; i++ )
-				{
-					int pushBack;
-					if ( ( subEndPos = chunk.find( '/' ) ) != std::string::npos )
-					{
-
-						pushBack = std::stoi( chunk.substr( 0, subEndPos ) );
-
-						chunk.erase( 0, subEndPos + 1 );
-					}
-					else
-					{
-						pushBack = std::stoi( chunk );
-					}
-
-					pushBack--;
-
-					switch ( i )
-					{
-					default:
-					case 0:
-						indices.push_back( pushBack );
-						break;
-					case 1:
-						textureIndices.push_back( pushBack );
-						break;
-					case 2:
-						normalIndices.push_back( pushBack );
-						break;
-					}
-				}
-
-				vector = 0;
-				data.erase( 0, currentEndPos + 1 );
-			}
-
-		}
-	}
-	// Post Processing
-	for ( int i = 0; i < indices.size(); i++ )
-	{
-		Vertex vert;
-		vert.position = vertices[indices[i]];
-		vert.normal = normals[normalIndices[i]];
-		vert.texCoords = textureCoords[textureIndices[i]];
-		meshVertices.push_back( vert );
-
+		CONSOLE_LOG( LOG::ERRORLOG, warn + err );
+		throw std::runtime_error( warn + err );
 	}
 
 	SubMesh* subMesh = new SubMesh();
-	subMesh->vertexList = meshVertices;
-	subMesh->meshIndices = indices;
+
+	for ( const auto& shape : shapes )
+	{
+		for ( auto index : shape.mesh.indices )
+		{
+			Vertex v;
+			v.position.x = attrib.vertices[3 * index.vertex_index + 0];
+			v.position.y = attrib.vertices[3 * index.vertex_index + 1];
+			v.position.z = attrib.vertices[3 * index.vertex_index + 2];
+
+			v.normal.x = attrib.normals[3 * index.normal_index + 0];
+			v.normal.y = attrib.normals[3 * index.normal_index + 1];
+			v.normal.z = attrib.normals[3 * index.normal_index + 2];
+
+			subMesh->vertexList.push_back( v );
+		}
+	}
+
 	return subMesh;
+
+	
 }
