@@ -2,7 +2,9 @@
 in  vec3 vertNormal;
 in  vec3 lightDir;
 in  vec3 eyeDir;
+in vec2 TexCoord;
 out vec4 fragColor;
+
 
 void main() { 
 	const vec4 ks = vec4(0.6, 0.6, 0.6, 0.0);

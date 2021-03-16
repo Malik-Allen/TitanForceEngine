@@ -1,24 +1,23 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-class Texture
+#include <string>
+
+class ITexture
 {
 public:
 
-	Texture( const char* fileName );
-	~Texture();
+	ITexture( const char* fileName ) : m_fileName( fileName ) {}
+	virtual ~ITexture() {}
 
-	void Bind();
-	void UnBind();
+	virtual void GenerateTexture() {};
+	virtual void Bind() {};
+	virtual void Unbind() {};
 
-	unsigned int GetId() const { return m_id; }
+protected:
 
-private:
+	std::string m_fileName;
 
-	const char*			m_fileName;
-	unsigned int		m_id;
-
-	void LoadTexture( const char* fileName );
 
 };
 

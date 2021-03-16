@@ -1,4 +1,4 @@
-#include "OBJLoader.h"
+#include "MeshLoader.h"
 
 #include "../../EntityComponentSystem/EntityComponentSystem/ECS/include/Utility/Debug.h"
 
@@ -9,10 +9,10 @@
 #include <tiny_obj_loader.h>
 
 // Loads Obj from the passed obj file name, if the file does not exist or is unreadable, this function returns null
-SubMesh * OBJLoader::LoadObj( const std::string & objFileName )
+SubMesh * MeshLoader::LoadMesh( const std::string & fileName )
 {
 
-	std::string relativeFilePath = "./Resources/Models/" + objFileName;
+	std::string relativeFilePath = "./Resources/Models/" + fileName;
 	tinyobj::attrib_t attrib;
 	std::vector<tinyobj::shape_t> shapes;
 	std::vector<tinyobj::material_t> materials;
@@ -43,11 +43,25 @@ SubMesh * OBJLoader::LoadObj( const std::string & objFileName )
 			v.normal.y = attrib.normals[3 * index.normal_index + 1];
 			v.normal.z = attrib.normals[3 * index.normal_index + 2];
 
+			v.texCoords.x = attrib.texcoords[2 * index.texcoord_index + 0];
+			v.texCoords.y = attrib.texcoords[2 * index.texcoord_index + 0];
+
+			v.colour = glm::vec3( 1.0f );
+
 			subMesh->vertexList.push_back( v );
 		}
 	}
 
 	return subMesh;
 
-	
+
 }
+
+//Texture2D * Loader::LoadTexture2D( const std::string & fileName )
+//{
+//
+//
+//
+//
+//	return nullptr;
+//}

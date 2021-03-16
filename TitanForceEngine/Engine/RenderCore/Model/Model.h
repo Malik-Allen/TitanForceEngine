@@ -19,7 +19,7 @@ public:
 		const char* objFileName, 
 		const char* materialFileName, 
 		ShaderLinker* shaderLinker, 
-		Texture* texture, 
+		const char* textureFileName, 
 		TransformComponent* transformComponent
 	);
 	~Model();
@@ -35,7 +35,7 @@ private:
 	IMesh*				m_mesh;	
 	Material*			m_material;
 	ShaderLinker*		m_shaderLinker;
-	Texture*			m_texture;
+	ITexture*			m_texture;
 	TransformComponent*	m_transform;
 
 	void OnDestroy();

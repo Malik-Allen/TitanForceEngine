@@ -4,6 +4,7 @@
 
 #if GRAPHICS_API == GRAPHICS_OPENGL
 #include "../../Graphics/OpenGL/3D/OpenGLMesh.h"
+#include "../../Graphics/OpenGL/Texture/OpenGLTexture2D.h"
 #include <gtc/type_ptr.hpp>
 #elif GRAPHICS_API == GRAPHICS_VULKAN
 #include "../../Graphics/Vulkan/3D/VulkanMesh.h"
@@ -15,13 +16,15 @@ Model::Model(
 	const char * objFileName,
 	const char * materialFileName,
 	ShaderLinker * shaderLinker,
-	Texture * texture,
+	const char * textureFileName,
 	TransformComponent * transformComponent )
 {
 
 #if GRAPHICS_API == GRAPHICS_OPENGL
 
 	m_mesh = new OpenGLMesh( objFileName );
+
+	m_texture = new OpenGLTexture2D( textureFileName );
 
 #elif GRAPHICS_API == GRAPHICS_VULKAN
 
@@ -35,7 +38,6 @@ Model::Model(
 
 	m_material = MaterialLoader::LoadMaterial( materialFileName );
 	m_shaderLinker = shaderLinker;
-	m_texture = texture;
 	m_transform = transformComponent;
 
 }
@@ -79,7 +81,7 @@ void Model::Render( CameraComponent * camera )
 
 	if ( m_texture )
 	{
-		m_texture->UnBind();
+		m_texture->Unbind();
 	}
 	
 

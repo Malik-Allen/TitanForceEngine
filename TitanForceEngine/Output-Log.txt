@@ -1,635 +1,946 @@
-[03/15/21|11:01:56][INFO]:	IApp::CreateRenderer(48):	Creating OpenGL Application: Test Run
-[03/15/21|11:01:56][INFO]:	OpenGLRenderer::GetInstalledOpenGLInfo(136):	OpenGL version: 4.6.0 NVIDIA 452.06
-[03/15/21|11:01:56][INFO]:	OpenGLRenderer::GetInstalledOpenGLInfo(137):	Graphics card vendor NVIDIA Corporation
-[03/15/21|11:01:56][INFO]:	OpenGLRenderer::GetInstalledOpenGLInfo(138):	Graphics card name GeForce GTX 1660 Ti/PCIe/SSE2
-[03/15/21|11:01:56][INFO]:	OpenGLRenderer::GetInstalledOpenGLInfo(139):	GLSL Version 4.60 NVIDIA
-[03/15/21|11:01:56][INFO]:	ECS::EntityManager::EntityManager(35):	Entity Manager created... 
-[03/15/21|11:01:56][INFO]:	ECS::SystemManager::SystemManager(30):	System Manager created... 
-[03/15/21|11:01:56][INFO]:	ECS::ComponentManager::ComponentManager(51):	Component Manager created... 
-[03/15/21|11:01:56][INFO]:	ECS::World::World(49):	World created... 
-[03/15/21|11:01:56][INFO]:	ECS::World::RegisterSystem(184):	Registering system with id: 2243090373
-[03/15/21|11:01:56][INFO]:	ECS::World::RegisterSystem(184):	Registering system with id: 587777310
-[03/15/21|11:01:56][INFO]:	ECS::World::RegisterSystem(184):	Registering system with id: 3630695982
-[03/15/21|11:01:56][INFO]:	ECS::World::CreateEntities(88):	Creating: 1 entities
-[03/15/21|11:01:56][INFO]:	ECS::World::CreateEntities(106):	Succeffully created: 1 entities
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 1371827874 to entity with id: 1
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 1
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(145):	Active Uniform Count: 5
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(164):	Uniform: lightPos 		 Location: 0
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(164):	Uniform: modelMatrix 		 Location: 1
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(164):	Uniform: normalMatrix 		 Location: 2
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(164):	Uniform: projectionMatrix 		 Location: 3
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(164):	Uniform: viewMatrix 		 Location: 4
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(145):	Active Uniform Count: 5
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(164):	Uniform: lightPos 		 Location: 0
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(164):	Uniform: modelMatrix 		 Location: 1
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(164):	Uniform: normalMatrix 		 Location: 2
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(164):	Uniform: projectionMatrix 		 Location: 3
-[03/15/21|11:01:56][INFO]:	Shader::SetUpUniformLocations(164):	Uniform: viewMatrix 		 Location: 4
-[03/15/21|11:01:56][INFO]:	ECS::World::CreateEntities(88):	Creating: 1 entities
-[03/15/21|11:01:56][INFO]:	ECS::World::CreateEntities(106):	Succeffully created: 1 entities
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 2
-[03/15/21|11:01:56][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/F-16C.obj
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 2
-[03/15/21|11:01:56][INFO]:	ECS::World::CreateEntities(88):	Creating: 200 entities
-[03/15/21|11:01:56][INFO]:	ECS::World::CreateEntities(106):	Succeffully created: 200 entities
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 3
-[03/15/21|11:01:56][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 3
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 4
-[03/15/21|11:01:56][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 4
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 5
-[03/15/21|11:01:56][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 5
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 6
-[03/15/21|11:01:56][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 6
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 7
-[03/15/21|11:01:56][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 7
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 8
-[03/15/21|11:01:56][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 8
-[03/15/21|11:01:56][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 9
-[03/15/21|11:01:56][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 9
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 10
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 10
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 11
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 11
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 12
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 12
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 13
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 13
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 14
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 14
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 15
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 15
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 16
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 16
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 17
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 17
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 18
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 18
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 19
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 19
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 20
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 20
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 21
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 21
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 22
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 22
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 23
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 23
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 24
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 24
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 25
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 25
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 26
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 26
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 27
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 27
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 28
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 28
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 29
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 29
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 30
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 30
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 31
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 31
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 32
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 32
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 33
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 33
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 34
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 34
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 35
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 35
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 36
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 36
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 37
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 37
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 38
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 38
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 39
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 39
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 40
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 40
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 41
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 41
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 42
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 42
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 43
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 43
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 44
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 44
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 45
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 45
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 46
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 46
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 47
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 47
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 48
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 48
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 49
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 49
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 50
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 50
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 51
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 51
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 52
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 52
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 53
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 53
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 54
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 54
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 55
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 55
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 56
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 56
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 57
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 57
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 58
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 58
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 59
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 59
-[03/15/21|11:01:57][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 60
-[03/15/21|11:01:57][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 60
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 61
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 61
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 62
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 62
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 63
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 63
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 64
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 64
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 65
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 65
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 66
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 66
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 67
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 67
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 68
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 68
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 69
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 69
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 70
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 70
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 71
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 71
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 72
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 72
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 73
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 73
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 74
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 74
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 75
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 75
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 76
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 76
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 77
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 77
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 78
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 78
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 79
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 79
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 80
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 80
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 81
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 81
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 82
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 82
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 83
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 83
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 84
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 84
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 85
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 85
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 86
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 86
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 87
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 87
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 88
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 88
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 89
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 89
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 90
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 90
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 91
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 91
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 92
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 92
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 93
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 93
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 94
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 94
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 95
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 95
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 96
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 96
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 97
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 97
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 98
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 98
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 99
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 99
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 100
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 100
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 101
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 101
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 102
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 102
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 103
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 103
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 104
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 104
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 105
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 105
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 106
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 106
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 107
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 107
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 108
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 108
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 109
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 109
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 110
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 110
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 111
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 111
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 112
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 112
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 113
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 113
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 114
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 114
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 115
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 115
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 116
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 116
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 117
-[03/15/21|11:01:58][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:58][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 117
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 118
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 118
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 119
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 119
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 120
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 120
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 121
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 121
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 122
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 122
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 123
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 123
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 124
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 124
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 125
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 125
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 126
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 126
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 127
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 127
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 128
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 128
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 129
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 129
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 130
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 130
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 131
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 131
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 132
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 132
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 133
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 133
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 134
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 134
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 135
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 135
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 136
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 136
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 137
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 137
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 138
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 138
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 139
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 139
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 140
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 140
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 141
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 141
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 142
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 142
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 143
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 143
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 144
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 144
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 145
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 145
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 146
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 146
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 147
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 147
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 148
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 148
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 149
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 149
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 150
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 150
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 151
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 151
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 152
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 152
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 153
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 153
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 154
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 154
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 155
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 155
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 156
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 156
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 157
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 157
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 158
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 158
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 159
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 159
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 160
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 160
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 161
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 161
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 162
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 162
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 163
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 163
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 164
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 164
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 165
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 165
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 166
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 166
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 167
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 167
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 168
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 168
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 169
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 169
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 170
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 170
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 171
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 171
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 172
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 172
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 173
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 173
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 174
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 174
-[03/15/21|11:01:59][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 175
-[03/15/21|11:01:59][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 175
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 176
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 176
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 177
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 177
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 178
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 178
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 179
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 179
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 180
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 180
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 181
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 181
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 182
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 182
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 183
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 183
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 184
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 184
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 185
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 185
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 186
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 186
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 187
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 187
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 188
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 188
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 189
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 189
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 190
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 190
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 191
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 191
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 192
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 192
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 193
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 193
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 194
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 194
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 195
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 195
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 196
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 196
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 197
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 197
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 198
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 198
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 199
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 199
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 200
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 200
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 201
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 201
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 202
-[03/15/21|11:02:00][INFO]:	OBJLoader::LoadObj(20):	Loading OBJ file: ./Resources/Models/Mario.obj
-[03/15/21|11:02:00][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 202
+[03/16/21|09:56:13][INFO]:	IApp::CreateRenderer(48):	Creating OpenGL Application: Test Run
+[03/16/21|09:56:13][INFO]:	OpenGLRenderer::GetInstalledOpenGLInfo(136):	OpenGL version: 4.6.0 NVIDIA 452.06
+[03/16/21|09:56:13][INFO]:	OpenGLRenderer::GetInstalledOpenGLInfo(137):	Graphics card vendor NVIDIA Corporation
+[03/16/21|09:56:13][INFO]:	OpenGLRenderer::GetInstalledOpenGLInfo(138):	Graphics card name GeForce GTX 1660 Ti/PCIe/SSE2
+[03/16/21|09:56:13][INFO]:	OpenGLRenderer::GetInstalledOpenGLInfo(139):	GLSL Version 4.60 NVIDIA
+[03/16/21|09:56:13][INFO]:	ECS::EntityManager::EntityManager(35):	Entity Manager created... 
+[03/16/21|09:56:13][INFO]:	ECS::SystemManager::SystemManager(30):	System Manager created... 
+[03/16/21|09:56:13][INFO]:	ECS::ComponentManager::ComponentManager(51):	Component Manager created... 
+[03/16/21|09:56:13][INFO]:	ECS::World::World(49):	World created... 
+[03/16/21|09:56:13][INFO]:	ECS::World::RegisterSystem(184):	Registering system with id: 2243090373
+[03/16/21|09:56:13][INFO]:	ECS::World::RegisterSystem(184):	Registering system with id: 587777310
+[03/16/21|09:56:13][INFO]:	ECS::World::RegisterSystem(184):	Registering system with id: 3630695982
+[03/16/21|09:56:13][INFO]:	ECS::World::CreateEntities(88):	Creating: 1 entities
+[03/16/21|09:56:13][INFO]:	ECS::World::CreateEntities(106):	Succeffully created: 1 entities
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 1371827874 to entity with id: 1
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 1
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(144):	Shader: PhongVertex.glsl Active Uniform Count: 5
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: lightPos 		 Location: 0
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: modelMatrix 		 Location: 1
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: normalMatrix 		 Location: 2
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: projectionMatrix 		 Location: 3
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: viewMatrix 		 Location: 4
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(144):	Shader: PhongFragment.glsl Active Uniform Count: 5
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: lightPos 		 Location: 0
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: modelMatrix 		 Location: 1
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: normalMatrix 		 Location: 2
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: projectionMatrix 		 Location: 3
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: viewMatrix 		 Location: 4
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(144):	Shader: TextureVertex.glsl Active Uniform Count: 4
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: modelMatrix 		 Location: 0
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: ourTexture 		 Location: 1
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: projectionMatrix 		 Location: 2
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: viewMatrix 		 Location: 3
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(144):	Shader: TextureFragment.glsl Active Uniform Count: 4
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: modelMatrix 		 Location: 0
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: ourTexture 		 Location: 1
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: projectionMatrix 		 Location: 2
+[03/16/21|09:56:13][INFO]:	Shader::SetUpUniformLocations(163):	Uniform: viewMatrix 		 Location: 3
+[03/16/21|09:56:13][INFO]:	ECS::World::CreateEntities(88):	Creating: 1 entities
+[03/16/21|09:56:13][INFO]:	ECS::World::CreateEntities(106):	Succeffully created: 1 entities
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 2
+[03/16/21|09:56:13][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/F-16C.obj
+[03/16/21|09:56:13][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 2
+[03/16/21|09:56:13][INFO]:	ECS::World::CreateEntities(88):	Creating: 200 entities
+[03/16/21|09:56:13][INFO]:	ECS::World::CreateEntities(106):	Succeffully created: 200 entities
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 3
+[03/16/21|09:56:13][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:13][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:13][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 3
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 4
+[03/16/21|09:56:13][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:13][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 4
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 5
+[03/16/21|09:56:13][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:13][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:13][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 5
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 6
+[03/16/21|09:56:13][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:13][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 6
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 7
+[03/16/21|09:56:13][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:13][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:13][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 7
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 8
+[03/16/21|09:56:13][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:13][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 8
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 9
+[03/16/21|09:56:13][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:13][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:13][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 9
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 10
+[03/16/21|09:56:13][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:13][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 10
+[03/16/21|09:56:13][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 11
+[03/16/21|09:56:13][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:13][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 11
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 12
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 12
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 13
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 13
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 14
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 14
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 15
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 15
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 16
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 16
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 17
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 17
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 18
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 18
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 19
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 19
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 20
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 20
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 21
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 21
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 22
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 22
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 23
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 23
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 24
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 24
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 25
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 25
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 26
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 26
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 27
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 27
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 28
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 28
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 29
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 29
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 30
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 30
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 31
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 31
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 32
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 32
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 33
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 33
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 34
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:14][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 34
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 35
+[03/16/21|09:56:14][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:14][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 35
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 36
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 36
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 37
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 37
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 38
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 38
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 39
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 39
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 40
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 40
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 41
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 41
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 42
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 42
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 43
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 43
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 44
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 44
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 45
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 45
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 46
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 46
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 47
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 47
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 48
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 48
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 49
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 49
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 50
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 50
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 51
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 51
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 52
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 52
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 53
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 53
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 54
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 54
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 55
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 55
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 56
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 56
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 57
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 57
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 58
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 58
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 59
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 59
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 60
+[03/16/21|09:56:15][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:15][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:15][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 60
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 61
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 61
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 62
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 62
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 63
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 63
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 64
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 64
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 65
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 65
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 66
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 66
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 67
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 67
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 68
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 68
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 69
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 69
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 70
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 70
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 71
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 71
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 72
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 72
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 73
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 73
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 74
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 74
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 75
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 75
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 76
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 76
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 77
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 77
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 78
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 78
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 79
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 79
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 80
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 80
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 81
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 81
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 82
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 82
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 83
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 83
+[03/16/21|09:56:16][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 84
+[03/16/21|09:56:16][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:16][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 84
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 85
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 85
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 86
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:17][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 86
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 87
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 87
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 88
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:17][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 88
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 89
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 89
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 90
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:17][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 90
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 91
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 91
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 92
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:17][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 92
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 93
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 93
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 94
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:17][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 94
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 95
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 95
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 96
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:17][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 96
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 97
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 97
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 98
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:17][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 98
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 99
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 99
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 100
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:17][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 100
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 101
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 101
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 102
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:17][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 102
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 103
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 103
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 104
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:17][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 104
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 105
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 105
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 106
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:17][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 106
+[03/16/21|09:56:17][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 107
+[03/16/21|09:56:17][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:17][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 107
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 108
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 108
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 109
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 109
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 110
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 110
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 111
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 111
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 112
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 112
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 113
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 113
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 114
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 114
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 115
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 115
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 116
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 116
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 117
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 117
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 118
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 118
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 119
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 119
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 120
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 120
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 121
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 121
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 122
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 122
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 123
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 123
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 124
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 124
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 125
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 125
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 126
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 126
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 127
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 127
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 128
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 128
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 129
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 129
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 130
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:18][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 130
+[03/16/21|09:56:18][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 131
+[03/16/21|09:56:18][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:18][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 131
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 132
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 132
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 133
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 133
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 134
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 134
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 135
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 135
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 136
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 136
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 137
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 137
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 138
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 138
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 139
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 139
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 140
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 140
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 141
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 141
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 142
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 142
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 143
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 143
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 144
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 144
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 145
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 145
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 146
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 146
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 147
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 147
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 148
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 148
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 149
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 149
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 150
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 150
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 151
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 151
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 152
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 152
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 153
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 153
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 154
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:19][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 154
+[03/16/21|09:56:19][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 155
+[03/16/21|09:56:19][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:19][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 155
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 156
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 156
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 157
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 157
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 158
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 158
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 159
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 159
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 160
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 160
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 161
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 161
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 162
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 162
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 163
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 163
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 164
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 164
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 165
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 165
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 166
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 166
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 167
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 167
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 168
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 168
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 169
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 169
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 170
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 170
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 171
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 171
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 172
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 172
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 173
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 173
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 174
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 174
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 175
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 175
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 176
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 176
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 177
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 177
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 178
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:20][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 178
+[03/16/21|09:56:20][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 179
+[03/16/21|09:56:20][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:20][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 179
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 180
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 180
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 181
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 181
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 182
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 182
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 183
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 183
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 184
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 184
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 185
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 185
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 186
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 186
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 187
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 187
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 188
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 188
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 189
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 189
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 190
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 190
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 191
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 191
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 192
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 192
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 193
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 193
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 194
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 194
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 195
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 195
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 196
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 196
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 197
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 197
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 198
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 198
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 199
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 199
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 200
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 200
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 201
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/viking_room.obj
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(30):	Generating texture... at file: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	OpenGLTexture2D::GenerateTexture(50):	Generating texture... COMPLETED: ./Resources/Textures/viking_room.png
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 201
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3187546315 to entity with id: 202
+[03/16/21|09:56:21][INFO]:	MeshLoader::LoadMesh(20):	Loading OBJ file: ./Resources/Models/Mario.obj
+[03/16/21|09:56:21][WARNING]:	OpenGLTexture2D::GenerateTexture(23):	Failed to load texture: no file name provided
+[03/16/21|09:56:21][INFO]:	ECS::World::AddComponentToEntity(165):	Adding component with id: 3637145116 to entity with id: 202

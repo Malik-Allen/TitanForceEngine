@@ -7,6 +7,7 @@ layout (location = 3) in vec3 colour;
 out vec3 vertNormal;
 out vec3 lightDir;
 out vec3 eyeDir; 
+
 uniform mat4 projectionMatrix;
 uniform mat4 viewMatrix;
 uniform mat4 modelMatrix;
@@ -19,6 +20,5 @@ void main() {
 	vec3 vertDir = normalize(vertPos);
 	eyeDir = -vertDir;
 	lightDir = normalize(lightPos - vertPos); /// Create the light direction. I do the math with in class 
-	
 	gl_Position =  projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
 }

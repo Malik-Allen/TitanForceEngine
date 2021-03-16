@@ -27,6 +27,12 @@ bool Scene1::OnCreate()
 	shaderLinker->SubmitShader( new Shader( EShaderType::Fragment, "PhongFragment.glsl" ) );
 	shaderLinker->LinkShaders();
 
+	// Shader
+	ShaderLinker* textureShaderLinker = new ShaderLinker( "TextureShader" );
+	textureShaderLinker->SubmitShader( new Shader( EShaderType::Vertex, "TextureVertex.glsl" ) );
+	textureShaderLinker->SubmitShader( new Shader( EShaderType::Fragment, "TextureFragment.glsl" ) );
+	textureShaderLinker->LinkShaders();
+
 	// GameObject
 	ECS::EntityId gameObject = m_world->CreateEntities( 1 ).front();
 
@@ -40,7 +46,7 @@ bool Scene1::OnCreate()
 		);
 
 	// Model
-	Model* model1 = new Model( "F-16C.obj", "", shaderLinker, nullptr, transform );
+	Model* model1 = new Model( "F-16C.obj", "", shaderLinker, "", transform );
 
 	// Render component
 	RenderComponent* r = m_world->AddComponentToEntity<RenderComponent>( gameObject, model1 );
@@ -68,12 +74,12 @@ bool Scene1::OnCreate()
 
 		if ( i % 2 == 0 )
 		{
-			Model* model1 = new Model( "viking_room.obj", "", shaderLinker, nullptr, t );
+			Model* model1 = new Model( "viking_room.obj", "", textureShaderLinker, "viking_room.png", t );
 			m_world->AddComponentToEntity<RenderComponent>( entities[i], model1 );
 		}
 		else
 		{
-			Model* model2 = new Model( "Mario.obj", "", shaderLinker, nullptr, t );
+			Model* model2 = new Model( "Mario.obj", "", shaderLinker, "", t );
 			m_world->AddComponentToEntity<RenderComponent>( entities[i], model2 );
 		}
 		

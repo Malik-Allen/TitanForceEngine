@@ -1,9 +1,9 @@
 #include "Mesh.h"
 
-#include "OBJLoader.h"
+#include "MeshLoader.h"
 
 IMesh::IMesh( const char * objFileName ) :
-	m_subMesh( OBJLoader::LoadObj( objFileName ) )
+	m_subMesh( MeshLoader::LoadMesh( objFileName ) )
 {
 	// ObjLoader will statically load in the passed obj file name
 	// Storing the result inside of m_subMesh

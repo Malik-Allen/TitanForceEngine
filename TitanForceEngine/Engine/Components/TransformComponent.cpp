@@ -9,7 +9,7 @@ void TransformUpdater::Update( const float deltaTime )
 
 		if ( t )
 		{
-			// t->m_angle += 0.05f;	// just to apply a rotation
+			t->m_angle += 0.05f;	// just to apply a rotation
 			glm::mat4 model = glm::mat4(1.0f);
 			model = glm::translate( model, t->m_position );
 			model = glm::rotate( model, t->m_angle, t->m_rotation );
